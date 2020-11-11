@@ -1,0 +1,114 @@
+-- Altera Memory Initialization File (MIF)
+
+DEPTH = 2048;
+WIDTH = 16;
+
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+
+CONTENT
+  BEGIN
+    [000..7FF] : 0000;  -- Default to NOP
+
+           000 : 083C;  -- 	LOAD   C4
+           001 : 1862;  -- 	ADD    TwoFourth
+           002 : 8021;  -- 	Call   WaitForSound
+           003 : 98F0;  -- 	OUT    SqGen
+           004 : 083E;  -- 	LOAD   D4
+           005 : 1863;  -- 	ADD    ThreeFourth
+           006 : 8021;  -- 	Call   WaitForSound
+           007 : 98F0;  -- 	OUT    SqGen
+           008 : 0840;  -- 	LOAD   E4
+           009 : 1864;  -- 	ADD    FourFourth
+           00A : 8021;  -- 	Call   WaitForSound
+           00B : 98F0;  -- 	OUT    SqGen
+           00C : 0841;  -- 	LOAD   F4
+           00D : 1862;  -- 	ADD    TwoFourth
+           00E : 8021;  -- 	Call   WaitForSound
+           00F : 98F0;  -- 	OUT    SqGen
+           010 : 0843;  -- 	LOAD   G4
+           011 : 1863;  -- 	ADD    ThreeFourth
+           012 : 8021;  -- 	Call   WaitForSound
+           013 : 98F0;  -- 	OUT    SqGen
+           014 : 0845;  -- 	LOAD   A4
+           015 : 1862;  -- 	ADD    TwoFourth
+           016 : 8021;  -- 	Call   WaitForSound
+           017 : 98F0;  -- 	OUT    SqGen
+           018 : 0847;  -- 	LOAD   B4
+           019 : 1863;  -- 	ADD    ThreeFourth
+           01A : 8021;  -- 	Call   WaitForSound
+           01B : 98F0;  -- 	OUT    SqGen
+           01C : 0848;  -- 	LOAD   C5
+           01D : 1861;  -- 	ADD    Unlimited
+           01E : 8021;  -- 	Call   WaitForSound
+           01F : 98F0;  -- 	OUT    SqGen
+           020 : 2820;  -- 	JUMP   Here
+           021 : 90F0;  -- 	IN	   SqGen
+           022 : 4021;  -- 	JZERO  WaitForSound
+           023 : 8800;  -- 	Return
+           024 : 1DDC;  -- C2:			DW		7644
+           025 : 1C2F;  -- C2Sharp:	DW		7215
+           026 : 1A9A;  -- D2:			DW		6810
+           027 : 191C;  -- D2Sharp:	DW		6428
+           028 : 17B3;  -- E2:			DW		6067
+           029 : 165F;  -- F2:			DW		5727
+           02A : 151D;  -- F2Sharp:	DW		5405
+           02B : 13EE;  -- G2:			DW		5102
+           02C : 12D0;  -- G2Sharp:	DW		4816
+           02D : 11C1;  -- A2:			DW		4545
+           02E : 10C2;  -- A2Sharp:	DW		4290
+           02F : 0FD2;  -- B2:			DW		4050
+           030 : 0EEE;  -- C3:			DW		3822
+           031 : 0E18;  -- C3Sharp:	DW		3608
+           032 : 0D4D;  -- D3:			DW		3405
+           033 : 0C8E;  -- D3Sharp:	DW		3214
+           034 : 0BDA;  -- E3:			DW		3034
+           035 : 0B30;  -- F3:			DW		2864
+           036 : 0A8F;  -- F3Sharp:	DW		2703
+           037 : 09F7;  -- G3:			DW		2551
+           038 : 0968;  -- G3Sharp:	DW		2408
+           039 : 08E1;  -- A3:			DW		2273
+           03A : 0861;  -- A3Sharp:	DW		2145
+           03B : 07E9;  -- B3:			DW		2025
+           03C : 0777;  -- C4:			DW		1911
+           03D : 070C;  -- C4Sharp:	DW		1804
+           03E : 06A7;  -- D4:			DW		1703
+           03F : 0647;  -- D4Sharp:	DW		1607
+           040 : 05ED;  -- E4:			DW		1517
+           041 : 0598;  -- F4:			DW		1432
+           042 : 0547;  -- F4Sharp:	DW		1351
+           043 : 04FC;  -- G4:			DW		1276
+           044 : 04B4;  -- G4Sharp:	DW		1204
+           045 : 0470;  -- A4:			DW		1136
+           046 : 0431;  -- A4Sharp:	DW		1073
+           047 : 03F4;  -- B4:			DW		1012
+           048 : 03BC;  -- C5:			DW		956
+           049 : 0386;  -- C5Sharp:	DW		902
+           04A : 0353;  -- D5:			DW		851
+           04B : 0324;  -- D5Sharp:	DW		804
+           04C : 02F6;  -- E5:			DW		758
+           04D : 02CC;  -- F5:			DW		716
+           04E : 02A4;  -- F5Sharp:	DW		676
+           04F : 027E;  -- G5:			DW		638
+           050 : 025A;  -- G5Sharp:	DW		602
+           051 : 0238;  -- A5:			DW		568
+           052 : 0218;  -- A5Sharp:	DW		536
+           053 : 01FA;  -- B5:			DW		506
+           054 : 01DE;  -- C6:			DW		478
+           055 : 01C3;  -- C6Sharp:	DW		451
+           056 : 01AA;  -- D6:			DW		426
+           057 : 0192;  -- D6Sharp:	DW		402
+           058 : 017B;  -- E6:			DW		379
+           059 : 0166;  -- F6:			DW		358
+           05A : 0152;  -- F6Sharp:	DW		338
+           05B : 013F;  -- G6:			DW		319
+           05C : 012D;  -- G6Sharp:	DW		301
+           05D : 011C;  -- A6:			DW		284
+           05E : 010C;  -- A6Sharp:	DW		268
+           05F : 00FD;  -- B6:			DW		253
+           060 : 00EF;  -- C7:			DW		239
+           061 : 0000;  -- Unlimited:	DW		&H0000
+           062 : 4000;  -- TwoFourth:	DW		&H4000
+           063 : 8000;  -- ThreeFourth:	DW		&H8000
+           064 : C000;  -- FourFourth:		DW		&HC000
+  END;
