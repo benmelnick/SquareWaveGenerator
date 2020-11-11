@@ -10,105 +10,122 @@ CONTENT
   BEGIN
     [000..7FF] : 0000;  -- Default to NOP
 
-           000 : 083C;  -- 	LOAD   C4
-           001 : 1862;  -- 	ADD    TwoFourth
-           002 : 8021;  -- 	Call   WaitForSound
-           003 : 98F0;  -- 	OUT    SqGen
-           004 : 083E;  -- 	LOAD   D4
-           005 : 1863;  -- 	ADD    ThreeFourth
-           006 : 8021;  -- 	Call   WaitForSound
-           007 : 98F0;  -- 	OUT    SqGen
-           008 : 0840;  -- 	LOAD   E4
-           009 : 1864;  -- 	ADD    FourFourth
-           00A : 8021;  -- 	Call   WaitForSound
-           00B : 98F0;  -- 	OUT    SqGen
-           00C : 0841;  -- 	LOAD   F4
-           00D : 1862;  -- 	ADD    TwoFourth
-           00E : 8021;  -- 	Call   WaitForSound
-           00F : 98F0;  -- 	OUT    SqGen
-           010 : 0843;  -- 	LOAD   G4
-           011 : 1863;  -- 	ADD    ThreeFourth
-           012 : 8021;  -- 	Call   WaitForSound
-           013 : 98F0;  -- 	OUT    SqGen
-           014 : 0845;  -- 	LOAD   A4
-           015 : 1862;  -- 	ADD    TwoFourth
-           016 : 8021;  -- 	Call   WaitForSound
-           017 : 98F0;  -- 	OUT    SqGen
-           018 : 0847;  -- 	LOAD   B4
-           019 : 1863;  -- 	ADD    ThreeFourth
-           01A : 8021;  -- 	Call   WaitForSound
-           01B : 98F0;  -- 	OUT    SqGen
-           01C : 0848;  -- 	LOAD   C5
-           01D : 1861;  -- 	ADD    Unlimited
-           01E : 8021;  -- 	Call   WaitForSound
-           01F : 98F0;  -- 	OUT    SqGen
-           020 : 2820;  -- 	JUMP   Here
-           021 : 90F0;  -- 	IN	   SqGen
-           022 : 4021;  -- 	JZERO  WaitForSound
-           023 : 8800;  -- 	Return
-           024 : 1DDC;  -- C2:			DW		7644
-           025 : 1C2F;  -- C2Sharp:	DW		7215
-           026 : 1A9A;  -- D2:			DW		6810
-           027 : 191C;  -- D2Sharp:	DW		6428
-           028 : 17B3;  -- E2:			DW		6067
-           029 : 165F;  -- F2:			DW		5727
-           02A : 151D;  -- F2Sharp:	DW		5405
-           02B : 13EE;  -- G2:			DW		5102
-           02C : 12D0;  -- G2Sharp:	DW		4816
-           02D : 11C1;  -- A2:			DW		4545
-           02E : 10C2;  -- A2Sharp:	DW		4290
-           02F : 0FD2;  -- B2:			DW		4050
-           030 : 0EEE;  -- C3:			DW		3822
-           031 : 0E18;  -- C3Sharp:	DW		3608
-           032 : 0D4D;  -- D3:			DW		3405
-           033 : 0C8E;  -- D3Sharp:	DW		3214
-           034 : 0BDA;  -- E3:			DW		3034
-           035 : 0B30;  -- F3:			DW		2864
-           036 : 0A8F;  -- F3Sharp:	DW		2703
-           037 : 09F7;  -- G3:			DW		2551
-           038 : 0968;  -- G3Sharp:	DW		2408
-           039 : 08E1;  -- A3:			DW		2273
-           03A : 0861;  -- A3Sharp:	DW		2145
-           03B : 07E9;  -- B3:			DW		2025
-           03C : 0777;  -- C4:			DW		1911
-           03D : 070C;  -- C4Sharp:	DW		1804
-           03E : 06A7;  -- D4:			DW		1703
-           03F : 0647;  -- D4Sharp:	DW		1607
-           040 : 05ED;  -- E4:			DW		1517
-           041 : 0598;  -- F4:			DW		1432
-           042 : 0547;  -- F4Sharp:	DW		1351
-           043 : 04FC;  -- G4:			DW		1276
-           044 : 04B4;  -- G4Sharp:	DW		1204
-           045 : 0470;  -- A4:			DW		1136
-           046 : 0431;  -- A4Sharp:	DW		1073
-           047 : 03F4;  -- B4:			DW		1012
-           048 : 03BC;  -- C5:			DW		956
-           049 : 0386;  -- C5Sharp:	DW		902
-           04A : 0353;  -- D5:			DW		851
-           04B : 0324;  -- D5Sharp:	DW		804
-           04C : 02F6;  -- E5:			DW		758
-           04D : 02CC;  -- F5:			DW		716
-           04E : 02A4;  -- F5Sharp:	DW		676
-           04F : 027E;  -- G5:			DW		638
-           050 : 025A;  -- G5Sharp:	DW		602
-           051 : 0238;  -- A5:			DW		568
-           052 : 0218;  -- A5Sharp:	DW		536
-           053 : 01FA;  -- B5:			DW		506
-           054 : 01DE;  -- C6:			DW		478
-           055 : 01C3;  -- C6Sharp:	DW		451
-           056 : 01AA;  -- D6:			DW		426
-           057 : 0192;  -- D6Sharp:	DW		402
-           058 : 017B;  -- E6:			DW		379
-           059 : 0166;  -- F6:			DW		358
-           05A : 0152;  -- F6Sharp:	DW		338
-           05B : 013F;  -- G6:			DW		319
-           05C : 012D;  -- G6Sharp:	DW		301
-           05D : 011C;  -- A6:			DW		284
-           05E : 010C;  -- A6Sharp:	DW		268
-           05F : 00FD;  -- B6:			DW		253
-           060 : 00EF;  -- C7:			DW		239
-           061 : 0000;  -- Unlimited:	DW		&H0000
-           062 : 4000;  -- TwoFourth:	DW		&H4000
-           063 : 8000;  -- ThreeFourth:	DW		&H8000
-           064 : C000;  -- FourFourth:		DW		&HC000
+           000 : B80A;  -- 	LOADI  10
+           001 : 102E;  -- 	STORE  TimerParam
+           002 : 802F;  -- 	Call   WaitForTimer
+           003 : 084C;  -- 	LOAD   C4
+           004 : 1872;  -- 	ADD    TwoFourth
+           005 : 98F0;  -- 	OUT    SqGen
+           006 : 802B;  -- 	Call   WaitForSound
+           007 : 084E;  -- 	LOAD   D4
+           008 : 1873;  -- 	ADD    ThreeFourth
+           009 : 98F0;  -- 	OUT    SqGen
+           00A : 802B;  -- 	Call   WaitForSound
+           00B : 0850;  -- 	LOAD   E4
+           00C : 1874;  -- 	ADD    FourFourth
+           00D : 98F0;  -- 	OUT    SqGen
+           00E : 802B;  -- 	Call   WaitForSound
+           00F : 0851;  -- 	LOAD   F4
+           010 : 1872;  -- 	ADD    TwoFourth
+           011 : 98F0;  -- 	OUT    SqGen
+           012 : 802B;  -- 	Call   WaitForSound
+           013 : 0853;  -- 	LOAD   G4
+           014 : 1873;  -- 	ADD    ThreeFourth
+           015 : 98F0;  -- 	OUT    SqGen
+           016 : 802B;  -- 	Call   WaitForSound
+           017 : 0855;  -- 	LOAD   A4
+           018 : 1872;  -- 	ADD    TwoFourth
+           019 : 98F0;  -- 	OUT    SqGen
+           01A : 802B;  -- 	Call   WaitForSound
+           01B : 0857;  -- 	LOAD   B4
+           01C : 1873;  -- 	ADD    ThreeFourth
+           01D : 98F0;  -- 	OUT    SqGen
+           01E : 802B;  -- 	Call   WaitForSound
+           01F : 0858;  -- 	LOAD   C5
+           020 : 1871;  -- 	ADD    Unlimited
+           021 : 98F0;  -- 	OUT    SqGen
+           022 : B814;  -- 	LOADI  20
+           023 : 102E;  -- 	STORE  TimerParam
+           024 : 802F;  -- 	Call   WaitForTimer
+           025 : 802B;  -- 	Call   WaitForSound
+           026 : 0875;  -- 	LOAD   Disable
+           027 : 98F0;  -- 	OUT    SqGen
+           028 : BFFF;  -- 	LOADI   -1
+           029 : 9804;  -- 	OUT    HEX0
+           02A : 282A;  -- 	JUMP   Here
+           02B : 90F0;  -- 	IN	   SqGen
+           02C : 402B;  -- 	JZERO  WaitForSound
+           02D : 8800;  -- 	Return
+           02E : 0000;  -- TimerParam:	DW		0
+           02F : 9802;  -- 	OUT    Timer
+           030 : 9002;  -- 	IN     Timer
+           031 : 202E;  -- 	SUB    TimerParam
+           032 : 3030;  -- 	JNEG   TimerLoop
+           033 : 8800;  -- 	Return
+           034 : 1DDC;  -- C2:			DW		7644
+           035 : 1C2F;  -- C2Sharp:	DW		7215
+           036 : 1A9A;  -- D2:			DW		6810
+           037 : 191C;  -- D2Sharp:	DW		6428
+           038 : 17B3;  -- E2:			DW		6067
+           039 : 165F;  -- F2:			DW		5727
+           03A : 151D;  -- F2Sharp:	DW		5405
+           03B : 13EE;  -- G2:			DW		5102
+           03C : 12D0;  -- G2Sharp:	DW		4816
+           03D : 11C1;  -- A2:			DW		4545
+           03E : 10C2;  -- A2Sharp:	DW		4290
+           03F : 0FD2;  -- B2:			DW		4050
+           040 : 0EEE;  -- C3:			DW		3822
+           041 : 0E18;  -- C3Sharp:	DW		3608
+           042 : 0D4D;  -- D3:			DW		3405
+           043 : 0C8E;  -- D3Sharp:	DW		3214
+           044 : 0BDA;  -- E3:			DW		3034
+           045 : 0B30;  -- F3:			DW		2864
+           046 : 0A8F;  -- F3Sharp:	DW		2703
+           047 : 09F7;  -- G3:			DW		2551
+           048 : 0968;  -- G3Sharp:	DW		2408
+           049 : 08E1;  -- A3:			DW		2273
+           04A : 0861;  -- A3Sharp:	DW		2145
+           04B : 07E9;  -- B3:			DW		2025
+           04C : 0777;  -- C4:			DW		1911
+           04D : 070C;  -- C4Sharp:	DW		1804
+           04E : 06A7;  -- D4:			DW		1703
+           04F : 0647;  -- D4Sharp:	DW		1607
+           050 : 05ED;  -- E4:			DW		1517
+           051 : 0598;  -- F4:			DW		1432
+           052 : 0547;  -- F4Sharp:	DW		1351
+           053 : 04FC;  -- G4:			DW		1276
+           054 : 04B4;  -- G4Sharp:	DW		1204
+           055 : 0470;  -- A4:			DW		1136
+           056 : 0431;  -- A4Sharp:	DW		1073
+           057 : 03F4;  -- B4:			DW		1012
+           058 : 03BC;  -- C5:			DW		956
+           059 : 0386;  -- C5Sharp:	DW		902
+           05A : 0353;  -- D5:			DW		851
+           05B : 0324;  -- D5Sharp:	DW		804
+           05C : 02F6;  -- E5:			DW		758
+           05D : 02CC;  -- F5:			DW		716
+           05E : 02A4;  -- F5Sharp:	DW		676
+           05F : 027E;  -- G5:			DW		638
+           060 : 025A;  -- G5Sharp:	DW		602
+           061 : 0238;  -- A5:			DW		568
+           062 : 0218;  -- A5Sharp:	DW		536
+           063 : 01FA;  -- B5:			DW		506
+           064 : 01DE;  -- C6:			DW		478
+           065 : 01C3;  -- C6Sharp:	DW		451
+           066 : 01AA;  -- D6:			DW		426
+           067 : 0192;  -- D6Sharp:	DW		402
+           068 : 017B;  -- E6:			DW		379
+           069 : 0166;  -- F6:			DW		358
+           06A : 0152;  -- F6Sharp:	DW		338
+           06B : 013F;  -- G6:			DW		319
+           06C : 012D;  -- G6Sharp:	DW		301
+           06D : 011C;  -- A6:			DW		284
+           06E : 010C;  -- A6Sharp:	DW		268
+           06F : 00FD;  -- B6:			DW		253
+           070 : 00EF;  -- C7:			DW		239
+           071 : 0000;  -- Unlimited:	DW		&H0000
+           072 : 4000;  -- TwoFourth:	DW		&H4000
+           073 : 8000;  -- ThreeFourth:	DW		&H8000
+           074 : C000;  -- FourFourth:		DW		&HC000
+           075 : 3FFF;  -- Disable:	DW		&H3FFF
   END;

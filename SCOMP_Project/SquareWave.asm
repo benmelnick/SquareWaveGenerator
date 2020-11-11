@@ -5,44 +5,74 @@
 ; 10/13/2020
 
 ORG 0
+	LOADI  10
+	STORE  TimerParam
+	Call   WaitForTimer
+	
 	LOAD   C4
 	ADD    TwoFourth
-	Call   WaitForSound
 	OUT    SqGen
+	
+	Call   WaitForSound
 	LOAD   D4
 	ADD    ThreeFourth
-	Call   WaitForSound
 	OUT    SqGen
+	
+	Call   WaitForSound
 	LOAD   E4
 	ADD    FourFourth
-	Call   WaitForSound
 	OUT    SqGen
+	
+	Call   WaitForSound
 	LOAD   F4
 	ADD    TwoFourth
-	Call   WaitForSound
 	OUT    SqGen
+	
+	Call   WaitForSound
 	LOAD   G4
 	ADD    ThreeFourth
-	Call   WaitForSound
 	OUT    SqGen
+	
+	Call   WaitForSound
 	LOAD   A4
 	ADD    TwoFourth
-	Call   WaitForSound
 	OUT    SqGen
+	
+	Call   WaitForSound
 	LOAD   B4
 	ADD    ThreeFourth
-	Call   WaitForSound
 	OUT    SqGen
+	
+	Call   WaitForSound
 	LOAD   C5
 	ADD    Unlimited
-	Call   WaitForSound
 	OUT    SqGen
-Here:
-	JUMP   Here
+	
+	LOADI  20
+	STORE  TimerParam
+	Call   WaitForTimer
+	
+	Call   WaitForSound
+	LOAD   Disable
+	OUT    SqGen
+	
+	LOADI   -1
+	OUT    HEX0
+Halt:
+	JUMP   Halt
 	
 WaitForSound:
 	IN	   SqGen
 	JZERO  WaitForSound
+	Return
+
+TimerParam:	DW		0
+WaitForTimer:
+	OUT    Timer
+TimerLoop:
+	IN     Timer
+	SUB    TimerParam
+	JNEG   TimerLoop
 	Return
 
 
@@ -113,11 +143,14 @@ Unlimited:	DW		&H0000
 TwoFourth:	DW		&H4000
 ThreeFourth:	DW		&H8000
 FourFourth:		DW		&HC000
+Disable:	DW		&H3FFF
 
 
 ; IO address constants
 Switches:  EQU &H000
 LEDs:	   EQU &H001
 Timer:     EQU &H002
+HEX0:      EQU &H004
+HEX1:      EQU &H005
 DPs:       EQU &H0E0
 SqGen:     EQU &H0F0

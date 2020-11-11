@@ -1,16 +1,16 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SCOMP_bare -c SCOMP_bare --vector_source="E:/Temp/SCOMP/SCOMP_test.vwf" --testbench_file="E:/Temp/SCOMP/simulation/qsim/SCOMP_test.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SCOMP_bare -c SCOMP_bare --vector_source="E:/Temp/SCOMP/SCOMP_test.vwf" --testbench_file="E:/Temp/SCOMP/simulation/qsim/SCOMP_test.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="E:/Temp/SCOMP/simulation/qsim/" SCOMP_bare -c SCOMP_bare</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="E:/Temp/SCOMP/simulation/qsim/" SCOMP_bare -c SCOMP_bare</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SCOMP -c SCOMP --vector_source="C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SCOMP_test.vwf" --testbench_file="C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/simulation/qsim/SCOMP_test.vwf.vht"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SCOMP -c SCOMP --vector_source="C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SCOMP_test.vwf" --testbench_file="C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/simulation/qsim/SCOMP_test.vwf.vht"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/simulation/qsim/" SCOMP -c SCOMP</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/simulation/qsim/" SCOMP -c SCOMP</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
-vcom -work work SCOMP_bare.vho
+vcom -work work SCOMP.vho
 vcom -work work SCOMP_test.vwf.vht
-vsim -novopt -c -t 1ps -L fiftyfivenm -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.SCOMP_vhd_vec_tst
-vcd file -direction SCOMP_bare.msim.vcd
-vcd add -internal SCOMP_vhd_vec_tst/*
-vcd add -internal SCOMP_vhd_vec_tst/i1/*
+vsim -novopt -c -t 1ps -L fiftyfivenm -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.SCOMP_System_vhd_vec_tst
+vcd file -direction SCOMP.msim.vcd
+vcd add -internal SCOMP_System_vhd_vec_tst/*
+vcd add -internal SCOMP_System_vhd_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -23,12 +23,12 @@ quit -f
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
-vcom -work work SCOMP_bare.vho
+vcom -work work SCOMP.vho
 vcom -work work SCOMP_test.vwf.vht
-vsim -novopt -c -t 1ps -sdfmax SCOMP_vhd_vec_tst/i1=SCOMP_bare_vhd.sdo -L fiftyfivenm -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.SCOMP_vhd_vec_tst
-vcd file -direction SCOMP_bare.msim.vcd
-vcd add -internal SCOMP_vhd_vec_tst/*
-vcd add -internal SCOMP_vhd_vec_tst/i1/*
+vsim -novopt -c -t 1ps -sdfmax SCOMP_System_vhd_vec_tst/i1=SCOMP_vhd.sdo -L fiftyfivenm -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.SCOMP_System_vhd_vec_tst
+vcd file -direction SCOMP.msim.vcd
+vcd add -internal SCOMP_System_vhd_vec_tst/*
+vcd add -internal SCOMP_System_vhd_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -69,7 +69,7 @@ HEADER
 	VERSION = 1;
 	TIME_UNIT = ns;
 	DATA_OFFSET = 0.0;
-	DATA_DURATION = 10000.0;
+	DATA_DURATION = 30000.0;
 	SIMULATION_TIME = 0.0;
 	GRID_PHASE = 0.0;
 	GRID_PERIOD = 10.0;
@@ -866,12 +866,23 @@ SIGNAL("MW")
 	PARENT = "";
 }
 
+SIGNAL("Arduino_IO[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
 TRANSITION_LIST("dbg_AC[15]")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -880,7 +891,8 @@ TRANSITION_LIST("dbg_AC[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -889,7 +901,8 @@ TRANSITION_LIST("dbg_AC[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -898,7 +911,8 @@ TRANSITION_LIST("dbg_AC[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -907,7 +921,8 @@ TRANSITION_LIST("dbg_AC[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -916,7 +931,8 @@ TRANSITION_LIST("dbg_AC[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -925,7 +941,8 @@ TRANSITION_LIST("dbg_AC[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -934,7 +951,8 @@ TRANSITION_LIST("dbg_AC[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -943,7 +961,8 @@ TRANSITION_LIST("dbg_AC[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -952,7 +971,8 @@ TRANSITION_LIST("dbg_AC[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -961,7 +981,8 @@ TRANSITION_LIST("dbg_AC[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -970,7 +991,8 @@ TRANSITION_LIST("dbg_AC[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -979,7 +1001,8 @@ TRANSITION_LIST("dbg_AC[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -988,7 +1011,8 @@ TRANSITION_LIST("dbg_AC[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -997,7 +1021,8 @@ TRANSITION_LIST("dbg_AC[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1006,7 +1031,8 @@ TRANSITION_LIST("dbg_AC[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1015,7 +1041,8 @@ TRANSITION_LIST("dbg_MA[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1024,7 +1051,8 @@ TRANSITION_LIST("dbg_MA[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1033,7 +1061,8 @@ TRANSITION_LIST("dbg_MA[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1042,7 +1071,8 @@ TRANSITION_LIST("dbg_MA[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1051,7 +1081,8 @@ TRANSITION_LIST("dbg_MA[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1060,7 +1091,8 @@ TRANSITION_LIST("dbg_MA[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1069,7 +1101,8 @@ TRANSITION_LIST("dbg_MA[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1078,7 +1111,8 @@ TRANSITION_LIST("dbg_MA[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1087,7 +1121,8 @@ TRANSITION_LIST("dbg_MA[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1096,7 +1131,8 @@ TRANSITION_LIST("dbg_MA[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1105,7 +1141,8 @@ TRANSITION_LIST("dbg_MA[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1114,7 +1151,8 @@ TRANSITION_LIST("dbg_PC[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1123,7 +1161,8 @@ TRANSITION_LIST("dbg_PC[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1132,7 +1171,8 @@ TRANSITION_LIST("dbg_PC[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1141,7 +1181,8 @@ TRANSITION_LIST("dbg_PC[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1150,7 +1191,8 @@ TRANSITION_LIST("dbg_PC[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1159,7 +1201,8 @@ TRANSITION_LIST("dbg_PC[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1168,7 +1211,8 @@ TRANSITION_LIST("dbg_PC[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1177,7 +1221,8 @@ TRANSITION_LIST("dbg_PC[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1186,7 +1231,8 @@ TRANSITION_LIST("dbg_PC[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1195,7 +1241,8 @@ TRANSITION_LIST("dbg_PC[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1204,7 +1251,8 @@ TRANSITION_LIST("dbg_PC[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1213,7 +1261,7 @@ TRANSITION_LIST("dbg_IR[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1222,7 +1270,7 @@ TRANSITION_LIST("dbg_IR[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1231,7 +1279,7 @@ TRANSITION_LIST("dbg_IR[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1240,7 +1288,7 @@ TRANSITION_LIST("dbg_IR[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1249,7 +1297,7 @@ TRANSITION_LIST("dbg_IR[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1258,7 +1306,7 @@ TRANSITION_LIST("dbg_IR[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1267,7 +1315,7 @@ TRANSITION_LIST("dbg_IR[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1276,7 +1324,7 @@ TRANSITION_LIST("dbg_IR[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1285,7 +1333,7 @@ TRANSITION_LIST("dbg_IR[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1294,7 +1342,7 @@ TRANSITION_LIST("dbg_IR[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1303,7 +1351,7 @@ TRANSITION_LIST("dbg_IR[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1312,7 +1360,7 @@ TRANSITION_LIST("dbg_IR[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1321,7 +1369,7 @@ TRANSITION_LIST("dbg_IR[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1330,7 +1378,7 @@ TRANSITION_LIST("dbg_IR[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1339,7 +1387,7 @@ TRANSITION_LIST("dbg_IR[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1348,7 +1396,7 @@ TRANSITION_LIST("dbg_IR[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10000.0;
+		LEVEL 0 FOR 30000.0;
 	}
 }
 
@@ -1357,7 +1405,8 @@ TRANSITION_LIST("dbg_MD[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1366,7 +1415,8 @@ TRANSITION_LIST("dbg_MD[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1375,7 +1425,8 @@ TRANSITION_LIST("dbg_MD[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1384,7 +1435,8 @@ TRANSITION_LIST("dbg_MD[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1393,7 +1445,8 @@ TRANSITION_LIST("dbg_MD[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1402,7 +1455,8 @@ TRANSITION_LIST("dbg_MD[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1411,7 +1465,8 @@ TRANSITION_LIST("dbg_MD[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1420,7 +1475,8 @@ TRANSITION_LIST("dbg_MD[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1429,7 +1485,8 @@ TRANSITION_LIST("dbg_MD[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1438,7 +1495,8 @@ TRANSITION_LIST("dbg_MD[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1447,7 +1505,8 @@ TRANSITION_LIST("dbg_MD[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1456,7 +1515,8 @@ TRANSITION_LIST("dbg_MD[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1465,7 +1525,8 @@ TRANSITION_LIST("dbg_MD[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1474,7 +1535,8 @@ TRANSITION_LIST("dbg_MD[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1483,7 +1545,8 @@ TRANSITION_LIST("dbg_MD[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1492,7 +1555,8 @@ TRANSITION_LIST("dbg_MD[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1508,7 +1572,7 @@ TRANSITION_LIST("clock")
 			LEVEL 0 FOR 40.0;
 			LEVEL 1 FOR 40.0;
 		}
-		LEVEL 0 FOR 40.0;
+		LEVEL 0 FOR 20040.0;
 	}
 }
 
@@ -1518,7 +1582,8 @@ TRANSITION_LIST("resetn")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 30.0;
-		LEVEL 1 FOR 9970.0;
+		LEVEL 1 FOR 9969.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1527,7 +1592,8 @@ TRANSITION_LIST("dbg_FETCH")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 10000.0;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -1536,7 +1602,18 @@ TRANSITION_LIST("MW")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 10000.0;
+		LEVEL U FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
+	}
+}
+
+TRANSITION_LIST("Arduino_IO[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 9999.0;
+		LEVEL 0 FOR 20001.0;
 	}
 }
 
@@ -2323,6 +2400,15 @@ DISPLAY_LINE
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 78;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Arduino_IO[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 79;
 	TREE_LEVEL = 0;
 }
 ;
