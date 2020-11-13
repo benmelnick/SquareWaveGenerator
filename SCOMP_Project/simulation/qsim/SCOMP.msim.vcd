@@ -1,0 +1,4078 @@
+$comment
+	File created using the following command:
+		vcd file SCOMP.msim.vcd -direction
+$end
+$date
+	Wed Nov 11 04:55:33 2020
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module scomp_system_vhd_vec_tst $end
+$var wire 1 ! Arduino_IO [0] $end
+$var wire 1 " clock_50 $end
+$var wire 1 # DP [5] $end
+$var wire 1 $ DP [4] $end
+$var wire 1 % DP [3] $end
+$var wire 1 & DP [2] $end
+$var wire 1 ' DP [1] $end
+$var wire 1 ( DP [0] $end
+$var wire 1 ) GSENSOR_CS_n $end
+$var wire 1 * GSENSOR_SCLK $end
+$var wire 1 + GSENSOR_SDI $end
+$var wire 1 , GSENSOR_SDO $end
+$var wire 1 - HEX0 [6] $end
+$var wire 1 . HEX0 [5] $end
+$var wire 1 / HEX0 [4] $end
+$var wire 1 0 HEX0 [3] $end
+$var wire 1 1 HEX0 [2] $end
+$var wire 1 2 HEX0 [1] $end
+$var wire 1 3 HEX0 [0] $end
+$var wire 1 4 HEX1 [6] $end
+$var wire 1 5 HEX1 [5] $end
+$var wire 1 6 HEX1 [4] $end
+$var wire 1 7 HEX1 [3] $end
+$var wire 1 8 HEX1 [2] $end
+$var wire 1 9 HEX1 [1] $end
+$var wire 1 : HEX1 [0] $end
+$var wire 1 ; HEX2 [6] $end
+$var wire 1 < HEX2 [5] $end
+$var wire 1 = HEX2 [4] $end
+$var wire 1 > HEX2 [3] $end
+$var wire 1 ? HEX2 [2] $end
+$var wire 1 @ HEX2 [1] $end
+$var wire 1 A HEX2 [0] $end
+$var wire 1 B HEX3 [6] $end
+$var wire 1 C HEX3 [5] $end
+$var wire 1 D HEX3 [4] $end
+$var wire 1 E HEX3 [3] $end
+$var wire 1 F HEX3 [2] $end
+$var wire 1 G HEX3 [1] $end
+$var wire 1 H HEX3 [0] $end
+$var wire 1 I HEX4 [6] $end
+$var wire 1 J HEX4 [5] $end
+$var wire 1 K HEX4 [4] $end
+$var wire 1 L HEX4 [3] $end
+$var wire 1 M HEX4 [2] $end
+$var wire 1 N HEX4 [1] $end
+$var wire 1 O HEX4 [0] $end
+$var wire 1 P HEX5 [6] $end
+$var wire 1 Q HEX5 [5] $end
+$var wire 1 R HEX5 [4] $end
+$var wire 1 S HEX5 [3] $end
+$var wire 1 T HEX5 [2] $end
+$var wire 1 U HEX5 [1] $end
+$var wire 1 V HEX5 [0] $end
+$var wire 1 W KEY0 $end
+$var wire 1 X LEDR [9] $end
+$var wire 1 Y LEDR [8] $end
+$var wire 1 Z LEDR [7] $end
+$var wire 1 [ LEDR [6] $end
+$var wire 1 \ LEDR [5] $end
+$var wire 1 ] LEDR [4] $end
+$var wire 1 ^ LEDR [3] $end
+$var wire 1 _ LEDR [2] $end
+$var wire 1 ` LEDR [1] $end
+$var wire 1 a LEDR [0] $end
+$var wire 1 b SW [9] $end
+$var wire 1 c SW [8] $end
+$var wire 1 d SW [7] $end
+$var wire 1 e SW [6] $end
+$var wire 1 f SW [5] $end
+$var wire 1 g SW [4] $end
+$var wire 1 h SW [3] $end
+$var wire 1 i SW [2] $end
+$var wire 1 j SW [1] $end
+$var wire 1 k SW [0] $end
+
+$scope module i1 $end
+$var wire 1 l gnd $end
+$var wire 1 m vcc $end
+$var wire 1 n unknown $end
+$var wire 1 o devoe $end
+$var wire 1 p devclrn $end
+$var wire 1 q devpor $end
+$var wire 1 r ww_devoe $end
+$var wire 1 s ww_devclrn $end
+$var wire 1 t ww_devpor $end
+$var wire 1 u ww_GSENSOR_CS_n $end
+$var wire 1 v ww_GSENSOR_SDO $end
+$var wire 1 w ww_clock_50 $end
+$var wire 1 x ww_KEY0 $end
+$var wire 1 y ww_SW [9] $end
+$var wire 1 z ww_SW [8] $end
+$var wire 1 { ww_SW [7] $end
+$var wire 1 | ww_SW [6] $end
+$var wire 1 } ww_SW [5] $end
+$var wire 1 ~ ww_SW [4] $end
+$var wire 1 !! ww_SW [3] $end
+$var wire 1 "! ww_SW [2] $end
+$var wire 1 #! ww_SW [1] $end
+$var wire 1 $! ww_SW [0] $end
+$var wire 1 %! ww_Arduino_IO [0] $end
+$var wire 1 &! ww_DP [5] $end
+$var wire 1 '! ww_DP [4] $end
+$var wire 1 (! ww_DP [3] $end
+$var wire 1 )! ww_DP [2] $end
+$var wire 1 *! ww_DP [1] $end
+$var wire 1 +! ww_DP [0] $end
+$var wire 1 ,! ww_HEX0 [6] $end
+$var wire 1 -! ww_HEX0 [5] $end
+$var wire 1 .! ww_HEX0 [4] $end
+$var wire 1 /! ww_HEX0 [3] $end
+$var wire 1 0! ww_HEX0 [2] $end
+$var wire 1 1! ww_HEX0 [1] $end
+$var wire 1 2! ww_HEX0 [0] $end
+$var wire 1 3! ww_HEX1 [6] $end
+$var wire 1 4! ww_HEX1 [5] $end
+$var wire 1 5! ww_HEX1 [4] $end
+$var wire 1 6! ww_HEX1 [3] $end
+$var wire 1 7! ww_HEX1 [2] $end
+$var wire 1 8! ww_HEX1 [1] $end
+$var wire 1 9! ww_HEX1 [0] $end
+$var wire 1 :! ww_HEX2 [6] $end
+$var wire 1 ;! ww_HEX2 [5] $end
+$var wire 1 <! ww_HEX2 [4] $end
+$var wire 1 =! ww_HEX2 [3] $end
+$var wire 1 >! ww_HEX2 [2] $end
+$var wire 1 ?! ww_HEX2 [1] $end
+$var wire 1 @! ww_HEX2 [0] $end
+$var wire 1 A! ww_HEX3 [6] $end
+$var wire 1 B! ww_HEX3 [5] $end
+$var wire 1 C! ww_HEX3 [4] $end
+$var wire 1 D! ww_HEX3 [3] $end
+$var wire 1 E! ww_HEX3 [2] $end
+$var wire 1 F! ww_HEX3 [1] $end
+$var wire 1 G! ww_HEX3 [0] $end
+$var wire 1 H! ww_HEX4 [6] $end
+$var wire 1 I! ww_HEX4 [5] $end
+$var wire 1 J! ww_HEX4 [4] $end
+$var wire 1 K! ww_HEX4 [3] $end
+$var wire 1 L! ww_HEX4 [2] $end
+$var wire 1 M! ww_HEX4 [1] $end
+$var wire 1 N! ww_HEX4 [0] $end
+$var wire 1 O! ww_HEX5 [6] $end
+$var wire 1 P! ww_HEX5 [5] $end
+$var wire 1 Q! ww_HEX5 [4] $end
+$var wire 1 R! ww_HEX5 [3] $end
+$var wire 1 S! ww_HEX5 [2] $end
+$var wire 1 T! ww_HEX5 [1] $end
+$var wire 1 U! ww_HEX5 [0] $end
+$var wire 1 V! ww_LEDR [9] $end
+$var wire 1 W! ww_LEDR [8] $end
+$var wire 1 X! ww_LEDR [7] $end
+$var wire 1 Y! ww_LEDR [6] $end
+$var wire 1 Z! ww_LEDR [5] $end
+$var wire 1 [! ww_LEDR [4] $end
+$var wire 1 \! ww_LEDR [3] $end
+$var wire 1 ]! ww_LEDR [2] $end
+$var wire 1 ^! ww_LEDR [1] $end
+$var wire 1 _! ww_LEDR [0] $end
+$var wire 1 `! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTADATAIN_bus\ [3] $end
+$var wire 1 a! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTADATAIN_bus\ [2] $end
+$var wire 1 b! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTADATAIN_bus\ [1] $end
+$var wire 1 c! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTADATAIN_bus\ [0] $end
+$var wire 1 d! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [10] $end
+$var wire 1 e! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [9] $end
+$var wire 1 f! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [8] $end
+$var wire 1 g! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [7] $end
+$var wire 1 h! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [6] $end
+$var wire 1 i! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [5] $end
+$var wire 1 j! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [4] $end
+$var wire 1 k! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [3] $end
+$var wire 1 l! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [2] $end
+$var wire 1 m! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [1] $end
+$var wire 1 n! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTAADDR_bus\ [0] $end
+$var wire 1 o! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTADATAOUT_bus\ [3] $end
+$var wire 1 p! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTADATAOUT_bus\ [2] $end
+$var wire 1 q! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTADATAOUT_bus\ [1] $end
+$var wire 1 r! \inst|altsyncram_component|auto_generated|ram_block1a11_PORTADATAOUT_bus\ [0] $end
+$var wire 1 s! \inst1|altpll_component|auto_generated|pll1_INCLK_bus\ [1] $end
+$var wire 1 t! \inst1|altpll_component|auto_generated|pll1_INCLK_bus\ [0] $end
+$var wire 1 u! \inst1|altpll_component|auto_generated|pll1_CLK_bus\ [4] $end
+$var wire 1 v! \inst1|altpll_component|auto_generated|pll1_CLK_bus\ [3] $end
+$var wire 1 w! \inst1|altpll_component|auto_generated|pll1_CLK_bus\ [2] $end
+$var wire 1 x! \inst1|altpll_component|auto_generated|pll1_CLK_bus\ [1] $end
+$var wire 1 y! \inst1|altpll_component|auto_generated|pll1_CLK_bus\ [0] $end
+$var wire 1 z! \inst|altsyncram_component|auto_generated|ram_block1a8_PORTADATAIN_bus\ [3] $end
+$var wire 1 {! \inst|altsyncram_component|auto_generated|ram_block1a8_PORTADATAIN_bus\ [2] $end
+$var wire 1 |! \inst|altsyncram_component|auto_generated|ram_block1a8_PORTADATAIN_bus\ [1] $end
+$var wire 1 }! \inst|altsyncram_component|auto_generated|ram_block1a8_PORTADATAIN_bus\ [0] $end
+$var wire 1 ~! \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [10] $end
+$var wire 1 !" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [9] $end
+$var wire 1 "" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [8] $end
+$var wire 1 #" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [7] $end
+$var wire 1 $" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [6] $end
+$var wire 1 %" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [5] $end
+$var wire 1 &" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [4] $end
+$var wire 1 '" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [3] $end
+$var wire 1 (" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [2] $end
+$var wire 1 )" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [1] $end
+$var wire 1 *" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTAADDR_bus\ [0] $end
+$var wire 1 +" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTADATAOUT_bus\ [3] $end
+$var wire 1 ," \inst|altsyncram_component|auto_generated|ram_block1a8_PORTADATAOUT_bus\ [2] $end
+$var wire 1 -" \inst|altsyncram_component|auto_generated|ram_block1a8_PORTADATAOUT_bus\ [1] $end
+$var wire 1 ." \inst|altsyncram_component|auto_generated|ram_block1a8_PORTADATAOUT_bus\ [0] $end
+$var wire 1 /" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTADATAIN_bus\ [3] $end
+$var wire 1 0" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTADATAIN_bus\ [2] $end
+$var wire 1 1" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTADATAIN_bus\ [1] $end
+$var wire 1 2" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTADATAIN_bus\ [0] $end
+$var wire 1 3" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [10] $end
+$var wire 1 4" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [9] $end
+$var wire 1 5" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [8] $end
+$var wire 1 6" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [7] $end
+$var wire 1 7" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [6] $end
+$var wire 1 8" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [5] $end
+$var wire 1 9" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [4] $end
+$var wire 1 :" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [3] $end
+$var wire 1 ;" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [2] $end
+$var wire 1 <" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [1] $end
+$var wire 1 =" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTAADDR_bus\ [0] $end
+$var wire 1 >" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus\ [3] $end
+$var wire 1 ?" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus\ [2] $end
+$var wire 1 @" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus\ [1] $end
+$var wire 1 A" \inst|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus\ [0] $end
+$var wire 1 B" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTADATAIN_bus\ [3] $end
+$var wire 1 C" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTADATAIN_bus\ [2] $end
+$var wire 1 D" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTADATAIN_bus\ [1] $end
+$var wire 1 E" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTADATAIN_bus\ [0] $end
+$var wire 1 F" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [10] $end
+$var wire 1 G" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [9] $end
+$var wire 1 H" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [8] $end
+$var wire 1 I" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [7] $end
+$var wire 1 J" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [6] $end
+$var wire 1 K" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [5] $end
+$var wire 1 L" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [4] $end
+$var wire 1 M" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [3] $end
+$var wire 1 N" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [2] $end
+$var wire 1 O" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [1] $end
+$var wire 1 P" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTAADDR_bus\ [0] $end
+$var wire 1 Q" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTADATAOUT_bus\ [3] $end
+$var wire 1 R" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTADATAOUT_bus\ [2] $end
+$var wire 1 S" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTADATAOUT_bus\ [1] $end
+$var wire 1 T" \inst|altsyncram_component|auto_generated|ram_block1a1_PORTADATAOUT_bus\ [0] $end
+$var wire 1 U" \~QUARTUS_CREATED_ADC1~_CHSEL_bus\ [4] $end
+$var wire 1 V" \~QUARTUS_CREATED_ADC1~_CHSEL_bus\ [3] $end
+$var wire 1 W" \~QUARTUS_CREATED_ADC1~_CHSEL_bus\ [2] $end
+$var wire 1 X" \~QUARTUS_CREATED_ADC1~_CHSEL_bus\ [1] $end
+$var wire 1 Y" \~QUARTUS_CREATED_ADC1~_CHSEL_bus\ [0] $end
+$var wire 1 Z" \~QUARTUS_CREATED_ADC2~_CHSEL_bus\ [4] $end
+$var wire 1 [" \~QUARTUS_CREATED_ADC2~_CHSEL_bus\ [3] $end
+$var wire 1 \" \~QUARTUS_CREATED_ADC2~_CHSEL_bus\ [2] $end
+$var wire 1 ]" \~QUARTUS_CREATED_ADC2~_CHSEL_bus\ [1] $end
+$var wire 1 ^" \~QUARTUS_CREATED_ADC2~_CHSEL_bus\ [0] $end
+$var wire 1 _" \inst3|HEX0_EN~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 `" \inst3|HEX0_EN~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 a" \inst3|HEX0_EN~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 b" \inst3|HEX0_EN~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 c" \inst5|clock_10Hz~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 d" \inst5|clock_10Hz~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 e" \inst5|clock_10Hz~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 f" \inst5|clock_10Hz~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 g" \inst5|clock_100kHz~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 h" \inst5|clock_100kHz~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 i" \inst5|clock_100kHz~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 j" \inst5|clock_100kHz~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 k" \inst13|inst|data_clk~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 l" \inst13|inst|data_clk~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 m" \inst13|inst|data_clk~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 n" \inst13|inst|data_clk~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 o" \inst13|inst13~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 p" \inst13|inst13~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 q" \inst13|inst13~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 r" \inst13|inst13~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 s" \inst3|LED_EN~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 t" \inst3|LED_EN~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 u" \inst3|LED_EN~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 v" \inst3|LED_EN~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 w" \inst13|inst14|data_out[7]~1clkctrl_INCLK_bus\ [3] $end
+$var wire 1 x" \inst13|inst14|data_out[7]~1clkctrl_INCLK_bus\ [2] $end
+$var wire 1 y" \inst13|inst14|data_out[7]~1clkctrl_INCLK_bus\ [1] $end
+$var wire 1 z" \inst13|inst14|data_out[7]~1clkctrl_INCLK_bus\ [0] $end
+$var wire 1 {" \inst13|inst12~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 |" \inst13|inst12~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 }" \inst13|inst12~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 ~" \inst13|inst12~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 !# \inst5|clock_4Hz~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 "# \inst5|clock_4Hz~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 ## \inst5|clock_4Hz~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 $# \inst5|clock_4Hz~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 %# \inst3|DP_EN~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 &# \inst3|DP_EN~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 '# \inst3|DP_EN~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 (# \inst3|DP_EN~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 )# \inst3|SQ_EN~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 *# \inst3|SQ_EN~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 +# \inst3|SQ_EN~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 ,# \inst3|SQ_EN~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 -# \inst3|HEX1_EN~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 .# \inst3|HEX1_EN~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 /# \inst3|HEX1_EN~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 0# \inst3|HEX1_EN~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 1# \inst5|clock_1MHz~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 2# \inst5|clock_1MHz~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 3# \inst5|clock_1MHz~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 4# \inst5|clock_1MHz~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 5# \inst3|SWITCH_EN~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 6# \inst3|SWITCH_EN~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 7# \inst3|SWITCH_EN~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 8# \inst3|SWITCH_EN~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 9# \inst1|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_INCLK_bus\ [3] $end
+$var wire 1 :# \inst1|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_INCLK_bus\ [2] $end
+$var wire 1 ;# \inst1|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_INCLK_bus\ [1] $end
+$var wire 1 <# \inst1|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_INCLK_bus\ [0] $end
+$var wire 1 =# \~QUARTUS_CREATED_GND~I_combout\ $end
+$var wire 1 ># \~QUARTUS_CREATED_UNVM~~busy\ $end
+$var wire 1 ?# \~ALTERA_TMS~~ibuf_o\ $end
+$var wire 1 @# \~ALTERA_TMS~~padout\ $end
+$var wire 1 A# \~ALTERA_TCK~~ibuf_o\ $end
+$var wire 1 B# \~ALTERA_TCK~~padout\ $end
+$var wire 1 C# \~ALTERA_TDI~~ibuf_o\ $end
+$var wire 1 D# \~ALTERA_TDI~~padout\ $end
+$var wire 1 E# \~ALTERA_TDO~~padout\ $end
+$var wire 1 F# \~ALTERA_CONFIG_SEL~~ibuf_o\ $end
+$var wire 1 G# \~ALTERA_CONFIG_SEL~~padout\ $end
+$var wire 1 H# \~ALTERA_nCONFIG~~ibuf_o\ $end
+$var wire 1 I# \~ALTERA_nCONFIG~~padout\ $end
+$var wire 1 J# \~ALTERA_nSTATUS~~ibuf_o\ $end
+$var wire 1 K# \~ALTERA_nSTATUS~~padout\ $end
+$var wire 1 L# \~ALTERA_CONF_DONE~~ibuf_o\ $end
+$var wire 1 M# \~ALTERA_CONF_DONE~~padout\ $end
+$var wire 1 N# \~QUARTUS_CREATED_ADC1~~eoc\ $end
+$var wire 1 O# \~QUARTUS_CREATED_ADC2~~eoc\ $end
+$var wire 1 P# \~ALTERA_TDO~~obuf_o\ $end
+$var wire 1 Q# \KEY0~input_o\ $end
+$var wire 1 R# \clock_50~input_o\ $end
+$var wire 1 S# \inst1|altpll_component|auto_generated|wire_pll1_fbout\ $end
+$var wire 1 T# \inst1|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk\ $end
+$var wire 1 U# \inst5|count_100kHz[0]~6_combout\ $end
+$var wire 1 V# \inst5|LessThan1~0_combout\ $end
+$var wire 1 W# \inst5|LessThan1~1_combout\ $end
+$var wire 1 X# \inst5|count_100kHz[0]~7\ $end
+$var wire 1 Y# \inst5|count_100kHz[1]~8_combout\ $end
+$var wire 1 Z# \inst5|count_100kHz[1]~9\ $end
+$var wire 1 [# \inst5|count_100kHz[2]~10_combout\ $end
+$var wire 1 \# \inst5|count_100kHz[2]~11\ $end
+$var wire 1 ]# \inst5|count_100kHz[3]~12_combout\ $end
+$var wire 1 ^# \inst5|count_100kHz[3]~13\ $end
+$var wire 1 _# \inst5|count_100kHz[4]~14_combout\ $end
+$var wire 1 `# \inst5|count_100kHz[4]~15\ $end
+$var wire 1 a# \inst5|count_100kHz[5]~16_combout\ $end
+$var wire 1 b# \inst5|clock_100kHz_int~0_combout\ $end
+$var wire 1 c# \inst5|clock_100kHz_int~q\ $end
+$var wire 1 d# \inst5|clock_100kHz~feeder_combout\ $end
+$var wire 1 e# \inst5|clock_100kHz~q\ $end
+$var wire 1 f# \inst5|clock_100kHz~clkctrl_outclk\ $end
+$var wire 1 g# \inst13|inst|count~1_combout\ $end
+$var wire 1 h# \inst1|altpll_component|auto_generated|wire_pll1_locked\ $end
+$var wire 1 i# \inst1|altpll_component|auto_generated|pll_lock_sync~feeder_combout\ $end
+$var wire 1 j# \inst1|altpll_component|auto_generated|pll_lock_sync~q\ $end
+$var wire 1 k# \inst13|inst14|data_out[7]~1_combout\ $end
+$var wire 1 l# \inst13|inst14|data_out[7]~1clkctrl_outclk\ $end
+$var wire 1 m# \GSENSOR_SCLK~input_o\ $end
+$var wire 1 n# \inst13|inst|stretch~0_combout\ $end
+$var wire 1 o# \inst13|inst|stretch~q\ $end
+$var wire 1 p# \inst13|inst|count~0_combout\ $end
+$var wire 1 q# \inst13|inst|count[1]~feeder_combout\ $end
+$var wire 1 r# \inst13|inst|data_clk~0_combout\ $end
+$var wire 1 s# \inst13|inst|data_clk~q\ $end
+$var wire 1 t# \inst13|inst|data_clk~clkctrl_outclk\ $end
+$var wire 1 u# \inst13|inst|bit_cnt[0]~0_combout\ $end
+$var wire 1 v# \inst13|inst|Selector27~0_combout\ $end
+$var wire 1 w# \inst13|inst|bit_cnt[1]~feeder_combout\ $end
+$var wire 1 x# \inst13|inst|state~14_combout\ $end
+$var wire 1 y# \inst13|inst|state.mstr_ack~feeder_combout\ $end
+$var wire 1 z# \inst13|inst|state.mstr_ack~q\ $end
+$var wire 1 {# \inst|Add0~0_combout\ $end
+$var wire 1 |# \inst|Add0~1\ $end
+$var wire 1 }# \inst|Add0~2_combout\ $end
+$var wire 1 ~# \inst|state.decode~q\ $end
+$var wire 1 !$ \inst|state.ex_istore2~q\ $end
+$var wire 1 "$ \inst|state~43_combout\ $end
+$var wire 1 #$ \inst|state~46_combout\ $end
+$var wire 1 $$ \inst|state.ex_iload~q\ $end
+$var wire 1 %$ \inst|WideNor0~combout\ $end
+$var wire 1 &$ \inst|Selector9~0_combout\ $end
+$var wire 1 '$ \inst|state~32_combout\ $end
+$var wire 1 ($ \inst|state~49_combout\ $end
+$var wire 1 )$ \inst|state.ex_return~q\ $end
+$var wire 1 *$ \inst|PC_stack[9][2]~feeder_combout\ $end
+$var wire 1 +$ \inst|state~54_combout\ $end
+$var wire 1 ,$ \inst|state.ex_call~q\ $end
+$var wire 1 -$ \inst|PC_stack[9][0]~1_combout\ $end
+$var wire 1 .$ \inst|PC_stack[9][2]~q\ $end
+$var wire 1 /$ \inst|Selector127~0_combout\ $end
+$var wire 1 0$ \inst|PC_stack[0][0]~0_combout\ $end
+$var wire 1 1$ \inst|PC_stack[8][2]~q\ $end
+$var wire 1 2$ \inst|Selector116~0_combout\ $end
+$var wire 1 3$ \inst|PC_stack[7][2]~q\ $end
+$var wire 1 4$ \inst|Selector105~0_combout\ $end
+$var wire 1 5$ \inst|PC_stack[6][2]~q\ $end
+$var wire 1 6$ \inst|Selector94~0_combout\ $end
+$var wire 1 7$ \inst|PC_stack[5][2]~q\ $end
+$var wire 1 8$ \inst|Selector83~0_combout\ $end
+$var wire 1 9$ \inst|PC_stack[4][2]~q\ $end
+$var wire 1 :$ \inst|Selector72~0_combout\ $end
+$var wire 1 ;$ \inst|PC_stack[3][2]~q\ $end
+$var wire 1 <$ \inst|Selector61~0_combout\ $end
+$var wire 1 =$ \inst|PC_stack[2][2]~q\ $end
+$var wire 1 >$ \inst|Selector50~0_combout\ $end
+$var wire 1 ?$ \inst|PC_stack[1][2]~q\ $end
+$var wire 1 @$ \inst|Selector39~0_combout\ $end
+$var wire 1 A$ \inst|PC_stack[0][2]~q\ $end
+$var wire 1 B$ \inst|state.init~feeder_combout\ $end
+$var wire 1 C$ \inst|state.init~q\ $end
+$var wire 1 D$ \inst|Add0~3\ $end
+$var wire 1 E$ \inst|Add0~4_combout\ $end
+$var wire 1 F$ \inst|Selector9~1_combout\ $end
+$var wire 1 G$ \inst|Selector9~2_combout\ $end
+$var wire 1 H$ \inst|Selector30~0_combout\ $end
+$var wire 1 I$ \inst|state~37_combout\ $end
+$var wire 1 J$ \inst|state.ex_and~q\ $end
+$var wire 1 K$ \inst|Add0~5\ $end
+$var wire 1 L$ \inst|Add0~6_combout\ $end
+$var wire 1 M$ \inst|IR[6]~0_combout\ $end
+$var wire 1 N$ \inst|Selector6~0_combout\ $end
+$var wire 1 O$ \inst|Add0~7\ $end
+$var wire 1 P$ \inst|Add0~8_combout\ $end
+$var wire 1 Q$ \inst|Selector7~1_combout\ $end
+$var wire 1 R$ \inst|PC_stack[9][4]~feeder_combout\ $end
+$var wire 1 S$ \inst|PC_stack[9][4]~q\ $end
+$var wire 1 T$ \inst|Selector125~0_combout\ $end
+$var wire 1 U$ \inst|PC_stack[8][4]~q\ $end
+$var wire 1 V$ \inst|Selector114~0_combout\ $end
+$var wire 1 W$ \inst|PC_stack[7][4]~q\ $end
+$var wire 1 X$ \inst|Selector103~0_combout\ $end
+$var wire 1 Y$ \inst|PC_stack[6][4]~q\ $end
+$var wire 1 Z$ \inst|Selector92~0_combout\ $end
+$var wire 1 [$ \inst|PC_stack[5][4]~q\ $end
+$var wire 1 \$ \inst|Selector81~0_combout\ $end
+$var wire 1 ]$ \inst|PC_stack[4][4]~q\ $end
+$var wire 1 ^$ \inst|Selector70~0_combout\ $end
+$var wire 1 _$ \inst|PC_stack[3][4]~q\ $end
+$var wire 1 `$ \inst|Selector59~0_combout\ $end
+$var wire 1 a$ \inst|PC_stack[2][4]~q\ $end
+$var wire 1 b$ \inst|Selector48~0_combout\ $end
+$var wire 1 c$ \inst|PC_stack[1][4]~q\ $end
+$var wire 1 d$ \inst|Selector37~0_combout\ $end
+$var wire 1 e$ \inst|PC_stack[0][4]~q\ $end
+$var wire 1 f$ \inst|Selector7~2_combout\ $end
+$var wire 1 g$ \inst|Add0~9\ $end
+$var wire 1 h$ \inst|Add0~10_combout\ $end
+$var wire 1 i$ \inst|Selector6~1_combout\ $end
+$var wire 1 j$ \inst|PC_stack[9][5]~q\ $end
+$var wire 1 k$ \inst|Selector124~0_combout\ $end
+$var wire 1 l$ \inst|PC_stack[8][5]~q\ $end
+$var wire 1 m$ \inst|Selector113~0_combout\ $end
+$var wire 1 n$ \inst|PC_stack[7][5]~q\ $end
+$var wire 1 o$ \inst|Selector102~0_combout\ $end
+$var wire 1 p$ \inst|PC_stack[6][5]~q\ $end
+$var wire 1 q$ \inst|Selector91~0_combout\ $end
+$var wire 1 r$ \inst|PC_stack[5][5]~q\ $end
+$var wire 1 s$ \inst|Selector80~0_combout\ $end
+$var wire 1 t$ \inst|PC_stack[4][5]~q\ $end
+$var wire 1 u$ \inst|Selector69~0_combout\ $end
+$var wire 1 v$ \inst|PC_stack[3][5]~q\ $end
+$var wire 1 w$ \inst|Selector58~0_combout\ $end
+$var wire 1 x$ \inst|PC_stack[2][5]~q\ $end
+$var wire 1 y$ \inst|Selector47~0_combout\ $end
+$var wire 1 z$ \inst|PC_stack[1][5]~q\ $end
+$var wire 1 {$ \inst|Selector36~0_combout\ $end
+$var wire 1 |$ \inst|PC_stack[0][5]~q\ $end
+$var wire 1 }$ \inst|Selector6~2_combout\ $end
+$var wire 1 ~$ \inst|next_mem_addr[5]~5_combout\ $end
+$var wire 1 !% \inst|Selector3~0_combout\ $end
+$var wire 1 "% \inst|PC_stack[9][6]~feeder_combout\ $end
+$var wire 1 #% \inst|PC_stack[9][6]~q\ $end
+$var wire 1 $% \inst|Selector123~0_combout\ $end
+$var wire 1 %% \inst|PC_stack[8][6]~q\ $end
+$var wire 1 &% \inst|Selector112~0_combout\ $end
+$var wire 1 '% \inst|PC_stack[7][6]~q\ $end
+$var wire 1 (% \inst|Selector101~0_combout\ $end
+$var wire 1 )% \inst|PC_stack[6][6]~q\ $end
+$var wire 1 *% \inst|Selector90~0_combout\ $end
+$var wire 1 +% \inst|PC_stack[5][6]~q\ $end
+$var wire 1 ,% \inst|Selector79~0_combout\ $end
+$var wire 1 -% \inst|PC_stack[4][6]~q\ $end
+$var wire 1 .% \inst|Selector68~0_combout\ $end
+$var wire 1 /% \inst|PC_stack[3][6]~q\ $end
+$var wire 1 0% \inst|Selector57~0_combout\ $end
+$var wire 1 1% \inst|PC_stack[2][6]~q\ $end
+$var wire 1 2% \inst|Selector46~0_combout\ $end
+$var wire 1 3% \inst|PC_stack[1][6]~q\ $end
+$var wire 1 4% \inst|Selector35~0_combout\ $end
+$var wire 1 5% \inst|PC_stack[0][6]~q\ $end
+$var wire 1 6% \inst|Add0~11\ $end
+$var wire 1 7% \inst|Add0~12_combout\ $end
+$var wire 1 8% \inst|Selector5~1_combout\ $end
+$var wire 1 9% \inst|Selector5~2_combout\ $end
+$var wire 1 :% \inst|Add0~13\ $end
+$var wire 1 ;% \inst|Add0~14_combout\ $end
+$var wire 1 <% \inst|Selector4~1_combout\ $end
+$var wire 1 =% \inst|PC_stack[9][7]~feeder_combout\ $end
+$var wire 1 >% \inst|PC_stack[9][7]~q\ $end
+$var wire 1 ?% \inst|Selector122~0_combout\ $end
+$var wire 1 @% \inst|PC_stack[8][7]~q\ $end
+$var wire 1 A% \inst|Selector111~0_combout\ $end
+$var wire 1 B% \inst|PC_stack[7][7]~q\ $end
+$var wire 1 C% \inst|Selector100~0_combout\ $end
+$var wire 1 D% \inst|PC_stack[6][7]~q\ $end
+$var wire 1 E% \inst|Selector89~0_combout\ $end
+$var wire 1 F% \inst|PC_stack[5][7]~q\ $end
+$var wire 1 G% \inst|Selector78~0_combout\ $end
+$var wire 1 H% \inst|PC_stack[4][7]~q\ $end
+$var wire 1 I% \inst|Selector67~0_combout\ $end
+$var wire 1 J% \inst|PC_stack[3][7]~q\ $end
+$var wire 1 K% \inst|Selector56~0_combout\ $end
+$var wire 1 L% \inst|PC_stack[2][7]~q\ $end
+$var wire 1 M% \inst|Selector45~0_combout\ $end
+$var wire 1 N% \inst|PC_stack[1][7]~q\ $end
+$var wire 1 O% \inst|Selector34~0_combout\ $end
+$var wire 1 P% \inst|PC_stack[0][7]~q\ $end
+$var wire 1 Q% \inst|Selector4~2_combout\ $end
+$var wire 1 R% \inst|Add0~15\ $end
+$var wire 1 S% \inst|Add0~16_combout\ $end
+$var wire 1 T% \inst|Selector3~1_combout\ $end
+$var wire 1 U% \inst|PC_stack[9][8]~feeder_combout\ $end
+$var wire 1 V% \inst|PC_stack[9][8]~q\ $end
+$var wire 1 W% \inst|Selector121~0_combout\ $end
+$var wire 1 X% \inst|PC_stack[8][8]~q\ $end
+$var wire 1 Y% \inst|Selector110~0_combout\ $end
+$var wire 1 Z% \inst|PC_stack[7][8]~q\ $end
+$var wire 1 [% \inst|Selector99~0_combout\ $end
+$var wire 1 \% \inst|PC_stack[6][8]~q\ $end
+$var wire 1 ]% \inst|Selector88~0_combout\ $end
+$var wire 1 ^% \inst|PC_stack[5][8]~q\ $end
+$var wire 1 _% \inst|Selector77~0_combout\ $end
+$var wire 1 `% \inst|PC_stack[4][8]~q\ $end
+$var wire 1 a% \inst|Selector66~0_combout\ $end
+$var wire 1 b% \inst|PC_stack[3][8]~q\ $end
+$var wire 1 c% \inst|Selector55~0_combout\ $end
+$var wire 1 d% \inst|PC_stack[2][8]~q\ $end
+$var wire 1 e% \inst|Selector44~0_combout\ $end
+$var wire 1 f% \inst|PC_stack[1][8]~q\ $end
+$var wire 1 g% \inst|Selector33~0_combout\ $end
+$var wire 1 h% \inst|PC_stack[0][8]~q\ $end
+$var wire 1 i% \inst|Selector3~2_combout\ $end
+$var wire 1 j% \inst|next_mem_addr[8]~8_combout\ $end
+$var wire 1 k% \inst|Add0~17\ $end
+$var wire 1 l% \inst|Add0~18_combout\ $end
+$var wire 1 m% \inst|Selector2~1_combout\ $end
+$var wire 1 n% \inst|PC_stack[9][9]~q\ $end
+$var wire 1 o% \inst|Selector120~0_combout\ $end
+$var wire 1 p% \inst|PC_stack[8][9]~q\ $end
+$var wire 1 q% \inst|Selector109~0_combout\ $end
+$var wire 1 r% \inst|PC_stack[7][9]~q\ $end
+$var wire 1 s% \inst|Selector98~0_combout\ $end
+$var wire 1 t% \inst|PC_stack[6][9]~q\ $end
+$var wire 1 u% \inst|Selector87~0_combout\ $end
+$var wire 1 v% \inst|PC_stack[5][9]~q\ $end
+$var wire 1 w% \inst|Selector76~0_combout\ $end
+$var wire 1 x% \inst|PC_stack[4][9]~q\ $end
+$var wire 1 y% \inst|Selector65~0_combout\ $end
+$var wire 1 z% \inst|PC_stack[3][9]~q\ $end
+$var wire 1 {% \inst|Selector54~0_combout\ $end
+$var wire 1 |% \inst|PC_stack[2][9]~q\ $end
+$var wire 1 }% \inst|Selector43~0_combout\ $end
+$var wire 1 ~% \inst|PC_stack[1][9]~q\ $end
+$var wire 1 !& \inst|Selector32~0_combout\ $end
+$var wire 1 "& \inst|PC_stack[0][9]~q\ $end
+$var wire 1 #& \inst|Selector2~2_combout\ $end
+$var wire 1 $& \inst|Add0~19\ $end
+$var wire 1 %& \inst|Add0~20_combout\ $end
+$var wire 1 && \inst|state~39_combout\ $end
+$var wire 1 '& \inst|state.ex_add~q\ $end
+$var wire 1 (& \inst|state~35_combout\ $end
+$var wire 1 )& \inst|state~40_combout\ $end
+$var wire 1 *& \inst|state.ex_sub~q\ $end
+$var wire 1 +& \inst|state~42_combout\ $end
+$var wire 1 ,& \inst|state.ex_addi~q\ $end
+$var wire 1 -& \inst|AC[3]~0_combout\ $end
+$var wire 1 .& \inst|state~44_combout\ $end
+$var wire 1 /& \inst|state.ex_or~q\ $end
+$var wire 1 0& \inst|Selector30~1_combout\ $end
+$var wire 1 1& \inst|state.ex_load~q\ $end
+$var wire 1 2& \inst|Selector22~6_combout\ $end
+$var wire 1 3& \inst|Selector18~3_combout\ $end
+$var wire 1 4& \inst|state~36_combout\ $end
+$var wire 1 5& \inst|state.ex_shift~q\ $end
+$var wire 1 6& \inst|Selector19~7_combout\ $end
+$var wire 1 7& \inst|state~41_combout\ $end
+$var wire 1 8& \inst|state.ex_loadi~q\ $end
+$var wire 1 9& \inst|WideOr3~1_combout\ $end
+$var wire 1 :& \inst|WideOr3~2_combout\ $end
+$var wire 1 ;& \inst|WideOr3~0_combout\ $end
+$var wire 1 <& \inst|Selector22~3_combout\ $end
+$var wire 1 =& \inst|Selector25~1_combout\ $end
+$var wire 1 >& \inst|Selector25~2_combout\ $end
+$var wire 1 ?& \inst|Selector25~3_combout\ $end
+$var wire 1 @& \inst|Add1~12_combout\ $end
+$var wire 1 A& \inst|Add1~1_combout\ $end
+$var wire 1 B& \inst|Add1~10_combout\ $end
+$var wire 1 C& \inst|Add1~11_combout\ $end
+$var wire 1 D& \inst|Add1~15_combout\ $end
+$var wire 1 E& \inst|Add1~13_combout\ $end
+$var wire 1 F& \inst|Add1~14_combout\ $end
+$var wire 1 G& \inst|Selector21~3_combout\ $end
+$var wire 1 H& \inst|Selector21~4_combout\ $end
+$var wire 1 I& \inst|Add1~33_combout\ $end
+$var wire 1 J& \inst|Add1~34_combout\ $end
+$var wire 1 K& \inst|Add1~35_combout\ $end
+$var wire 1 L& \inst|Add1~3_combout\ $end
+$var wire 1 M& \inst|Add1~0_combout\ $end
+$var wire 1 N& \inst|Add1~2_combout\ $end
+$var wire 1 O& \inst|Selector23~5_combout\ $end
+$var wire 1 P& \inst|Add1~4_combout\ $end
+$var wire 1 Q& \inst|Add1~5_combout\ $end
+$var wire 1 R& \inst|Selector24~3_combout\ $end
+$var wire 1 S& \inst|Add1~7_combout\ $end
+$var wire 1 T& \inst|Add1~8_combout\ $end
+$var wire 1 U& \inst|Add1~26\ $end
+$var wire 1 V& \inst|Add1~27_combout\ $end
+$var wire 1 W& \inst|Selector24~2_combout\ $end
+$var wire 1 X& \inst|Selector24~4_combout\ $end
+$var wire 1 Y& \inst|Selector24~1_combout\ $end
+$var wire 1 Z& \inst|Add1~40_combout\ $end
+$var wire 1 [& \inst|Add1~38_combout\ $end
+$var wire 1 \& \inst|Add1~39_combout\ $end
+$var wire 1 ]& \inst|Add1~37\ $end
+$var wire 1 ^& \inst|Add1~41_combout\ $end
+$var wire 1 _& \inst|Selector20~3_combout\ $end
+$var wire 1 `& \inst|Selector20~4_combout\ $end
+$var wire 1 a& \inst|Selector20~2_combout\ $end
+$var wire 1 b& \inst|Selector20~1_combout\ $end
+$var wire 1 c& \inst3|SWITCH_EN~1_combout\ $end
+$var wire 1 d& \inst3|I2C_DATA_EN~0_combout\ $end
+$var wire 1 e& \inst|state.ex_out~q\ $end
+$var wire 1 f& \inst|state.ex_out2~q\ $end
+$var wire 1 g& \inst|Selector29~0_combout\ $end
+$var wire 1 h& \inst|Selector29~1_combout\ $end
+$var wire 1 i& \inst|IO_CYCLE~q\ $end
+$var wire 1 j& \inst3|SWITCH_EN~0_combout\ $end
+$var wire 1 k& \inst3|I2C_DATA_EN~1_combout\ $end
+$var wire 1 l& \inst13|inst7~combout\ $end
+$var wire 1 m& \inst3|SWITCH_EN~2_combout\ $end
+$var wire 1 n& \inst3|SWITCH_EN~3_combout\ $end
+$var wire 1 o& \inst3|SWITCH_EN~combout\ $end
+$var wire 1 p& \inst3|I2C_RDY_EN~0_combout\ $end
+$var wire 1 q& \inst13|inst4~combout\ $end
+$var wire 1 r& \inst3|SQ_EN~0_combout\ $end
+$var wire 1 s& \inst3|DP_EN~0_combout\ $end
+$var wire 1 t& \inst3|DP_EN~1_combout\ $end
+$var wire 1 u& \inst3|SQ_EN~combout\ $end
+$var wire 1 v& \inst13|inst1[10]~5_combout\ $end
+$var wire 1 w& \inst4|IO_OUT~0_combout\ $end
+$var wire 1 x& \inst3|TIMER_EN~0_combout\ $end
+$var wire 1 y& \inst4|IO_OUT~combout\ $end
+$var wire 1 z& \inst13|inst1[5]~6_combout\ $end
+$var wire 1 {& \inst|Selector20~0_combout\ $end
+$var wire 1 |& \inst|Selector20~5_combout\ $end
+$var wire 1 }& \inst13|inst1[5]~2_combout\ $end
+$var wire 1 ~& \inst3|SWITCH_EN~clkctrl_outclk\ $end
+$var wire 1 !' \SW[7]~input_o\ $end
+$var wire 1 "' \inst13|inst1[7]~29_combout\ $end
+$var wire 1 #' \inst5|count_10Hz[0]~19_combout\ $end
+$var wire 1 $' \inst5|LessThan5~3_combout\ $end
+$var wire 1 %' \inst5|LessThan5~1_combout\ $end
+$var wire 1 &' \inst5|LessThan5~0_combout\ $end
+$var wire 1 '' \inst5|LessThan5~2_combout\ $end
+$var wire 1 (' \inst5|LessThan5~4_combout\ $end
+$var wire 1 )' \inst5|LessThan5~6_combout\ $end
+$var wire 1 *' \inst5|count_10Hz[0]~20\ $end
+$var wire 1 +' \inst5|count_10Hz[1]~21_combout\ $end
+$var wire 1 ,' \inst5|count_10Hz[1]~22\ $end
+$var wire 1 -' \inst5|count_10Hz[2]~23_combout\ $end
+$var wire 1 .' \inst5|count_10Hz[2]~24\ $end
+$var wire 1 /' \inst5|count_10Hz[3]~25_combout\ $end
+$var wire 1 0' \inst5|count_10Hz[3]~26\ $end
+$var wire 1 1' \inst5|count_10Hz[4]~27_combout\ $end
+$var wire 1 2' \inst5|count_10Hz[4]~28\ $end
+$var wire 1 3' \inst5|count_10Hz[5]~29_combout\ $end
+$var wire 1 4' \inst5|count_10Hz[5]~30\ $end
+$var wire 1 5' \inst5|count_10Hz[6]~31_combout\ $end
+$var wire 1 6' \inst5|count_10Hz[6]~32\ $end
+$var wire 1 7' \inst5|count_10Hz[7]~33_combout\ $end
+$var wire 1 8' \inst5|count_10Hz[7]~34\ $end
+$var wire 1 9' \inst5|count_10Hz[8]~35_combout\ $end
+$var wire 1 :' \inst5|count_10Hz[8]~36\ $end
+$var wire 1 ;' \inst5|count_10Hz[9]~37_combout\ $end
+$var wire 1 <' \inst5|count_10Hz[9]~38\ $end
+$var wire 1 =' \inst5|count_10Hz[10]~39_combout\ $end
+$var wire 1 >' \inst5|count_10Hz[10]~40\ $end
+$var wire 1 ?' \inst5|count_10Hz[11]~41_combout\ $end
+$var wire 1 @' \inst5|count_10Hz[11]~42\ $end
+$var wire 1 A' \inst5|count_10Hz[12]~43_combout\ $end
+$var wire 1 B' \inst5|count_10Hz[12]~44\ $end
+$var wire 1 C' \inst5|count_10Hz[13]~45_combout\ $end
+$var wire 1 D' \inst5|count_10Hz[13]~46\ $end
+$var wire 1 E' \inst5|count_10Hz[14]~47_combout\ $end
+$var wire 1 F' \inst5|count_10Hz[14]~48\ $end
+$var wire 1 G' \inst5|count_10Hz[15]~49_combout\ $end
+$var wire 1 H' \inst5|count_10Hz[15]~50\ $end
+$var wire 1 I' \inst5|count_10Hz[16]~51_combout\ $end
+$var wire 1 J' \inst5|count_10Hz[16]~52\ $end
+$var wire 1 K' \inst5|count_10Hz[17]~53_combout\ $end
+$var wire 1 L' \inst5|count_10Hz[17]~54\ $end
+$var wire 1 M' \inst5|count_10Hz[18]~55_combout\ $end
+$var wire 1 N' \inst5|LessThan5~5_combout\ $end
+$var wire 1 O' \inst5|clock_10Hz_int~0_combout\ $end
+$var wire 1 P' \inst5|clock_10Hz_int~q\ $end
+$var wire 1 Q' \inst5|clock_10Hz~feeder_combout\ $end
+$var wire 1 R' \inst5|clock_10Hz~q\ $end
+$var wire 1 S' \inst5|clock_10Hz~clkctrl_outclk\ $end
+$var wire 1 T' \inst4|COUNT[0]~45_combout\ $end
+$var wire 1 U' \inst3|TIMER_EN~1_combout\ $end
+$var wire 1 V' \inst4|process_0~0_combout\ $end
+$var wire 1 W' \inst4|COUNT[1]~15_combout\ $end
+$var wire 1 X' \inst4|COUNT[1]~16\ $end
+$var wire 1 Y' \inst4|COUNT[2]~17_combout\ $end
+$var wire 1 Z' \inst4|COUNT[2]~18\ $end
+$var wire 1 [' \inst4|COUNT[3]~19_combout\ $end
+$var wire 1 \' \inst4|COUNT[3]~20\ $end
+$var wire 1 ]' \inst4|COUNT[4]~21_combout\ $end
+$var wire 1 ^' \inst4|COUNT[4]~22\ $end
+$var wire 1 _' \inst4|COUNT[5]~23_combout\ $end
+$var wire 1 `' \inst4|COUNT[5]~24\ $end
+$var wire 1 a' \inst4|COUNT[6]~25_combout\ $end
+$var wire 1 b' \inst4|COUNT[6]~26\ $end
+$var wire 1 c' \inst4|COUNT[7]~27_combout\ $end
+$var wire 1 d' \SW[1]~input_o\ $end
+$var wire 1 e' \inst7|B_DI[1]~feeder_combout\ $end
+$var wire 1 f' \inst13|inst1[1]~18_combout\ $end
+$var wire 1 g' \inst13|inst1[5]~38_combout\ $end
+$var wire 1 h' \inst4|COUNT[7]~28\ $end
+$var wire 1 i' \inst4|COUNT[8]~29_combout\ $end
+$var wire 1 j' \inst4|COUNT[8]~30\ $end
+$var wire 1 k' \inst4|COUNT[9]~31_combout\ $end
+$var wire 1 l' \GSENSOR_SDI~input_o\ $end
+$var wire 1 m' \inst13|inst|Decoder0~0_combout\ $end
+$var wire 1 n' \inst13|inst|Decoder0~4_combout\ $end
+$var wire 1 o' \inst13|inst|data_rx[1]~5_combout\ $end
+$var wire 1 p' \inst13|inst|data_rd[1]~feeder_combout\ $end
+$var wire 1 q' \inst13|inst14|data_out[9]~12_combout\ $end
+$var wire 1 r' \inst3|I2C_RDY_EN~1_combout\ $end
+$var wire 1 s' \inst13|inst6~combout\ $end
+$var wire 1 t' \inst13|inst14|go~feeder_combout\ $end
+$var wire 1 u' \inst13|inst14|running~0_combout\ $end
+$var wire 1 v' \inst13|inst14|running~q\ $end
+$var wire 1 w' \inst13|inst14|latch_rdy~0_combout\ $end
+$var wire 1 x' \inst13|inst14|go~q\ $end
+$var wire 1 y' \inst13|inst14|tx_addr[7]~0_combout\ $end
+$var wire 1 z' \inst13|inst14|state_machine~0_combout\ $end
+$var wire 1 {' \inst13|inst14|data_out[15]~11_combout\ $end
+$var wire 1 |' \inst13|inst1[9]~34_combout\ $end
+$var wire 1 }' \SW[9]~input_o\ $end
+$var wire 1 ~' \inst7|B_DI[9]~feeder_combout\ $end
+$var wire 1 !( \inst13|inst1[9]~35_combout\ $end
+$var wire 1 "( \inst13|inst1[9]~36_combout\ $end
+$var wire 1 #( \inst13|inst14|cmd_in[1]~feeder_combout\ $end
+$var wire 1 $( \inst4|COUNT[9]~32\ $end
+$var wire 1 %( \inst4|COUNT[10]~33_combout\ $end
+$var wire 1 &( \inst4|COUNT[10]~34\ $end
+$var wire 1 '( \inst4|COUNT[11]~35_combout\ $end
+$var wire 1 (( \inst4|COUNT[11]~36\ $end
+$var wire 1 )( \inst4|COUNT[12]~37_combout\ $end
+$var wire 1 *( \inst4|COUNT[12]~38\ $end
+$var wire 1 +( \inst4|COUNT[13]~39_combout\ $end
+$var wire 1 ,( \inst13|inst|Decoder0~1_combout\ $end
+$var wire 1 -( \inst13|inst|data_rx[5]~0_combout\ $end
+$var wire 1 .( \inst13|inst|data_rd[5]~feeder_combout\ $end
+$var wire 1 /( \inst13|inst14|data_out[13]~16_combout\ $end
+$var wire 1 0( \inst13|inst1[13]~44_combout\ $end
+$var wire 1 1( \inst|Selector14~4_combout\ $end
+$var wire 1 2( \inst|shifter|auto_generated|sbit_w[21]~27_combout\ $end
+$var wire 1 3( \inst|shifter|auto_generated|sbit_w[21]~28_combout\ $end
+$var wire 1 4( \inst|shifter|auto_generated|sbit_w[19]~24_combout\ $end
+$var wire 1 5( \inst|shifter|auto_generated|sbit_w[19]~25_combout\ $end
+$var wire 1 6( \inst|shifter|auto_generated|sbit_w[37]~26_combout\ $end
+$var wire 1 7( \inst|shifter|auto_generated|sbit_w[37]~29_combout\ $end
+$var wire 1 8( \inst|Selector15~6_combout\ $end
+$var wire 1 9( \inst|Add1~63_combout\ $end
+$var wire 1 :( \inst|Add1~64_combout\ $end
+$var wire 1 ;( \inst|Add1~65_combout\ $end
+$var wire 1 <( \inst|Add1~60_combout\ $end
+$var wire 1 =( \inst|Add1~58_combout\ $end
+$var wire 1 >( \inst|Add1~59_combout\ $end
+$var wire 1 ?( \inst|Add1~53_combout\ $end
+$var wire 1 @( \inst|Add1~54_combout\ $end
+$var wire 1 A( \inst|shifter|auto_generated|sbit_w[26]~32_combout\ $end
+$var wire 1 B( \inst|shifter|auto_generated|sbit_w[26]~33_combout\ $end
+$var wire 1 C( \inst|shifter|auto_generated|sbit_w[24]~35_combout\ $end
+$var wire 1 D( \inst|shifter|auto_generated|sbit_w[24]~36_combout\ $end
+$var wire 1 E( \inst|shifter|auto_generated|sbit_w[28]~42_combout\ $end
+$var wire 1 F( \inst|shifter|auto_generated|sbit_w[28]~43_combout\ $end
+$var wire 1 G( \inst|shifter|auto_generated|sbit_w[42]~70_combout\ $end
+$var wire 1 H( \inst|shifter|auto_generated|sbit_w[42]~71_combout\ $end
+$var wire 1 I( \inst|shifter|auto_generated|sbit_w[22]~30_combout\ $end
+$var wire 1 J( \inst|shifter|auto_generated|sbit_w[22]~31_combout\ $end
+$var wire 1 K( \inst|shifter|auto_generated|sbit_w[20]~51_combout\ $end
+$var wire 1 L( \inst|shifter|auto_generated|sbit_w[20]~52_combout\ $end
+$var wire 1 M( \inst|shifter|auto_generated|sbit_w[38]~66_combout\ $end
+$var wire 1 N( \inst|shifter|auto_generated|sbit_w[38]~67_combout\ $end
+$var wire 1 O( \inst|shifter|auto_generated|sbit_w[30]~39_combout\ $end
+$var wire 1 P( \inst|Selector13~5_combout\ $end
+$var wire 1 Q( \inst|shifter|auto_generated|sbit_w[62]~77_combout\ $end
+$var wire 1 R( \inst|shifter|auto_generated|sbit_w[62]~78_combout\ $end
+$var wire 1 S( \inst|Selector13~6_combout\ $end
+$var wire 1 T( \inst|Selector16~1_combout\ $end
+$var wire 1 U( \inst|Add1~73_combout\ $end
+$var wire 1 V( \inst|Add1~74_combout\ $end
+$var wire 1 W( \inst|Add1~75_combout\ $end
+$var wire 1 X( \inst|Add1~70_combout\ $end
+$var wire 1 Y( \inst|Add1~68_combout\ $end
+$var wire 1 Z( \inst|Add1~69_combout\ $end
+$var wire 1 [( \inst|Add1~67\ $end
+$var wire 1 \( \inst|Add1~72\ $end
+$var wire 1 ]( \inst|Add1~76_combout\ $end
+$var wire 1 ^( \inst|Selector13~7_combout\ $end
+$var wire 1 _( \inst|Selector13~8_combout\ $end
+$var wire 1 `( \inst|Selector13~4_combout\ $end
+$var wire 1 a( \inst|shifter|auto_generated|sbit_w[34]~64_combout\ $end
+$var wire 1 b( \inst|shifter|auto_generated|sbit_w[18]~48_combout\ $end
+$var wire 1 c( \inst|shifter|auto_generated|sbit_w[18]~49_combout\ $end
+$var wire 1 d( \inst|shifter|auto_generated|sbit_w[34]~63_combout\ $end
+$var wire 1 e( \inst|shifter|auto_generated|sbit_w[34]~65_combout\ $end
+$var wire 1 f( \inst|shifter|auto_generated|sbit_w[54]~79_combout\ $end
+$var wire 1 g( \inst|Selector13~3_combout\ $end
+$var wire 1 h( \inst|Selector13~10_combout\ $end
+$var wire 1 i( \inst4|COUNT[13]~40\ $end
+$var wire 1 j( \inst4|COUNT[14]~41_combout\ $end
+$var wire 1 k( \inst13|inst|Decoder0~6_combout\ $end
+$var wire 1 l( \inst13|inst|data_rx[6]~7_combout\ $end
+$var wire 1 m( \inst13|inst|data_rd[6]~feeder_combout\ $end
+$var wire 1 n( \inst13|inst14|data_out[14]~17_combout\ $end
+$var wire 1 o( \inst13|inst1[14]~46_combout\ $end
+$var wire 1 p( \inst|Selector13~2_combout\ $end
+$var wire 1 q( \inst|Selector13~9_combout\ $end
+$var wire 1 r( \inst|shifter|auto_generated|sbit_w[30]~40_combout\ $end
+$var wire 1 s( \inst|shifter|auto_generated|sbit_w[46]~68_combout\ $end
+$var wire 1 t( \inst|shifter|auto_generated|sbit_w[46]~82_combout\ $end
+$var wire 1 u( \inst|shifter|auto_generated|sbit_w[58]~69_combout\ $end
+$var wire 1 v( \inst|Selector17~4_combout\ $end
+$var wire 1 w( \inst|Add1~50_combout\ $end
+$var wire 1 x( \inst|Add1~48_combout\ $end
+$var wire 1 y( \inst|Add1~49_combout\ $end
+$var wire 1 z( \inst|Add1~45_combout\ $end
+$var wire 1 {( \inst|Add1~43_combout\ $end
+$var wire 1 |( \inst|Add1~44_combout\ $end
+$var wire 1 }( \inst|Add1~42\ $end
+$var wire 1 ~( \inst|Add1~47\ $end
+$var wire 1 !) \inst|Add1~52\ $end
+$var wire 1 ") \inst|Add1~56_combout\ $end
+$var wire 1 #) \inst|Selector17~7_combout\ $end
+$var wire 1 $) \inst|Selector17~8_combout\ $end
+$var wire 1 %) \inst|Selector17~6_combout\ $end
+$var wire 1 &) \inst|Selector17~9_combout\ $end
+$var wire 1 ') \inst|Selector17~5_combout\ $end
+$var wire 1 () \inst13|inst|data_rx[2]~3_combout\ $end
+$var wire 1 )) \inst13|inst|data_rx[2]~4_combout\ $end
+$var wire 1 *) \inst13|inst|data_rd[2]~feeder_combout\ $end
+$var wire 1 +) \inst13|inst14|data_out[10]~13_combout\ $end
+$var wire 1 ,) \inst13|inst1[10]~37_combout\ $end
+$var wire 1 -) \inst|Selector17~11_combout\ $end
+$var wire 1 .) \inst|Selector17~3_combout\ $end
+$var wire 1 /) \inst|Selector17~10_combout\ $end
+$var wire 1 0) \inst|Add1~55_combout\ $end
+$var wire 1 1) \inst|Add1~57\ $end
+$var wire 1 2) \inst|Add1~62\ $end
+$var wire 1 3) \inst|Add1~66_combout\ $end
+$var wire 1 4) \inst|Selector15~7_combout\ $end
+$var wire 1 5) \inst|Selector15~5_combout\ $end
+$var wire 1 6) \inst|Selector15~8_combout\ $end
+$var wire 1 7) \inst|shifter|auto_generated|sbit_w[44]~41_combout\ $end
+$var wire 1 8) \inst|shifter|auto_generated|sbit_w[44]~44_combout\ $end
+$var wire 1 9) \inst|shifter|auto_generated|sbit_w[40]~34_combout\ $end
+$var wire 1 :) \inst|shifter|auto_generated|sbit_w[40]~37_combout\ $end
+$var wire 1 ;) \inst|shifter|auto_generated|sbit_w[60]~38_combout\ $end
+$var wire 1 <) \inst|Selector15~3_combout\ $end
+$var wire 1 =) \inst|shifter|auto_generated|sbit_w[32]~45_combout\ $end
+$var wire 1 >) \inst|shifter|auto_generated|sbit_w[32]~46_combout\ $end
+$var wire 1 ?) \inst|shifter|auto_generated|sbit_w[52]~47_combout\ $end
+$var wire 1 @) \inst|shifter|auto_generated|sbit_w[36]~50_combout\ $end
+$var wire 1 A) \inst|shifter|auto_generated|sbit_w[36]~53_combout\ $end
+$var wire 1 B) \inst|Selector15~4_combout\ $end
+$var wire 1 C) \inst|Selector15~10_combout\ $end
+$var wire 1 D) \inst|Selector15~2_combout\ $end
+$var wire 1 E) \inst|Selector15~9_combout\ $end
+$var wire 1 F) \inst|shifter|auto_generated|sbit_w[27]~11_combout\ $end
+$var wire 1 G) \inst|shifter|auto_generated|sbit_w[27]~12_combout\ $end
+$var wire 1 H) \inst|shifter|auto_generated|sbit_w[41]~16_combout\ $end
+$var wire 1 I) \inst|shifter|auto_generated|sbit_w[25]~17_combout\ $end
+$var wire 1 J) \inst|shifter|auto_generated|sbit_w[25]~18_combout\ $end
+$var wire 1 K) \inst|shifter|auto_generated|sbit_w[41]~19_combout\ $end
+$var wire 1 L) \inst|shifter|auto_generated|sbit_w[53]~22_combout\ $end
+$var wire 1 M) \inst|shifter|auto_generated|sbit_w[53]~23_combout\ $end
+$var wire 1 N) \inst|Selector14~3_combout\ $end
+$var wire 1 O) \inst|Selector14~6_combout\ $end
+$var wire 1 P) \inst|Add1~71_combout\ $end
+$var wire 1 Q) \inst|Selector14~7_combout\ $end
+$var wire 1 R) \inst|shifter|auto_generated|sbit_w[29]~8_combout\ $end
+$var wire 1 S) \inst|shifter|auto_generated|sbit_w[29]~9_combout\ $end
+$var wire 1 T) \inst|shifter|auto_generated|sbit_w[45]~10_combout\ $end
+$var wire 1 U) \inst|shifter|auto_generated|sbit_w[45]~81_combout\ $end
+$var wire 1 V) \inst|shifter|auto_generated|sbit_w[61]~13_combout\ $end
+$var wire 1 W) \inst|shifter|auto_generated|sbit_w[61]~20_combout\ $end
+$var wire 1 X) \inst|Selector14~5_combout\ $end
+$var wire 1 Y) \inst|Selector14~8_combout\ $end
+$var wire 1 Z) \inst|Selector14~10_combout\ $end
+$var wire 1 [) \inst|Selector14~2_combout\ $end
+$var wire 1 \) \inst|Selector14~9_combout\ $end
+$var wire 1 ]) \inst|io_bus|dout[13]~3_combout\ $end
+$var wire 1 ^) \inst13|inst1[13]~45_combout\ $end
+$var wire 1 _) \inst13|inst14|Selector21~1_combout\ $end
+$var wire 1 `) \inst13|inst14|Selector20~2_combout\ $end
+$var wire 1 a) \inst13|inst14|Selector20~3_combout\ $end
+$var wire 1 b) \inst13|inst14|state.Rx2~q\ $end
+$var wire 1 c) \inst13|inst|Decoder0~2_combout\ $end
+$var wire 1 d) \inst13|inst|data_rx[4]~1_combout\ $end
+$var wire 1 e) \inst13|inst|data_rd[4]~feeder_combout\ $end
+$var wire 1 f) \inst13|inst14|data_out[12]~15_combout\ $end
+$var wire 1 g) \inst13|inst1[12]~42_combout\ $end
+$var wire 1 h) \inst|io_bus|dout[12]~2_combout\ $end
+$var wire 1 i) \inst13|inst1[12]~43_combout\ $end
+$var wire 1 j) \inst13|inst14|cmd_in[4]~feeder_combout\ $end
+$var wire 1 k) \inst13|inst14|Selector18~0_combout\ $end
+$var wire 1 l) \inst13|inst14|state.Tx1p~q\ $end
+$var wire 1 m) \inst13|inst14|Equal0~0_combout\ $end
+$var wire 1 n) \inst13|inst14|Selector17~0_combout\ $end
+$var wire 1 o) \inst13|inst14|state.Tx2~q\ $end
+$var wire 1 p) \inst13|inst14|Selector19~0_combout\ $end
+$var wire 1 q) \inst13|inst14|state.Tx1~q\ $end
+$var wire 1 r) \inst13|inst14|Selector22~1_combout\ $end
+$var wire 1 s) \inst13|inst14|Selector21~2_combout\ $end
+$var wire 1 t) \inst13|inst14|state.Rx1p~q\ $end
+$var wire 1 u) \inst13|inst14|Selector22~0_combout\ $end
+$var wire 1 v) \inst13|inst14|Selector22~2_combout\ $end
+$var wire 1 w) \inst13|inst14|state.Rx1~q\ $end
+$var wire 1 x) \inst13|inst14|data_out[1]~6_combout\ $end
+$var wire 1 y) \inst13|inst14|data_out[7]~2_combout\ $end
+$var wire 1 z) \inst13|inst1[1]~17_combout\ $end
+$var wire 1 {) \inst13|inst1[1]~19_combout\ $end
+$var wire 1 |) \inst13|inst14|addr_in[1]~feeder_combout\ $end
+$var wire 1 }) \inst13|inst14|tx_addr[1]~feeder_combout\ $end
+$var wire 1 ~) \inst13|inst14|tx_addr[7]~1_combout\ $end
+$var wire 1 !* \SW[2]~input_o\ $end
+$var wire 1 "* \inst7|B_DI[2]~feeder_combout\ $end
+$var wire 1 #* \inst13|inst1[2]~15_combout\ $end
+$var wire 1 $* \inst13|inst14|data_out[2]~5_combout\ $end
+$var wire 1 %* \inst13|inst1[2]~14_combout\ $end
+$var wire 1 &* \inst13|inst1[2]~16_combout\ $end
+$var wire 1 '* \inst13|inst14|addr_in[2]~feeder_combout\ $end
+$var wire 1 (* \inst13|inst14|tx_addr[2]~feeder_combout\ $end
+$var wire 1 )* \inst13|inst14|Selector32~0_combout\ $end
+$var wire 1 ** \inst13|inst14|state_machine~1_combout\ $end
+$var wire 1 +* \inst13|inst14|Selector32~1_combout\ $end
+$var wire 1 ,* \inst13|inst14|Selector32~2_combout\ $end
+$var wire 1 -* \inst13|inst14|comm_en~q\ $end
+$var wire 1 .* \inst13|inst|Equal1~0_combout\ $end
+$var wire 1 /* \inst13|inst|Selector21~0_combout\ $end
+$var wire 1 0* \inst13|inst|state.command~q\ $end
+$var wire 1 1* \inst13|inst|state~15_combout\ $end
+$var wire 1 2* \inst13|inst|state.slv_ack1~q\ $end
+$var wire 1 3* \inst13|inst|Selector22~0_combout\ $end
+$var wire 1 4* \inst13|inst|Selector22~1_combout\ $end
+$var wire 1 5* \inst13|inst|Selector22~2_combout\ $end
+$var wire 1 6* \inst13|inst|state.wr~q\ $end
+$var wire 1 7* \inst13|inst|state~16_combout\ $end
+$var wire 1 8* \inst13|inst|state.slv_ack2~q\ $end
+$var wire 1 9* \inst13|inst|Selector24~0_combout\ $end
+$var wire 1 :* \inst13|inst|Selector24~1_combout\ $end
+$var wire 1 ;* \inst13|inst|state.stop~q\ $end
+$var wire 1 <* \inst13|inst|Selector18~0_combout\ $end
+$var wire 1 =* \inst13|inst|state.ready~q\ $end
+$var wire 1 >* \inst13|inst|addr_rw[7]~0_combout\ $end
+$var wire 1 ?* \inst13|inst|Selector25~6_combout\ $end
+$var wire 1 @* \inst13|inst|addr_rw[7]~1_combout\ $end
+$var wire 1 A* \inst13|inst|process_1~0_combout\ $end
+$var wire 1 B* \SW[4]~input_o\ $end
+$var wire 1 C* \inst13|inst1[4]~9_combout\ $end
+$var wire 1 D* \inst13|inst14|data_out[4]~3_combout\ $end
+$var wire 1 E* \inst13|inst1[4]~8_combout\ $end
+$var wire 1 F* \inst13|inst1[4]~10_combout\ $end
+$var wire 1 G* \inst13|inst14|addr_in[4]~feeder_combout\ $end
+$var wire 1 H* \inst13|inst14|tx_addr[4]~feeder_combout\ $end
+$var wire 1 I* \inst13|inst|Decoder0~3_combout\ $end
+$var wire 1 J* \inst13|inst|data_rx[3]~2_combout\ $end
+$var wire 1 K* \inst13|inst|data_rd[3]~feeder_combout\ $end
+$var wire 1 L* \inst13|inst14|data_out[3]~4_combout\ $end
+$var wire 1 M* \inst13|inst1[3]~11_combout\ $end
+$var wire 1 N* \SW[3]~input_o\ $end
+$var wire 1 O* \inst13|inst1[3]~12_combout\ $end
+$var wire 1 P* \inst13|inst1[3]~13_combout\ $end
+$var wire 1 Q* \inst13|inst14|addr_in[3]~feeder_combout\ $end
+$var wire 1 R* \inst13|inst14|tx_addr[3]~feeder_combout\ $end
+$var wire 1 S* \inst13|inst|process_1~1_combout\ $end
+$var wire 1 T* \SW[5]~input_o\ $end
+$var wire 1 U* \inst13|inst1[5]~4_combout\ $end
+$var wire 1 V* \inst13|inst14|data_out[5]~0_combout\ $end
+$var wire 1 W* \inst13|inst1[5]~3_combout\ $end
+$var wire 1 X* \inst13|inst1[5]~7_combout\ $end
+$var wire 1 Y* \inst13|inst14|addr_in[5]~feeder_combout\ $end
+$var wire 1 Z* \inst13|inst14|tx_addr[5]~feeder_combout\ $end
+$var wire 1 [* \inst13|inst14|data_out[6]~8_combout\ $end
+$var wire 1 \* \inst13|inst1[6]~25_combout\ $end
+$var wire 1 ]* \SW[6]~input_o\ $end
+$var wire 1 ^* \inst13|inst1[6]~26_combout\ $end
+$var wire 1 _* \inst13|inst1[6]~27_combout\ $end
+$var wire 1 `* \inst13|inst14|addr_in[6]~feeder_combout\ $end
+$var wire 1 a* \inst13|inst14|tx_addr[6]~feeder_combout\ $end
+$var wire 1 b* \inst13|inst|process_1~2_combout\ $end
+$var wire 1 c* \inst13|inst1[7]~30_combout\ $end
+$var wire 1 d* \inst13|inst14|tx_addr[7]~feeder_combout\ $end
+$var wire 1 e* \inst13|inst|process_1~3_combout\ $end
+$var wire 1 f* \inst13|inst|process_1~4_combout\ $end
+$var wire 1 g* \inst13|inst|Selector20~0_combout\ $end
+$var wire 1 h* \inst13|inst|Selector20~1_combout\ $end
+$var wire 1 i* \inst13|inst|state.restart~q\ $end
+$var wire 1 j* \inst13|inst|Selector19~0_combout\ $end
+$var wire 1 k* \inst13|inst|state.start~q\ $end
+$var wire 1 l* \inst13|inst|Selector29~0_combout\ $end
+$var wire 1 m* \inst13|inst|Selector29~1_combout\ $end
+$var wire 1 n* \inst13|inst|ack_error~q\ $end
+$var wire 1 o* \inst13|inst|Selector0~1_combout\ $end
+$var wire 1 p* \inst13|inst|Selector0~0_combout\ $end
+$var wire 1 q* \inst13|inst|Selector0~2_combout\ $end
+$var wire 1 r* \inst13|inst|WideOr3~0_combout\ $end
+$var wire 1 s* \inst13|inst|Selector0~3_combout\ $end
+$var wire 1 t* \inst13|inst|busy~q\ $end
+$var wire 1 u* \inst13|inst14|prev_busy~feeder_combout\ $end
+$var wire 1 v* \inst13|inst14|prev_busy~q\ $end
+$var wire 1 w* \inst13|inst|Decoder0~7_combout\ $end
+$var wire 1 x* \inst13|inst|data_rx[7]~8_combout\ $end
+$var wire 1 y* \inst13|inst|data_rd[7]~feeder_combout\ $end
+$var wire 1 z* \inst13|inst14|data_out[7]~9_combout\ $end
+$var wire 1 {* \inst13|inst1[7]~28_combout\ $end
+$var wire 1 |* \inst|Selector20~6_combout\ $end
+$var wire 1 }* \inst|Selector20~7_combout\ $end
+$var wire 1 ~* \inst|Selector20~8_combout\ $end
+$var wire 1 !+ \inst|shifter|auto_generated|sbit_w[23]~14_combout\ $end
+$var wire 1 "+ \inst|shifter|auto_generated|sbit_w[23]~15_combout\ $end
+$var wire 1 #+ \inst|shifter|auto_generated|sbit_w[39]~58_combout\ $end
+$var wire 1 $+ \inst|shifter|auto_generated|sbit_w[39]~59_combout\ $end
+$var wire 1 %+ \inst|shifter|auto_generated|sbit_w[49]~57_combout\ $end
+$var wire 1 &+ \inst|Selector16~0_combout\ $end
+$var wire 1 '+ \inst|Selector24~0_combout\ $end
+$var wire 1 (+ \inst|shifter|auto_generated|sbit_w[59]~60_combout\ $end
+$var wire 1 )+ \inst|Selector22~2_combout\ $end
+$var wire 1 *+ \inst|shifter|auto_generated|sbit_w[43]~61_combout\ $end
+$var wire 1 ++ \inst|shifter|auto_generated|sbit_w[43]~62_combout\ $end
+$var wire 1 ,+ \inst|Selector24~6_combout\ $end
+$var wire 1 -+ \inst|Selector24~5_combout\ $end
+$var wire 1 .+ \inst|Selector24~7_combout\ $end
+$var wire 1 /+ \inst|Selector24~8_combout\ $end
+$var wire 1 0+ \inst|Add1~9_combout\ $end
+$var wire 1 1+ \inst|Add1~28\ $end
+$var wire 1 2+ \inst|Add1~29_combout\ $end
+$var wire 1 3+ \inst|Selector23~6_combout\ $end
+$var wire 1 4+ \inst|Selector23~7_combout\ $end
+$var wire 1 5+ \inst|Selector23~4_combout\ $end
+$var wire 1 6+ \inst|Selector23~3_combout\ $end
+$var wire 1 7+ \inst|Selector23~1_combout\ $end
+$var wire 1 8+ \inst|Selector23~0_combout\ $end
+$var wire 1 9+ \inst|Selector23~2_combout\ $end
+$var wire 1 :+ \inst|Selector23~8_combout\ $end
+$var wire 1 ;+ \inst|Add1~6_combout\ $end
+$var wire 1 <+ \inst|Add1~30\ $end
+$var wire 1 =+ \inst|Add1~32\ $end
+$var wire 1 >+ \inst|Add1~36_combout\ $end
+$var wire 1 ?+ \inst|Selector21~5_combout\ $end
+$var wire 1 @+ \inst|Selector21~2_combout\ $end
+$var wire 1 A+ \inst|Selector21~10_combout\ $end
+$var wire 1 B+ \inst|Selector21~6_combout\ $end
+$var wire 1 C+ \inst|Selector21~7_combout\ $end
+$var wire 1 D+ \inst|Selector21~8_combout\ $end
+$var wire 1 E+ \inst|Selector21~9_combout\ $end
+$var wire 1 F+ \inst|Add1~16_combout\ $end
+$var wire 1 G+ \inst|Add1~17_combout\ $end
+$var wire 1 H+ \inst|Add1~18_combout\ $end
+$var wire 1 I+ \inst|Add1~20_cout\ $end
+$var wire 1 J+ \inst|Add1~22\ $end
+$var wire 1 K+ \inst|Add1~24\ $end
+$var wire 1 L+ \inst|Add1~25_combout\ $end
+$var wire 1 M+ \inst|Selector25~4_combout\ $end
+$var wire 1 N+ \inst|Selector17~2_combout\ $end
+$var wire 1 O+ \inst|Selector25~0_combout\ $end
+$var wire 1 P+ \inst|Selector25~6_combout\ $end
+$var wire 1 Q+ \inst|Selector25~5_combout\ $end
+$var wire 1 R+ \inst|Selector25~7_combout\ $end
+$var wire 1 S+ \inst|Selector25~8_combout\ $end
+$var wire 1 T+ \inst|shifter|auto_generated|sbit_w[17]~21_combout\ $end
+$var wire 1 U+ \inst|shifter|auto_generated|sbit_w[35]~55_combout\ $end
+$var wire 1 V+ \inst|shifter|auto_generated|sbit_w[35]~54_combout\ $end
+$var wire 1 W+ \inst|shifter|auto_generated|sbit_w[35]~56_combout\ $end
+$var wire 1 X+ \inst|shifter|auto_generated|sbit_w[55]~80_combout\ $end
+$var wire 1 Y+ \inst|Selector12~5_combout\ $end
+$var wire 1 Z+ \inst|Selector12~6_combout\ $end
+$var wire 1 [+ \inst|Selector12~7_combout\ $end
+$var wire 1 \+ \inst|Selector12~8_combout\ $end
+$var wire 1 ]+ \inst|Selector12~16_combout\ $end
+$var wire 1 ^+ \inst|Add1~80_combout\ $end
+$var wire 1 _+ \inst|Add1~78_combout\ $end
+$var wire 1 `+ \inst|Add1~79_combout\ $end
+$var wire 1 a+ \inst|Add1~77\ $end
+$var wire 1 b+ \inst|Add1~81_combout\ $end
+$var wire 1 c+ \inst|Selector12~10_combout\ $end
+$var wire 1 d+ \inst|Selector12~9_combout\ $end
+$var wire 1 e+ \inst|Selector12~11_combout\ $end
+$var wire 1 f+ \inst|Selector12~12_combout\ $end
+$var wire 1 g+ \inst|Selector12~13_combout\ $end
+$var wire 1 h+ \inst|Selector12~15_combout\ $end
+$var wire 1 i+ \inst4|COUNT[14]~42\ $end
+$var wire 1 j+ \inst4|COUNT[15]~43_combout\ $end
+$var wire 1 k+ \inst13|inst14|data_out[15]~18_combout\ $end
+$var wire 1 l+ \inst13|inst1[15]~48_combout\ $end
+$var wire 1 m+ \inst|Selector12~4_combout\ $end
+$var wire 1 n+ \inst|Selector12~14_combout\ $end
+$var wire 1 o+ \inst|Selector19~0_combout\ $end
+$var wire 1 p+ \inst|Add1~51_combout\ $end
+$var wire 1 q+ \inst|Selector18~4_combout\ $end
+$var wire 1 r+ \inst|Selector18~2_combout\ $end
+$var wire 1 s+ \inst|shifter|auto_generated|sbit_w[49]~72_combout\ $end
+$var wire 1 t+ \inst|shifter|auto_generated|sbit_w[49]~84_combout\ $end
+$var wire 1 u+ \inst|Selector18~5_combout\ $end
+$var wire 1 v+ \inst|shifter|auto_generated|sbit_w[57]~73_combout\ $end
+$var wire 1 w+ \inst|shifter|auto_generated|sbit_w[57]~74_combout\ $end
+$var wire 1 x+ \inst|Selector18~0_combout\ $end
+$var wire 1 y+ \inst|Selector18~1_combout\ $end
+$var wire 1 z+ \inst|Selector18~6_combout\ $end
+$var wire 1 {+ \inst|Selector1~0_combout\ $end
+$var wire 1 |+ \inst|Selector1~1_combout\ $end
+$var wire 1 }+ \inst|PC_stack[9][10]~feeder_combout\ $end
+$var wire 1 ~+ \inst|PC_stack[9][10]~q\ $end
+$var wire 1 !, \inst|Selector119~0_combout\ $end
+$var wire 1 ", \inst|PC_stack[8][10]~q\ $end
+$var wire 1 #, \inst|Selector108~0_combout\ $end
+$var wire 1 $, \inst|PC_stack[7][10]~q\ $end
+$var wire 1 %, \inst|Selector97~0_combout\ $end
+$var wire 1 &, \inst|PC_stack[6][10]~q\ $end
+$var wire 1 ', \inst|Selector86~0_combout\ $end
+$var wire 1 (, \inst|PC_stack[5][10]~q\ $end
+$var wire 1 ), \inst|Selector75~0_combout\ $end
+$var wire 1 *, \inst|PC_stack[4][10]~q\ $end
+$var wire 1 +, \inst|Selector64~0_combout\ $end
+$var wire 1 ,, \inst|PC_stack[3][10]~q\ $end
+$var wire 1 -, \inst|Selector53~0_combout\ $end
+$var wire 1 ., \inst|PC_stack[2][10]~q\ $end
+$var wire 1 /, \inst|Selector42~0_combout\ $end
+$var wire 1 0, \inst|PC_stack[1][10]~q\ $end
+$var wire 1 1, \inst|Selector31~0_combout\ $end
+$var wire 1 2, \inst|PC_stack[0][10]~q\ $end
+$var wire 1 3, \inst|Selector1~2_combout\ $end
+$var wire 1 4, \inst|next_mem_addr[10]~10_combout\ $end
+$var wire 1 5, \inst|Selector2~0_combout\ $end
+$var wire 1 6, \inst|next_mem_addr[9]~9_combout\ $end
+$var wire 1 7, \inst|Selector4~0_combout\ $end
+$var wire 1 8, \inst|next_mem_addr[7]~7_combout\ $end
+$var wire 1 9, \inst|Selector5~0_combout\ $end
+$var wire 1 :, \inst|next_mem_addr[6]~6_combout\ $end
+$var wire 1 ;, \inst|Selector7~0_combout\ $end
+$var wire 1 <, \inst|next_mem_addr[4]~4_combout\ $end
+$var wire 1 =, \inst|Selector8~0_combout\ $end
+$var wire 1 >, \inst|Selector8~1_combout\ $end
+$var wire 1 ?, \inst|PC_stack[9][3]~feeder_combout\ $end
+$var wire 1 @, \inst|PC_stack[9][3]~q\ $end
+$var wire 1 A, \inst|Selector126~0_combout\ $end
+$var wire 1 B, \inst|PC_stack[8][3]~q\ $end
+$var wire 1 C, \inst|Selector115~0_combout\ $end
+$var wire 1 D, \inst|PC_stack[7][3]~q\ $end
+$var wire 1 E, \inst|Selector104~0_combout\ $end
+$var wire 1 F, \inst|PC_stack[6][3]~q\ $end
+$var wire 1 G, \inst|Selector93~0_combout\ $end
+$var wire 1 H, \inst|PC_stack[5][3]~q\ $end
+$var wire 1 I, \inst|Selector82~0_combout\ $end
+$var wire 1 J, \inst|PC_stack[4][3]~q\ $end
+$var wire 1 K, \inst|Selector71~0_combout\ $end
+$var wire 1 L, \inst|PC_stack[3][3]~q\ $end
+$var wire 1 M, \inst|Selector60~0_combout\ $end
+$var wire 1 N, \inst|PC_stack[2][3]~q\ $end
+$var wire 1 O, \inst|Selector49~0_combout\ $end
+$var wire 1 P, \inst|PC_stack[1][3]~q\ $end
+$var wire 1 Q, \inst|Selector38~0_combout\ $end
+$var wire 1 R, \inst|PC_stack[0][3]~q\ $end
+$var wire 1 S, \inst|Selector8~2_combout\ $end
+$var wire 1 T, \inst|next_mem_addr[3]~3_combout\ $end
+$var wire 1 U, \inst|Selector22~4_combout\ $end
+$var wire 1 V, \inst|Selector22~13_combout\ $end
+$var wire 1 W, \inst|Selector22~5_combout\ $end
+$var wire 1 X, \inst|Add1~31_combout\ $end
+$var wire 1 Y, \inst|Selector22~7_combout\ $end
+$var wire 1 Z, \inst|Selector22~8_combout\ $end
+$var wire 1 [, \inst|Selector22~10_combout\ $end
+$var wire 1 \, \inst|Selector22~9_combout\ $end
+$var wire 1 ], \inst|Selector22~11_combout\ $end
+$var wire 1 ^, \inst|Selector22~12_combout\ $end
+$var wire 1 _, \inst|Equal0~2_combout\ $end
+$var wire 1 `, \inst|Equal0~1_combout\ $end
+$var wire 1 a, \inst|Equal0~3_combout\ $end
+$var wire 1 b, \inst|Equal0~0_combout\ $end
+$var wire 1 c, \inst|Equal0~4_combout\ $end
+$var wire 1 d, \inst|state~51_combout\ $end
+$var wire 1 e, \inst|state.ex_jzero~q\ $end
+$var wire 1 f, \inst|WideOr2~0_combout\ $end
+$var wire 1 g, \inst|state~53_combout\ $end
+$var wire 1 h, \inst|state.ex_jump~q\ $end
+$var wire 1 i, \inst|state~52_combout\ $end
+$var wire 1 j, \inst|state.ex_jneg~q\ $end
+$var wire 1 k, \inst|PC[0]~0_combout\ $end
+$var wire 1 l, \inst|state~50_combout\ $end
+$var wire 1 m, \inst|state.ex_jpos~q\ $end
+$var wire 1 n, \inst|PC[0]~1_combout\ $end
+$var wire 1 o, \inst|PC[0]~2_combout\ $end
+$var wire 1 p, \inst|next_mem_addr[2]~2_combout\ $end
+$var wire 1 q, \inst|state~38_combout\ $end
+$var wire 1 r, \inst|state~45_combout\ $end
+$var wire 1 s, \inst|state.ex_xor~q\ $end
+$var wire 1 t, \inst|Selector26~2_combout\ $end
+$var wire 1 u, \inst|Selector26~3_combout\ $end
+$var wire 1 v, \inst|Add1~23_combout\ $end
+$var wire 1 w, \inst|Selector26~4_combout\ $end
+$var wire 1 x, \inst|Selector26~1_combout\ $end
+$var wire 1 y, \inst|Selector26~0_combout\ $end
+$var wire 1 z, \inst|Selector26~5_combout\ $end
+$var wire 1 {, \inst|Selector26~6_combout\ $end
+$var wire 1 |, \inst|Selector26~7_combout\ $end
+$var wire 1 }, \inst|Selector10~0_combout\ $end
+$var wire 1 ~, \inst|Selector10~1_combout\ $end
+$var wire 1 !- \inst|PC_stack[9][1]~feeder_combout\ $end
+$var wire 1 "- \inst|PC_stack[9][1]~q\ $end
+$var wire 1 #- \inst|Selector128~0_combout\ $end
+$var wire 1 $- \inst|PC_stack[8][1]~q\ $end
+$var wire 1 %- \inst|Selector117~0_combout\ $end
+$var wire 1 &- \inst|PC_stack[7][1]~q\ $end
+$var wire 1 '- \inst|Selector106~0_combout\ $end
+$var wire 1 (- \inst|PC_stack[6][1]~q\ $end
+$var wire 1 )- \inst|Selector95~0_combout\ $end
+$var wire 1 *- \inst|PC_stack[5][1]~q\ $end
+$var wire 1 +- \inst|Selector84~0_combout\ $end
+$var wire 1 ,- \inst|PC_stack[4][1]~q\ $end
+$var wire 1 -- \inst|Selector73~0_combout\ $end
+$var wire 1 .- \inst|PC_stack[3][1]~q\ $end
+$var wire 1 /- \inst|Selector62~0_combout\ $end
+$var wire 1 0- \inst|PC_stack[2][1]~q\ $end
+$var wire 1 1- \inst|Selector51~0_combout\ $end
+$var wire 1 2- \inst|PC_stack[1][1]~q\ $end
+$var wire 1 3- \inst|Selector40~0_combout\ $end
+$var wire 1 4- \inst|PC_stack[0][1]~q\ $end
+$var wire 1 5- \inst|Selector10~2_combout\ $end
+$var wire 1 6- \inst|next_mem_addr[1]~1_combout\ $end
+$var wire 1 7- \inst|Add1~46_combout\ $end
+$var wire 1 8- \inst|Selector19~5_combout\ $end
+$var wire 1 9- \inst|Selector19~6_combout\ $end
+$var wire 1 :- \inst|Selector19~4_combout\ $end
+$var wire 1 ;- \inst|shifter|auto_generated|sbit_w[48]~75_combout\ $end
+$var wire 1 <- \inst|shifter|auto_generated|sbit_w[48]~83_combout\ $end
+$var wire 1 =- \inst|Selector19~8_combout\ $end
+$var wire 1 >- \inst|shifter|auto_generated|sbit_w[56]~76_combout\ $end
+$var wire 1 ?- \inst|Selector19~1_combout\ $end
+$var wire 1 @- \SW[8]~input_o\ $end
+$var wire 1 A- \inst7|B_DI[8]~feeder_combout\ $end
+$var wire 1 B- \inst13|inst1[8]~32_combout\ $end
+$var wire 1 C- \inst13|inst|Decoder0~5_combout\ $end
+$var wire 1 D- \inst13|inst|data_rx[0]~6_combout\ $end
+$var wire 1 E- \inst13|inst|data_rd[0]~feeder_combout\ $end
+$var wire 1 F- \inst13|inst14|data_out[8]~10_combout\ $end
+$var wire 1 G- \inst13|inst1[8]~31_combout\ $end
+$var wire 1 H- \inst|Selector19~2_combout\ $end
+$var wire 1 I- \inst|Selector19~3_combout\ $end
+$var wire 1 J- \inst|Selector19~9_combout\ $end
+$var wire 1 K- \inst|state~48_combout\ $end
+$var wire 1 L- \inst|state.ex_istore~q\ $end
+$var wire 1 M- \inst|WideOr7~0_combout\ $end
+$var wire 1 N- \inst|WideOr7~combout\ $end
+$var wire 1 O- \inst|state.fetch~q\ $end
+$var wire 1 P- \inst|Selector11~0_combout\ $end
+$var wire 1 Q- \inst|Selector11~1_combout\ $end
+$var wire 1 R- \inst|PC_stack[9][0]~feeder_combout\ $end
+$var wire 1 S- \inst|PC_stack[9][0]~q\ $end
+$var wire 1 T- \inst|Selector129~0_combout\ $end
+$var wire 1 U- \inst|PC_stack[8][0]~q\ $end
+$var wire 1 V- \inst|Selector118~0_combout\ $end
+$var wire 1 W- \inst|PC_stack[7][0]~q\ $end
+$var wire 1 X- \inst|Selector107~0_combout\ $end
+$var wire 1 Y- \inst|PC_stack[6][0]~q\ $end
+$var wire 1 Z- \inst|Selector96~0_combout\ $end
+$var wire 1 [- \inst|PC_stack[5][0]~q\ $end
+$var wire 1 \- \inst|Selector85~0_combout\ $end
+$var wire 1 ]- \inst|PC_stack[4][0]~q\ $end
+$var wire 1 ^- \inst|Selector74~0_combout\ $end
+$var wire 1 _- \inst|PC_stack[3][0]~q\ $end
+$var wire 1 `- \inst|Selector63~0_combout\ $end
+$var wire 1 a- \inst|PC_stack[2][0]~q\ $end
+$var wire 1 b- \inst|Selector52~0_combout\ $end
+$var wire 1 c- \inst|PC_stack[1][0]~q\ $end
+$var wire 1 d- \inst|Selector41~0_combout\ $end
+$var wire 1 e- \inst|PC_stack[0][0]~q\ $end
+$var wire 1 f- \inst|Selector11~2_combout\ $end
+$var wire 1 g- \inst|next_mem_addr[0]~0_combout\ $end
+$var wire 1 h- \inst|state~34_combout\ $end
+$var wire 1 i- \inst|state.ex_in~q\ $end
+$var wire 1 j- \inst|state.ex_in2~q\ $end
+$var wire 1 k- \inst|Selector27~2_combout\ $end
+$var wire 1 l- \inst|Add1~21_combout\ $end
+$var wire 1 m- \inst|Selector27~1_combout\ $end
+$var wire 1 n- \inst|Selector27~3_combout\ $end
+$var wire 1 o- \inst|Selector27~4_combout\ $end
+$var wire 1 p- \inst|Selector27~5_combout\ $end
+$var wire 1 q- \inst|Selector27~0_combout\ $end
+$var wire 1 r- \inst13|inst14|data_out[0]~7_combout\ $end
+$var wire 1 s- \inst13|inst1[0]~20_combout\ $end
+$var wire 1 t- \inst13|inst1[0]~50_combout\ $end
+$var wire 1 u- \inst13|inst1[0]~21_combout\ $end
+$var wire 1 v- \SW[0]~input_o\ $end
+$var wire 1 w- \inst13|inst1[0]~22_combout\ $end
+$var wire 1 x- \inst11|Finished[0]~9_combout\ $end
+$var wire 1 y- \inst|io_bus|dout[14]~4_combout\ $end
+$var wire 1 z- \inst13|inst1[14]~47_combout\ $end
+$var wire 1 {- \inst11|process_1~0_combout\ $end
+$var wire 1 |- \inst|io_bus|dout[15]~5_combout\ $end
+$var wire 1 }- \inst13|inst1[15]~49_combout\ $end
+$var wire 1 ~- \inst11|Equal3~0_combout\ $end
+$var wire 1 !. \inst11|Finished[0]~1_combout\ $end
+$var wire 1 ". \inst5|count_4Hz[0]~21_combout\ $end
+$var wire 1 #. \inst5|count_4Hz[0]~22\ $end
+$var wire 1 $. \inst5|count_4Hz[1]~23_combout\ $end
+$var wire 1 %. \inst5|count_4Hz[1]~24\ $end
+$var wire 1 &. \inst5|count_4Hz[2]~25_combout\ $end
+$var wire 1 '. \inst5|count_4Hz[2]~26\ $end
+$var wire 1 (. \inst5|count_4Hz[3]~27_combout\ $end
+$var wire 1 ). \inst5|count_4Hz[3]~28\ $end
+$var wire 1 *. \inst5|count_4Hz[4]~29_combout\ $end
+$var wire 1 +. \inst5|count_4Hz[4]~30\ $end
+$var wire 1 ,. \inst5|count_4Hz[5]~31_combout\ $end
+$var wire 1 -. \inst5|count_4Hz[5]~32\ $end
+$var wire 1 .. \inst5|count_4Hz[6]~33_combout\ $end
+$var wire 1 /. \inst5|count_4Hz[6]~34\ $end
+$var wire 1 0. \inst5|count_4Hz[7]~35_combout\ $end
+$var wire 1 1. \inst5|count_4Hz[7]~36\ $end
+$var wire 1 2. \inst5|count_4Hz[8]~37_combout\ $end
+$var wire 1 3. \inst5|count_4Hz[8]~38\ $end
+$var wire 1 4. \inst5|count_4Hz[9]~39_combout\ $end
+$var wire 1 5. \inst5|count_4Hz[9]~40\ $end
+$var wire 1 6. \inst5|count_4Hz[10]~41_combout\ $end
+$var wire 1 7. \inst5|count_4Hz[10]~42\ $end
+$var wire 1 8. \inst5|count_4Hz[11]~43_combout\ $end
+$var wire 1 9. \inst5|count_4Hz[11]~44\ $end
+$var wire 1 :. \inst5|count_4Hz[12]~45_combout\ $end
+$var wire 1 ;. \inst5|count_4Hz[12]~46\ $end
+$var wire 1 <. \inst5|count_4Hz[13]~47_combout\ $end
+$var wire 1 =. \inst5|count_4Hz[13]~48\ $end
+$var wire 1 >. \inst5|count_4Hz[14]~49_combout\ $end
+$var wire 1 ?. \inst5|count_4Hz[14]~50\ $end
+$var wire 1 @. \inst5|count_4Hz[15]~51_combout\ $end
+$var wire 1 A. \inst5|count_4Hz[15]~52\ $end
+$var wire 1 B. \inst5|count_4Hz[16]~53_combout\ $end
+$var wire 1 C. \inst5|count_4Hz[16]~54\ $end
+$var wire 1 D. \inst5|count_4Hz[17]~55_combout\ $end
+$var wire 1 E. \inst5|count_4Hz[17]~56\ $end
+$var wire 1 F. \inst5|count_4Hz[18]~57_combout\ $end
+$var wire 1 G. \inst5|count_4Hz[18]~58\ $end
+$var wire 1 H. \inst5|count_4Hz[19]~59_combout\ $end
+$var wire 1 I. \inst5|count_4Hz[19]~60\ $end
+$var wire 1 J. \inst5|count_4Hz[20]~61_combout\ $end
+$var wire 1 K. \inst5|LessThan6~0_combout\ $end
+$var wire 1 L. \inst5|LessThan6~1_combout\ $end
+$var wire 1 M. \inst5|LessThan6~2_combout\ $end
+$var wire 1 N. \inst5|LessThan6~3_combout\ $end
+$var wire 1 O. \inst5|LessThan6~4_combout\ $end
+$var wire 1 P. \inst5|LessThan6~5_combout\ $end
+$var wire 1 Q. \inst5|LessThan6~6_combout\ $end
+$var wire 1 R. \inst5|clock_4Hz_int~0_combout\ $end
+$var wire 1 S. \inst5|clock_4Hz_int~q\ $end
+$var wire 1 T. \inst5|clock_4Hz~q\ $end
+$var wire 1 U. \inst5|clock_4Hz~clkctrl_outclk\ $end
+$var wire 1 V. \inst11|DurCount[0]~2_combout\ $end
+$var wire 1 W. \inst11|DurCount[0]~3_combout\ $end
+$var wire 1 X. \inst11|DurCount[0]~0_combout\ $end
+$var wire 1 Y. \inst11|DurCount[1]~1_combout\ $end
+$var wire 1 Z. \inst11|Equal1~0_combout\ $end
+$var wire 1 [. \inst11|Finished[0]~4_combout\ $end
+$var wire 1 \. \inst11|Finished[0]~0_combout\ $end
+$var wire 1 ]. \inst11|Finished[0]~_emulated_q\ $end
+$var wire 1 ^. \inst11|Finished[0]~3_combout\ $end
+$var wire 1 _. \inst11|Finished[0]~2_combout\ $end
+$var wire 1 `. \inst13|inst1[0]~23_combout\ $end
+$var wire 1 a. \inst|Selector27~6_combout\ $end
+$var wire 1 b. \inst|Selector27~7_combout\ $end
+$var wire 1 c. \inst|Selector16~4_combout\ $end
+$var wire 1 d. \inst|Selector16~6_combout\ $end
+$var wire 1 e. \inst|Selector16~7_combout\ $end
+$var wire 1 f. \inst|Add1~61_combout\ $end
+$var wire 1 g. \inst|Selector16~8_combout\ $end
+$var wire 1 h. \inst|Selector16~9_combout\ $end
+$var wire 1 i. \inst|Selector16~5_combout\ $end
+$var wire 1 j. \inst|io_bus|dout[11]~1_combout\ $end
+$var wire 1 k. \inst|Selector16~2_combout\ $end
+$var wire 1 l. \inst13|inst14|data_out[11]~14_combout\ $end
+$var wire 1 m. \inst13|inst1[11]~40_combout\ $end
+$var wire 1 n. \inst|Selector16~3_combout\ $end
+$var wire 1 o. \inst|Selector16~10_combout\ $end
+$var wire 1 p. \inst|state~47_combout\ $end
+$var wire 1 q. \inst|state.ex_store~q\ $end
+$var wire 1 r. \inst|state.ex_store2~q\ $end
+$var wire 1 s. \inst|Selector0~0_combout\ $end
+$var wire 1 t. \inst|Selector0~1_combout\ $end
+$var wire 1 u. \inst|MW~q\ $end
+$var wire 1 v. \inst|state~33_combout\ $end
+$var wire 1 w. \inst|Selector28~0_combout\ $end
+$var wire 1 x. \inst|Selector28~1_combout\ $end
+$var wire 1 y. \inst|IO_WRITE_int~q\ $end
+$var wire 1 z. \inst3|I2C_DATA_EN~2_combout\ $end
+$var wire 1 {. \inst13|inst12~combout\ $end
+$var wire 1 |. \inst13|inst12~clkctrl_outclk\ $end
+$var wire 1 }. \inst13|inst1[8]~33_combout\ $end
+$var wire 1 ~. \inst13|inst14|state~18_combout\ $end
+$var wire 1 !/ \inst13|inst14|data_out[4]~19_combout\ $end
+$var wire 1 "/ \inst13|inst14|Selector21~0_combout\ $end
+$var wire 1 #/ \inst13|inst14|Selector16~0_combout\ $end
+$var wire 1 $/ \inst13|inst14|Selector16~1_combout\ $end
+$var wire 1 %/ \inst13|inst14|state.idle~q\ $end
+$var wire 1 &/ \inst13|inst14|rnw~0_combout\ $end
+$var wire 1 '/ \inst13|inst14|rnw~1_combout\ $end
+$var wire 1 (/ \inst13|inst14|rnw~2_combout\ $end
+$var wire 1 )/ \inst13|inst14|rnw~3_combout\ $end
+$var wire 1 */ \inst13|inst14|rnw~q\ $end
+$var wire 1 +/ \inst13|inst|Selector23~1_combout\ $end
+$var wire 1 ,/ \inst13|inst|Selector23~2_combout\ $end
+$var wire 1 -/ \inst13|inst|Selector23~3_combout\ $end
+$var wire 1 ./ \inst13|inst|state.rd~q\ $end
+$var wire 1 // \inst13|inst|WideOr12~0_combout\ $end
+$var wire 1 0/ \inst13|inst|Add1~0_combout\ $end
+$var wire 1 1/ \inst13|inst|bit_cnt[2]~feeder_combout\ $end
+$var wire 1 2/ \inst13|inst|Mux0~0_combout\ $end
+$var wire 1 3/ \inst13|inst|Mux0~1_combout\ $end
+$var wire 1 4/ \inst13|inst|Mux0~2_combout\ $end
+$var wire 1 5/ \inst13|inst|Mux0~3_combout\ $end
+$var wire 1 6/ \inst13|inst|Selector25~13_combout\ $end
+$var wire 1 7/ \inst13|inst|Selector23~0_combout\ $end
+$var wire 1 8/ \inst13|inst13~combout\ $end
+$var wire 1 9/ \inst13|inst13~clkctrl_outclk\ $end
+$var wire 1 :/ \inst13|inst14|data_in[6]~feeder_combout\ $end
+$var wire 1 ;/ \inst13|inst14|Selector24~0_combout\ $end
+$var wire 1 </ \inst13|inst14|tx_byte[7]~0_combout\ $end
+$var wire 1 =/ \inst13|inst14|tx_byte[7]~1_combout\ $end
+$var wire 1 >/ \inst13|inst14|data_in[13]~feeder_combout\ $end
+$var wire 1 ?/ \inst13|inst14|data_in[5]~feeder_combout\ $end
+$var wire 1 @/ \inst13|inst14|Selector25~0_combout\ $end
+$var wire 1 A/ \inst13|inst14|data_in[12]~feeder_combout\ $end
+$var wire 1 B/ \inst13|inst14|data_in[4]~feeder_combout\ $end
+$var wire 1 C/ \inst13|inst14|Selector26~0_combout\ $end
+$var wire 1 D/ \inst13|inst|Mux2~2_combout\ $end
+$var wire 1 E/ \inst13|inst14|data_in[15]~feeder_combout\ $end
+$var wire 1 F/ \inst13|inst14|Selector23~0_combout\ $end
+$var wire 1 G/ \inst13|inst|Mux2~3_combout\ $end
+$var wire 1 H/ \inst13|inst14|data_in[2]~feeder_combout\ $end
+$var wire 1 I/ \inst|io_bus|dout[10]~0_combout\ $end
+$var wire 1 J/ \inst13|inst1[10]~39_combout\ $end
+$var wire 1 K/ \inst13|inst14|data_in[10]~feeder_combout\ $end
+$var wire 1 L/ \inst13|inst14|Selector28~0_combout\ $end
+$var wire 1 M/ \inst13|inst1[11]~41_combout\ $end
+$var wire 1 N/ \inst13|inst14|data_in[11]~feeder_combout\ $end
+$var wire 1 O/ \inst13|inst14|data_in[3]~feeder_combout\ $end
+$var wire 1 P/ \inst13|inst14|Selector27~0_combout\ $end
+$var wire 1 Q/ \inst13|inst1[0]~24_combout\ $end
+$var wire 1 R/ \inst13|inst14|data_in[0]~feeder_combout\ $end
+$var wire 1 S/ \inst13|inst14|data_in[8]~feeder_combout\ $end
+$var wire 1 T/ \inst13|inst14|Selector30~0_combout\ $end
+$var wire 1 U/ \inst13|inst14|data_in[9]~feeder_combout\ $end
+$var wire 1 V/ \inst13|inst14|data_in[1]~feeder_combout\ $end
+$var wire 1 W/ \inst13|inst14|Selector29~0_combout\ $end
+$var wire 1 X/ \inst13|inst|Mux2~0_combout\ $end
+$var wire 1 Y/ \inst13|inst|Mux2~1_combout\ $end
+$var wire 1 Z/ \inst13|inst|Selector25~11_combout\ $end
+$var wire 1 [/ \inst13|inst|Mux3~2_combout\ $end
+$var wire 1 \/ \inst13|inst|Mux3~3_combout\ $end
+$var wire 1 ]/ \inst13|inst|Mux3~0_combout\ $end
+$var wire 1 ^/ \inst13|inst|Mux3~1_combout\ $end
+$var wire 1 _/ \inst13|inst|Selector25~8_combout\ $end
+$var wire 1 `/ \inst13|inst|Mux1~0_combout\ $end
+$var wire 1 a/ \inst13|inst|Mux1~1_combout\ $end
+$var wire 1 b/ \inst13|inst|Mux1~2_combout\ $end
+$var wire 1 c/ \inst13|inst|Mux1~3_combout\ $end
+$var wire 1 d/ \inst13|inst|Selector25~9_combout\ $end
+$var wire 1 e/ \inst13|inst|Selector25~10_combout\ $end
+$var wire 1 f/ \inst13|inst|Selector25~14_combout\ $end
+$var wire 1 g/ \inst13|inst|Mux4~2_combout\ $end
+$var wire 1 h/ \inst13|inst|Mux4~3_combout\ $end
+$var wire 1 i/ \inst13|inst|Mux4~0_combout\ $end
+$var wire 1 j/ \inst13|inst|Mux4~1_combout\ $end
+$var wire 1 k/ \inst13|inst|Selector25~7_combout\ $end
+$var wire 1 l/ \inst13|inst|Selector25~0_combout\ $end
+$var wire 1 m/ \inst13|inst|Selector25~1_combout\ $end
+$var wire 1 n/ \inst13|inst|Selector25~2_combout\ $end
+$var wire 1 o/ \inst13|inst|Selector25~3_combout\ $end
+$var wire 1 p/ \inst13|inst|Selector25~4_combout\ $end
+$var wire 1 q/ \inst13|inst|Selector25~5_combout\ $end
+$var wire 1 r/ \inst13|inst|Selector25~12_combout\ $end
+$var wire 1 s/ \inst13|inst|sda_int~q\ $end
+$var wire 1 t/ \inst13|inst|Selector30~0_combout\ $end
+$var wire 1 u/ \inst13|inst|Selector17~1_combout\ $end
+$var wire 1 v/ \inst13|inst|Selector17~2_combout\ $end
+$var wire 1 w/ \inst13|inst|Selector17~3_combout\ $end
+$var wire 1 x/ \inst13|inst|Selector17~0_combout\ $end
+$var wire 1 y/ \inst13|inst|scl_req~0_combout\ $end
+$var wire 1 z/ \inst13|inst|Selector17~4_combout\ $end
+$var wire 1 {/ \inst13|inst|scl_req~q\ $end
+$var wire 1 |/ \inst13|inst|scl_ena~q\ $end
+$var wire 1 }/ \inst13|inst|scl_clk~1_combout\ $end
+$var wire 1 ~/ \inst13|inst|scl_clk~en_q\ $end
+$var wire 1 !0 \inst13|inst|scl~1_combout\ $end
+$var wire 1 "0 \inst5|count_1MHz~1_combout\ $end
+$var wire 1 #0 \inst5|count_1MHz~2_combout\ $end
+$var wire 1 $0 \inst5|count_1MHz~0_combout\ $end
+$var wire 1 %0 \inst5|clock_1MHz_int~0_combout\ $end
+$var wire 1 &0 \inst5|clock_1MHz_int~q\ $end
+$var wire 1 '0 \inst5|clock_1MHz~feeder_combout\ $end
+$var wire 1 (0 \inst5|clock_1MHz~q\ $end
+$var wire 1 )0 \inst5|clock_1MHz~clkctrl_outclk\ $end
+$var wire 1 *0 \inst3|SQ_EN~clkctrl_outclk\ $end
+$var wire 1 +0 \inst11|Count[0]~14_combout\ $end
+$var wire 1 ,0 \inst11|Count[0]~15\ $end
+$var wire 1 -0 \inst11|Count[1]~16_combout\ $end
+$var wire 1 .0 \inst11|Count[1]~17\ $end
+$var wire 1 /0 \inst11|Count[2]~18_combout\ $end
+$var wire 1 00 \inst11|Count[2]~19\ $end
+$var wire 1 10 \inst11|Count[3]~20_combout\ $end
+$var wire 1 20 \inst11|Count[3]~21\ $end
+$var wire 1 30 \inst11|Count[4]~22_combout\ $end
+$var wire 1 40 \inst11|Count[4]~23\ $end
+$var wire 1 50 \inst11|Count[5]~24_combout\ $end
+$var wire 1 60 \inst11|Count[5]~25\ $end
+$var wire 1 70 \inst11|Count[6]~26_combout\ $end
+$var wire 1 80 \inst11|Count[6]~27\ $end
+$var wire 1 90 \inst11|Count[7]~28_combout\ $end
+$var wire 1 :0 \inst11|Count[7]~29\ $end
+$var wire 1 ;0 \inst11|Count[8]~30_combout\ $end
+$var wire 1 <0 \inst11|Count[8]~31\ $end
+$var wire 1 =0 \inst11|Count[9]~32_combout\ $end
+$var wire 1 >0 \inst11|Count[9]~33\ $end
+$var wire 1 ?0 \inst11|Count[10]~34_combout\ $end
+$var wire 1 @0 \inst11|Count[10]~35\ $end
+$var wire 1 A0 \inst11|Count[11]~36_combout\ $end
+$var wire 1 B0 \inst11|Count[11]~37\ $end
+$var wire 1 C0 \inst11|Count[12]~38_combout\ $end
+$var wire 1 D0 \inst11|Count[12]~39\ $end
+$var wire 1 E0 \inst11|Count[13]~40_combout\ $end
+$var wire 1 F0 \inst11|LessThan0~1_cout\ $end
+$var wire 1 G0 \inst11|LessThan0~3_cout\ $end
+$var wire 1 H0 \inst11|LessThan0~5_cout\ $end
+$var wire 1 I0 \inst11|LessThan0~7_cout\ $end
+$var wire 1 J0 \inst11|LessThan0~9_cout\ $end
+$var wire 1 K0 \inst11|LessThan0~11_cout\ $end
+$var wire 1 L0 \inst11|LessThan0~13_cout\ $end
+$var wire 1 M0 \inst11|LessThan0~15_cout\ $end
+$var wire 1 N0 \inst11|LessThan0~17_cout\ $end
+$var wire 1 O0 \inst11|LessThan0~19_cout\ $end
+$var wire 1 P0 \inst11|LessThan0~21_cout\ $end
+$var wire 1 Q0 \inst11|LessThan0~23_cout\ $end
+$var wire 1 R0 \inst11|LessThan0~25_cout\ $end
+$var wire 1 S0 \inst11|LessThan0~26_combout\ $end
+$var wire 1 T0 \inst11|SqWave~0_combout\ $end
+$var wire 1 U0 \inst11|SqWave~q\ $end
+$var wire 1 V0 \inst11|IO_VAL[9]~9_combout\ $end
+$var wire 1 W0 \inst11|IO_VAL[10]~10_combout\ $end
+$var wire 1 X0 \inst11|IO_VAL[11]~11_combout\ $end
+$var wire 1 Y0 \inst11|IO_VAL[8]~8_combout\ $end
+$var wire 1 Z0 \inst11|Equal4~2_combout\ $end
+$var wire 1 [0 \inst11|IO_VAL[4]~4_combout\ $end
+$var wire 1 \0 \inst11|IO_VAL[7]~7_combout\ $end
+$var wire 1 ]0 \inst11|IO_VAL[6]~6_combout\ $end
+$var wire 1 ^0 \inst11|IO_VAL[5]~5_combout\ $end
+$var wire 1 _0 \inst11|Equal4~1_combout\ $end
+$var wire 1 `0 \inst11|IO_VAL[1]~1_combout\ $end
+$var wire 1 a0 \inst11|IO_VAL[2]~2_combout\ $end
+$var wire 1 b0 \inst11|IO_VAL[0]~0_combout\ $end
+$var wire 1 c0 \inst11|IO_VAL[3]~3_combout\ $end
+$var wire 1 d0 \inst11|Equal4~0_combout\ $end
+$var wire 1 e0 \inst11|IO_VAL[13]~13_combout\ $end
+$var wire 1 f0 \inst11|IO_VAL[12]~12_combout\ $end
+$var wire 1 g0 \inst11|Equal4~3_combout\ $end
+$var wire 1 h0 \inst11|Equal4~4_combout\ $end
+$var wire 1 i0 \inst11|process_2~0_combout\ $end
+$var wire 1 j0 \inst11|SQ~combout\ $end
+$var wire 1 k0 \inst3|DP_EN~2_combout\ $end
+$var wire 1 l0 \inst3|DP_EN~combout\ $end
+$var wire 1 m0 \inst3|DP_EN~clkctrl_outclk\ $end
+$var wire 1 n0 \inst10|inst[5]~feeder_combout\ $end
+$var wire 1 o0 \inst10|inst[3]~feeder_combout\ $end
+$var wire 1 p0 \inst10|inst[2]~feeder_combout\ $end
+$var wire 1 q0 \inst10|inst[1]~feeder_combout\ $end
+$var wire 1 r0 \inst10|inst[0]~feeder_combout\ $end
+$var wire 1 s0 \inst3|HEX0_EN~0_combout\ $end
+$var wire 1 t0 \inst3|HEX0_EN~1_combout\ $end
+$var wire 1 u0 \inst3|HEX0_EN~combout\ $end
+$var wire 1 v0 \inst3|HEX0_EN~clkctrl_outclk\ $end
+$var wire 1 w0 \inst9|inst1|latched_hex[3]~feeder_combout\ $end
+$var wire 1 x0 \inst9|inst1|latched_hex[2]~feeder_combout\ $end
+$var wire 1 y0 \inst9|inst1|latched_hex[0]~feeder_combout\ $end
+$var wire 1 z0 \inst9|inst1|latched_hex[1]~feeder_combout\ $end
+$var wire 1 {0 \inst9|inst1|Mux0~0_combout\ $end
+$var wire 1 |0 \inst9|inst1|Mux1~0_combout\ $end
+$var wire 1 }0 \inst9|inst1|Mux2~0_combout\ $end
+$var wire 1 ~0 \inst9|inst1|Mux3~0_combout\ $end
+$var wire 1 !1 \inst9|inst1|Mux4~0_combout\ $end
+$var wire 1 "1 \inst9|inst1|Mux5~0_combout\ $end
+$var wire 1 #1 \inst9|inst1|Mux6~0_combout\ $end
+$var wire 1 $1 \inst9|inst2|latched_hex[3]~feeder_combout\ $end
+$var wire 1 %1 \inst9|inst2|latched_hex[2]~feeder_combout\ $end
+$var wire 1 &1 \inst9|inst2|latched_hex[1]~feeder_combout\ $end
+$var wire 1 '1 \inst9|inst2|latched_hex[0]~feeder_combout\ $end
+$var wire 1 (1 \inst9|inst2|Mux0~0_combout\ $end
+$var wire 1 )1 \inst9|inst2|Mux1~0_combout\ $end
+$var wire 1 *1 \inst9|inst2|Mux2~0_combout\ $end
+$var wire 1 +1 \inst9|inst2|Mux3~0_combout\ $end
+$var wire 1 ,1 \inst9|inst2|Mux4~0_combout\ $end
+$var wire 1 -1 \inst9|inst2|Mux5~0_combout\ $end
+$var wire 1 .1 \inst9|inst2|Mux6~0_combout\ $end
+$var wire 1 /1 \inst9|inst3|latched_hex[2]~feeder_combout\ $end
+$var wire 1 01 \inst9|inst3|latched_hex[1]~feeder_combout\ $end
+$var wire 1 11 \inst9|inst3|latched_hex[3]~feeder_combout\ $end
+$var wire 1 21 \inst9|inst3|latched_hex[0]~feeder_combout\ $end
+$var wire 1 31 \inst9|inst3|Mux0~0_combout\ $end
+$var wire 1 41 \inst9|inst3|Mux1~0_combout\ $end
+$var wire 1 51 \inst9|inst3|Mux2~0_combout\ $end
+$var wire 1 61 \inst9|inst3|Mux3~0_combout\ $end
+$var wire 1 71 \inst9|inst3|Mux4~0_combout\ $end
+$var wire 1 81 \inst9|inst3|Mux5~0_combout\ $end
+$var wire 1 91 \inst9|inst3|Mux6~0_combout\ $end
+$var wire 1 :1 \inst9|inst4|Mux0~0_combout\ $end
+$var wire 1 ;1 \inst9|inst4|Mux1~0_combout\ $end
+$var wire 1 <1 \inst9|inst4|Mux2~0_combout\ $end
+$var wire 1 =1 \inst9|inst4|Mux3~0_combout\ $end
+$var wire 1 >1 \inst9|inst4|Mux4~0_combout\ $end
+$var wire 1 ?1 \inst9|inst4|Mux5~0_combout\ $end
+$var wire 1 @1 \inst9|inst4|Mux6~0_combout\ $end
+$var wire 1 A1 \inst3|HEX1_EN~combout\ $end
+$var wire 1 B1 \inst3|HEX1_EN~clkctrl_outclk\ $end
+$var wire 1 C1 \inst9|inst5|latched_hex[0]~feeder_combout\ $end
+$var wire 1 D1 \inst9|inst5|latched_hex[3]~feeder_combout\ $end
+$var wire 1 E1 \inst9|inst5|latched_hex[1]~feeder_combout\ $end
+$var wire 1 F1 \inst9|inst5|latched_hex[2]~feeder_combout\ $end
+$var wire 1 G1 \inst9|inst5|Mux0~0_combout\ $end
+$var wire 1 H1 \inst9|inst5|Mux1~0_combout\ $end
+$var wire 1 I1 \inst9|inst5|Mux2~0_combout\ $end
+$var wire 1 J1 \inst9|inst5|Mux3~0_combout\ $end
+$var wire 1 K1 \inst9|inst5|Mux4~0_combout\ $end
+$var wire 1 L1 \inst9|inst5|Mux5~0_combout\ $end
+$var wire 1 M1 \inst9|inst5|Mux6~0_combout\ $end
+$var wire 1 N1 \inst9|inst6|latched_hex[3]~feeder_combout\ $end
+$var wire 1 O1 \inst9|inst6|latched_hex[2]~feeder_combout\ $end
+$var wire 1 P1 \inst9|inst6|latched_hex[0]~feeder_combout\ $end
+$var wire 1 Q1 \inst9|inst6|latched_hex[1]~feeder_combout\ $end
+$var wire 1 R1 \inst9|inst6|Mux0~0_combout\ $end
+$var wire 1 S1 \inst9|inst6|Mux1~0_combout\ $end
+$var wire 1 T1 \inst9|inst6|Mux2~0_combout\ $end
+$var wire 1 U1 \inst9|inst6|Mux3~0_combout\ $end
+$var wire 1 V1 \inst9|inst6|Mux4~0_combout\ $end
+$var wire 1 W1 \inst9|inst6|Mux5~0_combout\ $end
+$var wire 1 X1 \inst9|inst6|Mux6~0_combout\ $end
+$var wire 1 Y1 \inst3|LED_EN~combout\ $end
+$var wire 1 Z1 \inst3|LED_EN~clkctrl_outclk\ $end
+$var wire 1 [1 \inst6|DATA[9]~feeder_combout\ $end
+$var wire 1 \1 \inst6|DATA[8]~feeder_combout\ $end
+$var wire 1 ]1 \inst6|DATA[7]~feeder_combout\ $end
+$var wire 1 ^1 \inst6|DATA[5]~feeder_combout\ $end
+$var wire 1 _1 \inst6|DATA[4]~feeder_combout\ $end
+$var wire 1 `1 \inst6|DATA[3]~feeder_combout\ $end
+$var wire 1 a1 \inst6|DATA[2]~feeder_combout\ $end
+$var wire 1 b1 \inst6|DATA[1]~feeder_combout\ $end
+$var wire 1 c1 \inst6|DATA[0]~feeder_combout\ $end
+$var wire 1 d1 \inst4|COUNT\ [15] $end
+$var wire 1 e1 \inst4|COUNT\ [14] $end
+$var wire 1 f1 \inst4|COUNT\ [13] $end
+$var wire 1 g1 \inst4|COUNT\ [12] $end
+$var wire 1 h1 \inst4|COUNT\ [11] $end
+$var wire 1 i1 \inst4|COUNT\ [10] $end
+$var wire 1 j1 \inst4|COUNT\ [9] $end
+$var wire 1 k1 \inst4|COUNT\ [8] $end
+$var wire 1 l1 \inst4|COUNT\ [7] $end
+$var wire 1 m1 \inst4|COUNT\ [6] $end
+$var wire 1 n1 \inst4|COUNT\ [5] $end
+$var wire 1 o1 \inst4|COUNT\ [4] $end
+$var wire 1 p1 \inst4|COUNT\ [3] $end
+$var wire 1 q1 \inst4|COUNT\ [2] $end
+$var wire 1 r1 \inst4|COUNT\ [1] $end
+$var wire 1 s1 \inst4|COUNT\ [0] $end
+$var wire 1 t1 \inst13|inst14|data_out\ [15] $end
+$var wire 1 u1 \inst13|inst14|data_out\ [14] $end
+$var wire 1 v1 \inst13|inst14|data_out\ [13] $end
+$var wire 1 w1 \inst13|inst14|data_out\ [12] $end
+$var wire 1 x1 \inst13|inst14|data_out\ [11] $end
+$var wire 1 y1 \inst13|inst14|data_out\ [10] $end
+$var wire 1 z1 \inst13|inst14|data_out\ [9] $end
+$var wire 1 {1 \inst13|inst14|data_out\ [8] $end
+$var wire 1 |1 \inst13|inst14|data_out\ [7] $end
+$var wire 1 }1 \inst13|inst14|data_out\ [6] $end
+$var wire 1 ~1 \inst13|inst14|data_out\ [5] $end
+$var wire 1 !2 \inst13|inst14|data_out\ [4] $end
+$var wire 1 "2 \inst13|inst14|data_out\ [3] $end
+$var wire 1 #2 \inst13|inst14|data_out\ [2] $end
+$var wire 1 $2 \inst13|inst14|data_out\ [1] $end
+$var wire 1 %2 \inst13|inst14|data_out\ [0] $end
+$var wire 1 &2 \inst5|count_4Hz\ [20] $end
+$var wire 1 '2 \inst5|count_4Hz\ [19] $end
+$var wire 1 (2 \inst5|count_4Hz\ [18] $end
+$var wire 1 )2 \inst5|count_4Hz\ [17] $end
+$var wire 1 *2 \inst5|count_4Hz\ [16] $end
+$var wire 1 +2 \inst5|count_4Hz\ [15] $end
+$var wire 1 ,2 \inst5|count_4Hz\ [14] $end
+$var wire 1 -2 \inst5|count_4Hz\ [13] $end
+$var wire 1 .2 \inst5|count_4Hz\ [12] $end
+$var wire 1 /2 \inst5|count_4Hz\ [11] $end
+$var wire 1 02 \inst5|count_4Hz\ [10] $end
+$var wire 1 12 \inst5|count_4Hz\ [9] $end
+$var wire 1 22 \inst5|count_4Hz\ [8] $end
+$var wire 1 32 \inst5|count_4Hz\ [7] $end
+$var wire 1 42 \inst5|count_4Hz\ [6] $end
+$var wire 1 52 \inst5|count_4Hz\ [5] $end
+$var wire 1 62 \inst5|count_4Hz\ [4] $end
+$var wire 1 72 \inst5|count_4Hz\ [3] $end
+$var wire 1 82 \inst5|count_4Hz\ [2] $end
+$var wire 1 92 \inst5|count_4Hz\ [1] $end
+$var wire 1 :2 \inst5|count_4Hz\ [0] $end
+$var wire 1 ;2 \inst11|Count\ [13] $end
+$var wire 1 <2 \inst11|Count\ [12] $end
+$var wire 1 =2 \inst11|Count\ [11] $end
+$var wire 1 >2 \inst11|Count\ [10] $end
+$var wire 1 ?2 \inst11|Count\ [9] $end
+$var wire 1 @2 \inst11|Count\ [8] $end
+$var wire 1 A2 \inst11|Count\ [7] $end
+$var wire 1 B2 \inst11|Count\ [6] $end
+$var wire 1 C2 \inst11|Count\ [5] $end
+$var wire 1 D2 \inst11|Count\ [4] $end
+$var wire 1 E2 \inst11|Count\ [3] $end
+$var wire 1 F2 \inst11|Count\ [2] $end
+$var wire 1 G2 \inst11|Count\ [1] $end
+$var wire 1 H2 \inst11|Count\ [0] $end
+$var wire 1 I2 \inst1|altpll_component|auto_generated|wire_pll1_clk\ [4] $end
+$var wire 1 J2 \inst1|altpll_component|auto_generated|wire_pll1_clk\ [3] $end
+$var wire 1 K2 \inst1|altpll_component|auto_generated|wire_pll1_clk\ [2] $end
+$var wire 1 L2 \inst1|altpll_component|auto_generated|wire_pll1_clk\ [1] $end
+$var wire 1 M2 \inst1|altpll_component|auto_generated|wire_pll1_clk\ [0] $end
+$var wire 1 N2 \inst9|inst4|latched_hex\ [3] $end
+$var wire 1 O2 \inst9|inst4|latched_hex\ [2] $end
+$var wire 1 P2 \inst9|inst4|latched_hex\ [1] $end
+$var wire 1 Q2 \inst9|inst4|latched_hex\ [0] $end
+$var wire 1 R2 \inst|altsyncram_component|auto_generated|q_a\ [15] $end
+$var wire 1 S2 \inst|altsyncram_component|auto_generated|q_a\ [14] $end
+$var wire 1 T2 \inst|altsyncram_component|auto_generated|q_a\ [13] $end
+$var wire 1 U2 \inst|altsyncram_component|auto_generated|q_a\ [12] $end
+$var wire 1 V2 \inst|altsyncram_component|auto_generated|q_a\ [11] $end
+$var wire 1 W2 \inst|altsyncram_component|auto_generated|q_a\ [10] $end
+$var wire 1 X2 \inst|altsyncram_component|auto_generated|q_a\ [9] $end
+$var wire 1 Y2 \inst|altsyncram_component|auto_generated|q_a\ [8] $end
+$var wire 1 Z2 \inst|altsyncram_component|auto_generated|q_a\ [7] $end
+$var wire 1 [2 \inst|altsyncram_component|auto_generated|q_a\ [6] $end
+$var wire 1 \2 \inst|altsyncram_component|auto_generated|q_a\ [5] $end
+$var wire 1 ]2 \inst|altsyncram_component|auto_generated|q_a\ [4] $end
+$var wire 1 ^2 \inst|altsyncram_component|auto_generated|q_a\ [3] $end
+$var wire 1 _2 \inst|altsyncram_component|auto_generated|q_a\ [2] $end
+$var wire 1 `2 \inst|altsyncram_component|auto_generated|q_a\ [1] $end
+$var wire 1 a2 \inst|altsyncram_component|auto_generated|q_a\ [0] $end
+$var wire 1 b2 \inst9|inst1|latched_hex\ [3] $end
+$var wire 1 c2 \inst9|inst1|latched_hex\ [2] $end
+$var wire 1 d2 \inst9|inst1|latched_hex\ [1] $end
+$var wire 1 e2 \inst9|inst1|latched_hex\ [0] $end
+$var wire 1 f2 \inst13|inst14|addr_in\ [7] $end
+$var wire 1 g2 \inst13|inst14|addr_in\ [6] $end
+$var wire 1 h2 \inst13|inst14|addr_in\ [5] $end
+$var wire 1 i2 \inst13|inst14|addr_in\ [4] $end
+$var wire 1 j2 \inst13|inst14|addr_in\ [3] $end
+$var wire 1 k2 \inst13|inst14|addr_in\ [2] $end
+$var wire 1 l2 \inst13|inst14|addr_in\ [1] $end
+$var wire 1 m2 \inst13|inst14|addr_in\ [0] $end
+$var wire 1 n2 \inst5|count_100kHz\ [5] $end
+$var wire 1 o2 \inst5|count_100kHz\ [4] $end
+$var wire 1 p2 \inst5|count_100kHz\ [3] $end
+$var wire 1 q2 \inst5|count_100kHz\ [2] $end
+$var wire 1 r2 \inst5|count_100kHz\ [1] $end
+$var wire 1 s2 \inst5|count_100kHz\ [0] $end
+$var wire 1 t2 \inst13|inst14|cmd_in\ [7] $end
+$var wire 1 u2 \inst13|inst14|cmd_in\ [6] $end
+$var wire 1 v2 \inst13|inst14|cmd_in\ [5] $end
+$var wire 1 w2 \inst13|inst14|cmd_in\ [4] $end
+$var wire 1 x2 \inst13|inst14|cmd_in\ [3] $end
+$var wire 1 y2 \inst13|inst14|cmd_in\ [2] $end
+$var wire 1 z2 \inst13|inst14|cmd_in\ [1] $end
+$var wire 1 {2 \inst13|inst14|cmd_in\ [0] $end
+$var wire 1 |2 \inst5|count_10Hz\ [18] $end
+$var wire 1 }2 \inst5|count_10Hz\ [17] $end
+$var wire 1 ~2 \inst5|count_10Hz\ [16] $end
+$var wire 1 !3 \inst5|count_10Hz\ [15] $end
+$var wire 1 "3 \inst5|count_10Hz\ [14] $end
+$var wire 1 #3 \inst5|count_10Hz\ [13] $end
+$var wire 1 $3 \inst5|count_10Hz\ [12] $end
+$var wire 1 %3 \inst5|count_10Hz\ [11] $end
+$var wire 1 &3 \inst5|count_10Hz\ [10] $end
+$var wire 1 '3 \inst5|count_10Hz\ [9] $end
+$var wire 1 (3 \inst5|count_10Hz\ [8] $end
+$var wire 1 )3 \inst5|count_10Hz\ [7] $end
+$var wire 1 *3 \inst5|count_10Hz\ [6] $end
+$var wire 1 +3 \inst5|count_10Hz\ [5] $end
+$var wire 1 ,3 \inst5|count_10Hz\ [4] $end
+$var wire 1 -3 \inst5|count_10Hz\ [3] $end
+$var wire 1 .3 \inst5|count_10Hz\ [2] $end
+$var wire 1 /3 \inst5|count_10Hz\ [1] $end
+$var wire 1 03 \inst5|count_10Hz\ [0] $end
+$var wire 1 13 \inst|AC\ [15] $end
+$var wire 1 23 \inst|AC\ [14] $end
+$var wire 1 33 \inst|AC\ [13] $end
+$var wire 1 43 \inst|AC\ [12] $end
+$var wire 1 53 \inst|AC\ [11] $end
+$var wire 1 63 \inst|AC\ [10] $end
+$var wire 1 73 \inst|AC\ [9] $end
+$var wire 1 83 \inst|AC\ [8] $end
+$var wire 1 93 \inst|AC\ [7] $end
+$var wire 1 :3 \inst|AC\ [6] $end
+$var wire 1 ;3 \inst|AC\ [5] $end
+$var wire 1 <3 \inst|AC\ [4] $end
+$var wire 1 =3 \inst|AC\ [3] $end
+$var wire 1 >3 \inst|AC\ [2] $end
+$var wire 1 ?3 \inst|AC\ [1] $end
+$var wire 1 @3 \inst|AC\ [0] $end
+$var wire 1 A3 \inst10|inst\ [5] $end
+$var wire 1 B3 \inst10|inst\ [4] $end
+$var wire 1 C3 \inst10|inst\ [3] $end
+$var wire 1 D3 \inst10|inst\ [2] $end
+$var wire 1 E3 \inst10|inst\ [1] $end
+$var wire 1 F3 \inst10|inst\ [0] $end
+$var wire 1 G3 \inst9|inst2|latched_hex\ [3] $end
+$var wire 1 H3 \inst9|inst2|latched_hex\ [2] $end
+$var wire 1 I3 \inst9|inst2|latched_hex\ [1] $end
+$var wire 1 J3 \inst9|inst2|latched_hex\ [0] $end
+$var wire 1 K3 \inst9|inst3|latched_hex\ [3] $end
+$var wire 1 L3 \inst9|inst3|latched_hex\ [2] $end
+$var wire 1 M3 \inst9|inst3|latched_hex\ [1] $end
+$var wire 1 N3 \inst9|inst3|latched_hex\ [0] $end
+$var wire 1 O3 \inst9|inst5|latched_hex\ [3] $end
+$var wire 1 P3 \inst9|inst5|latched_hex\ [2] $end
+$var wire 1 Q3 \inst9|inst5|latched_hex\ [1] $end
+$var wire 1 R3 \inst9|inst5|latched_hex\ [0] $end
+$var wire 1 S3 \inst7|B_DI\ [15] $end
+$var wire 1 T3 \inst7|B_DI\ [14] $end
+$var wire 1 U3 \inst7|B_DI\ [13] $end
+$var wire 1 V3 \inst7|B_DI\ [12] $end
+$var wire 1 W3 \inst7|B_DI\ [11] $end
+$var wire 1 X3 \inst7|B_DI\ [10] $end
+$var wire 1 Y3 \inst7|B_DI\ [9] $end
+$var wire 1 Z3 \inst7|B_DI\ [8] $end
+$var wire 1 [3 \inst7|B_DI\ [7] $end
+$var wire 1 \3 \inst7|B_DI\ [6] $end
+$var wire 1 ]3 \inst7|B_DI\ [5] $end
+$var wire 1 ^3 \inst7|B_DI\ [4] $end
+$var wire 1 _3 \inst7|B_DI\ [3] $end
+$var wire 1 `3 \inst7|B_DI\ [2] $end
+$var wire 1 a3 \inst7|B_DI\ [1] $end
+$var wire 1 b3 \inst7|B_DI\ [0] $end
+$var wire 1 c3 \inst9|inst6|latched_hex\ [3] $end
+$var wire 1 d3 \inst9|inst6|latched_hex\ [2] $end
+$var wire 1 e3 \inst9|inst6|latched_hex\ [1] $end
+$var wire 1 f3 \inst9|inst6|latched_hex\ [0] $end
+$var wire 1 g3 \inst6|DATA\ [15] $end
+$var wire 1 h3 \inst6|DATA\ [14] $end
+$var wire 1 i3 \inst6|DATA\ [13] $end
+$var wire 1 j3 \inst6|DATA\ [12] $end
+$var wire 1 k3 \inst6|DATA\ [11] $end
+$var wire 1 l3 \inst6|DATA\ [10] $end
+$var wire 1 m3 \inst6|DATA\ [9] $end
+$var wire 1 n3 \inst6|DATA\ [8] $end
+$var wire 1 o3 \inst6|DATA\ [7] $end
+$var wire 1 p3 \inst6|DATA\ [6] $end
+$var wire 1 q3 \inst6|DATA\ [5] $end
+$var wire 1 r3 \inst6|DATA\ [4] $end
+$var wire 1 s3 \inst6|DATA\ [3] $end
+$var wire 1 t3 \inst6|DATA\ [2] $end
+$var wire 1 u3 \inst6|DATA\ [1] $end
+$var wire 1 v3 \inst6|DATA\ [0] $end
+$var wire 1 w3 \inst13|inst|addr_rw\ [7] $end
+$var wire 1 x3 \inst13|inst|addr_rw\ [6] $end
+$var wire 1 y3 \inst13|inst|addr_rw\ [5] $end
+$var wire 1 z3 \inst13|inst|addr_rw\ [4] $end
+$var wire 1 {3 \inst13|inst|addr_rw\ [3] $end
+$var wire 1 |3 \inst13|inst|addr_rw\ [2] $end
+$var wire 1 }3 \inst13|inst|addr_rw\ [1] $end
+$var wire 1 ~3 \inst13|inst|addr_rw\ [0] $end
+$var wire 1 !4 \inst11|IO_VAL\ [15] $end
+$var wire 1 "4 \inst11|IO_VAL\ [14] $end
+$var wire 1 #4 \inst11|IO_VAL\ [13] $end
+$var wire 1 $4 \inst11|IO_VAL\ [12] $end
+$var wire 1 %4 \inst11|IO_VAL\ [11] $end
+$var wire 1 &4 \inst11|IO_VAL\ [10] $end
+$var wire 1 '4 \inst11|IO_VAL\ [9] $end
+$var wire 1 (4 \inst11|IO_VAL\ [8] $end
+$var wire 1 )4 \inst11|IO_VAL\ [7] $end
+$var wire 1 *4 \inst11|IO_VAL\ [6] $end
+$var wire 1 +4 \inst11|IO_VAL\ [5] $end
+$var wire 1 ,4 \inst11|IO_VAL\ [4] $end
+$var wire 1 -4 \inst11|IO_VAL\ [3] $end
+$var wire 1 .4 \inst11|IO_VAL\ [2] $end
+$var wire 1 /4 \inst11|IO_VAL\ [1] $end
+$var wire 1 04 \inst11|IO_VAL\ [0] $end
+$var wire 1 14 \inst|IR\ [15] $end
+$var wire 1 24 \inst|IR\ [14] $end
+$var wire 1 34 \inst|IR\ [13] $end
+$var wire 1 44 \inst|IR\ [12] $end
+$var wire 1 54 \inst|IR\ [11] $end
+$var wire 1 64 \inst|IR\ [10] $end
+$var wire 1 74 \inst|IR\ [9] $end
+$var wire 1 84 \inst|IR\ [8] $end
+$var wire 1 94 \inst|IR\ [7] $end
+$var wire 1 :4 \inst|IR\ [6] $end
+$var wire 1 ;4 \inst|IR\ [5] $end
+$var wire 1 <4 \inst|IR\ [4] $end
+$var wire 1 =4 \inst|IR\ [3] $end
+$var wire 1 >4 \inst|IR\ [2] $end
+$var wire 1 ?4 \inst|IR\ [1] $end
+$var wire 1 @4 \inst|IR\ [0] $end
+$var wire 1 A4 \inst11|FreqCount\ [13] $end
+$var wire 1 B4 \inst11|FreqCount\ [12] $end
+$var wire 1 C4 \inst11|FreqCount\ [11] $end
+$var wire 1 D4 \inst11|FreqCount\ [10] $end
+$var wire 1 E4 \inst11|FreqCount\ [9] $end
+$var wire 1 F4 \inst11|FreqCount\ [8] $end
+$var wire 1 G4 \inst11|FreqCount\ [7] $end
+$var wire 1 H4 \inst11|FreqCount\ [6] $end
+$var wire 1 I4 \inst11|FreqCount\ [5] $end
+$var wire 1 J4 \inst11|FreqCount\ [4] $end
+$var wire 1 K4 \inst11|FreqCount\ [3] $end
+$var wire 1 L4 \inst11|FreqCount\ [2] $end
+$var wire 1 M4 \inst11|FreqCount\ [1] $end
+$var wire 1 N4 \inst11|FreqCount\ [0] $end
+$var wire 1 O4 \inst13|inst|data_rd\ [7] $end
+$var wire 1 P4 \inst13|inst|data_rd\ [6] $end
+$var wire 1 Q4 \inst13|inst|data_rd\ [5] $end
+$var wire 1 R4 \inst13|inst|data_rd\ [4] $end
+$var wire 1 S4 \inst13|inst|data_rd\ [3] $end
+$var wire 1 T4 \inst13|inst|data_rd\ [2] $end
+$var wire 1 U4 \inst13|inst|data_rd\ [1] $end
+$var wire 1 V4 \inst13|inst|data_rd\ [0] $end
+$var wire 1 W4 \inst11|DurCount\ [1] $end
+$var wire 1 X4 \inst11|DurCount\ [0] $end
+$var wire 1 Y4 \inst|PC\ [10] $end
+$var wire 1 Z4 \inst|PC\ [9] $end
+$var wire 1 [4 \inst|PC\ [8] $end
+$var wire 1 \4 \inst|PC\ [7] $end
+$var wire 1 ]4 \inst|PC\ [6] $end
+$var wire 1 ^4 \inst|PC\ [5] $end
+$var wire 1 _4 \inst|PC\ [4] $end
+$var wire 1 `4 \inst|PC\ [3] $end
+$var wire 1 a4 \inst|PC\ [2] $end
+$var wire 1 b4 \inst|PC\ [1] $end
+$var wire 1 c4 \inst|PC\ [0] $end
+$var wire 1 d4 \inst13|inst|data_rx\ [7] $end
+$var wire 1 e4 \inst13|inst|data_rx\ [6] $end
+$var wire 1 f4 \inst13|inst|data_rx\ [5] $end
+$var wire 1 g4 \inst13|inst|data_rx\ [4] $end
+$var wire 1 h4 \inst13|inst|data_rx\ [3] $end
+$var wire 1 i4 \inst13|inst|data_rx\ [2] $end
+$var wire 1 j4 \inst13|inst|data_rx\ [1] $end
+$var wire 1 k4 \inst13|inst|data_rx\ [0] $end
+$var wire 1 l4 \inst13|inst|bit_cnt\ [2] $end
+$var wire 1 m4 \inst13|inst|bit_cnt\ [1] $end
+$var wire 1 n4 \inst13|inst|bit_cnt\ [0] $end
+$var wire 1 o4 \inst13|inst14|tx_addr\ [7] $end
+$var wire 1 p4 \inst13|inst14|tx_addr\ [6] $end
+$var wire 1 q4 \inst13|inst14|tx_addr\ [5] $end
+$var wire 1 r4 \inst13|inst14|tx_addr\ [4] $end
+$var wire 1 s4 \inst13|inst14|tx_addr\ [3] $end
+$var wire 1 t4 \inst13|inst14|tx_addr\ [2] $end
+$var wire 1 u4 \inst13|inst14|tx_addr\ [1] $end
+$var wire 1 v4 \inst13|inst14|tx_addr\ [0] $end
+$var wire 1 w4 \inst13|inst14|tx_byte\ [7] $end
+$var wire 1 x4 \inst13|inst14|tx_byte\ [6] $end
+$var wire 1 y4 \inst13|inst14|tx_byte\ [5] $end
+$var wire 1 z4 \inst13|inst14|tx_byte\ [4] $end
+$var wire 1 {4 \inst13|inst14|tx_byte\ [3] $end
+$var wire 1 |4 \inst13|inst14|tx_byte\ [2] $end
+$var wire 1 }4 \inst13|inst14|tx_byte\ [1] $end
+$var wire 1 ~4 \inst13|inst14|tx_byte\ [0] $end
+$var wire 1 !5 \inst13|inst|data_tx\ [7] $end
+$var wire 1 "5 \inst13|inst|data_tx\ [6] $end
+$var wire 1 #5 \inst13|inst|data_tx\ [5] $end
+$var wire 1 $5 \inst13|inst|data_tx\ [4] $end
+$var wire 1 %5 \inst13|inst|data_tx\ [3] $end
+$var wire 1 &5 \inst13|inst|data_tx\ [2] $end
+$var wire 1 '5 \inst13|inst|data_tx\ [1] $end
+$var wire 1 (5 \inst13|inst|data_tx\ [0] $end
+$var wire 1 )5 \inst13|inst|count\ [2] $end
+$var wire 1 *5 \inst13|inst|count\ [1] $end
+$var wire 1 +5 \inst13|inst|count\ [0] $end
+$var wire 1 ,5 \inst13|inst14|data_in\ [15] $end
+$var wire 1 -5 \inst13|inst14|data_in\ [14] $end
+$var wire 1 .5 \inst13|inst14|data_in\ [13] $end
+$var wire 1 /5 \inst13|inst14|data_in\ [12] $end
+$var wire 1 05 \inst13|inst14|data_in\ [11] $end
+$var wire 1 15 \inst13|inst14|data_in\ [10] $end
+$var wire 1 25 \inst13|inst14|data_in\ [9] $end
+$var wire 1 35 \inst13|inst14|data_in\ [8] $end
+$var wire 1 45 \inst13|inst14|data_in\ [7] $end
+$var wire 1 55 \inst13|inst14|data_in\ [6] $end
+$var wire 1 65 \inst13|inst14|data_in\ [5] $end
+$var wire 1 75 \inst13|inst14|data_in\ [4] $end
+$var wire 1 85 \inst13|inst14|data_in\ [3] $end
+$var wire 1 95 \inst13|inst14|data_in\ [2] $end
+$var wire 1 :5 \inst13|inst14|data_in\ [1] $end
+$var wire 1 ;5 \inst13|inst14|data_in\ [0] $end
+$var wire 1 <5 \inst5|count_1MHz\ [2] $end
+$var wire 1 =5 \inst5|count_1MHz\ [1] $end
+$var wire 1 >5 \inst5|count_1MHz\ [0] $end
+$var wire 1 ?5 \inst11|Duration\ [1] $end
+$var wire 1 @5 \inst11|Duration\ [0] $end
+$var wire 1 A5 \inst11|ALT_INV_LessThan0~26_combout\ $end
+$var wire 1 B5 \inst13|inst14|ALT_INV_data_out[7]~1clkctrl_outclk\ $end
+$var wire 1 C5 \inst13|inst|ALT_INV_data_clk~clkctrl_outclk\ $end
+$var wire 1 D5 \ALT_INV_KEY0~input_o\ $end
+$var wire 1 E5 \inst11|ALT_INV_Finished[0]~9_combout\ $end
+$var wire 1 F5 \inst11|ALT_INV_Finished[0]~0_combout\ $end
+$var wire 1 G5 \inst13|inst14|ALT_INV_latch_rdy~0_combout\ $end
+$var wire 1 H5 \inst4|ALT_INV_process_0~0_combout\ $end
+$var wire 1 I5 \inst13|inst14|ALT_INV_data_out[7]~1_combout\ $end
+$var wire 1 J5 \inst9|inst6|ALT_INV_Mux0~0_combout\ $end
+$var wire 1 K5 \inst9|inst5|ALT_INV_Mux0~0_combout\ $end
+$var wire 1 L5 \inst9|inst4|ALT_INV_Mux0~0_combout\ $end
+$var wire 1 M5 \inst9|inst3|ALT_INV_Mux0~0_combout\ $end
+$var wire 1 N5 \inst9|inst2|ALT_INV_Mux0~0_combout\ $end
+$var wire 1 O5 \inst9|inst1|ALT_INV_Mux0~0_combout\ $end
+$var wire 1 P5 \inst10|ALT_INV_inst\ [5] $end
+$var wire 1 Q5 \inst10|ALT_INV_inst\ [4] $end
+$var wire 1 R5 \inst10|ALT_INV_inst\ [3] $end
+$var wire 1 S5 \inst10|ALT_INV_inst\ [2] $end
+$var wire 1 T5 \inst10|ALT_INV_inst\ [1] $end
+$var wire 1 U5 \inst10|ALT_INV_inst\ [0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1!#
+1"#
+1##
+0$#
+1{"
+1|"
+1}"
+0~"
+1o"
+1p"
+1q"
+0r"
+11#
+12#
+13#
+04#
+1)#
+1*#
+1+#
+0,#
+1%#
+1&#
+1'#
+0(#
+1_"
+1`"
+1a"
+0b"
+1-#
+1.#
+1/#
+00#
+1s"
+1t"
+1u"
+0v"
+0U"
+0V"
+0W"
+0X"
+0Y"
+0Z"
+0["
+0\"
+0]"
+0^"
+x!
+1#
+1$
+1%
+1&
+1'
+1(
+1-
+0.
+0/
+00
+01
+02
+03
+14
+05
+06
+07
+08
+09
+0:
+1;
+0<
+0=
+0>
+0?
+0@
+0A
+1B
+0C
+0D
+0E
+0F
+0G
+0H
+1I
+0J
+0K
+0L
+0M
+0N
+0O
+1P
+0Q
+0R
+0S
+0T
+0U
+0V
+0X
+0Y
+0Z
+0[
+0\
+0]
+0^
+0_
+0`
+0a
+xb
+xc
+xd
+xe
+xf
+xg
+xh
+xi
+xj
+xk
+0`!
+0a!
+0b!
+0c!
+0d!
+0e!
+0f!
+0g!
+0h!
+0i!
+0j!
+0k!
+0l!
+0m!
+0n!
+0z!
+0{!
+0|!
+0}!
+0~!
+0!"
+0""
+0#"
+0$"
+0%"
+0&"
+0'"
+0("
+0)"
+0*"
+0/"
+00"
+01"
+02"
+03"
+04"
+05"
+06"
+07"
+08"
+09"
+0:"
+0;"
+0<"
+0="
+0B"
+0C"
+0D"
+0E"
+0F"
+0G"
+0H"
+0I"
+0J"
+0K"
+0L"
+0M"
+0N"
+0O"
+0P"
+x"
+1)
+z*
+z+
+1,
+xW
+0l
+1m
+xn
+1o
+1p
+1q
+1r
+1s
+1t
+1u
+1v
+xw
+xx
+0=#
+z>#
+x?#
+x@#
+xA#
+xB#
+xC#
+xD#
+xE#
+xF#
+xG#
+xH#
+xI#
+xJ#
+xK#
+xL#
+xM#
+zN#
+zO#
+xP#
+xQ#
+xR#
+xS#
+xT#
+1U#
+1V#
+0W#
+0X#
+0Y#
+1Z#
+0[#
+0\#
+0]#
+1^#
+0_#
+0`#
+0a#
+0b#
+0c#
+0d#
+0e#
+0f#
+1g#
+0h#
+1i#
+0j#
+1k#
+1l#
+zm#
+0n#
+0o#
+0p#
+0q#
+1r#
+0s#
+0t#
+1u#
+0v#
+0w#
+0x#
+0y#
+0z#
+1{#
+0|#
+0}#
+0~#
+0!$
+0"$
+0#$
+0$$
+0%$
+0&$
+0'$
+0($
+0)$
+0*$
+0+$
+0,$
+0-$
+0.$
+0/$
+00$
+01$
+02$
+03$
+04$
+05$
+06$
+07$
+08$
+09$
+0:$
+0;$
+0<$
+0=$
+0>$
+0?$
+0@$
+0A$
+1B$
+0C$
+1D$
+0E$
+0F$
+0G$
+0H$
+0I$
+0J$
+0K$
+0L$
+0M$
+0N$
+1O$
+0P$
+0Q$
+0R$
+0S$
+0T$
+0U$
+0V$
+0W$
+0X$
+0Y$
+0Z$
+0[$
+0\$
+0]$
+0^$
+0_$
+0`$
+0a$
+0b$
+0c$
+0d$
+0e$
+0f$
+0g$
+0h$
+0i$
+0j$
+0k$
+0l$
+0m$
+0n$
+0o$
+0p$
+0q$
+0r$
+0s$
+0t$
+0u$
+0v$
+0w$
+0x$
+0y$
+0z$
+0{$
+0|$
+0}$
+0~$
+0!%
+0"%
+0#%
+0$%
+0%%
+0&%
+0'%
+0(%
+0)%
+0*%
+0+%
+0,%
+0-%
+0.%
+0/%
+00%
+01%
+02%
+03%
+04%
+05%
+16%
+07%
+08%
+09%
+0:%
+0;%
+0<%
+0=%
+0>%
+0?%
+0@%
+0A%
+0B%
+0C%
+0D%
+0E%
+0F%
+0G%
+0H%
+0I%
+0J%
+0K%
+0L%
+0M%
+0N%
+0O%
+0P%
+0Q%
+1R%
+0S%
+0T%
+0U%
+0V%
+0W%
+0X%
+0Y%
+0Z%
+0[%
+0\%
+0]%
+0^%
+0_%
+0`%
+0a%
+0b%
+0c%
+0d%
+0e%
+0f%
+0g%
+0h%
+0i%
+0j%
+0k%
+0l%
+0m%
+0n%
+0o%
+0p%
+0q%
+0r%
+0s%
+0t%
+0u%
+0v%
+0w%
+0x%
+0y%
+0z%
+0{%
+0|%
+0}%
+0~%
+0!&
+0"&
+0#&
+1$&
+0%&
+0&&
+0'&
+0(&
+0)&
+0*&
+0+&
+0,&
+0-&
+0.&
+0/&
+00&
+01&
+02&
+03&
+04&
+05&
+06&
+07&
+08&
+19&
+1:&
+1;&
+1<&
+0=&
+0>&
+0?&
+0@&
+0A&
+0B&
+0C&
+0D&
+0E&
+0F&
+0G&
+0H&
+0I&
+0J&
+0K&
+0L&
+0M&
+0N&
+0O&
+0P&
+0Q&
+0R&
+0S&
+0T&
+1U&
+0V&
+0W&
+0X&
+0Y&
+0Z&
+0[&
+0\&
+1]&
+0^&
+0_&
+0`&
+0a&
+0b&
+1c&
+0d&
+0e&
+0f&
+0g&
+0h&
+0i&
+0j&
+0k&
+0l&
+1m&
+0n&
+0o&
+0p&
+0q&
+0r&
+0s&
+0t&
+0u&
+1v&
+1w&
+0x&
+0y&
+0z&
+0{&
+0|&
+1}&
+0~&
+x!'
+1"'
+1#'
+1$'
+1%'
+1&'
+1''
+1('
+0)'
+0*'
+0+'
+1,'
+0-'
+0.'
+0/'
+10'
+01'
+02'
+03'
+14'
+05'
+06'
+07'
+18'
+09'
+0:'
+0;'
+1<'
+0='
+0>'
+0?'
+1@'
+0A'
+0B'
+0C'
+1D'
+0E'
+0F'
+0G'
+1H'
+0I'
+0J'
+0K'
+1L'
+0M'
+1N'
+0O'
+0P'
+0Q'
+0R'
+0S'
+1T'
+0U'
+1V'
+0W'
+0X'
+0Y'
+1Z'
+0['
+0\'
+0]'
+1^'
+0_'
+0`'
+0a'
+1b'
+0c'
+xd'
+xe'
+1f'
+0g'
+0h'
+0i'
+1j'
+0k'
+zl'
+0m'
+0n'
+0o'
+0p'
+0q'
+0r'
+0s'
+1t'
+0u'
+0v'
+1w'
+0x'
+0y'
+0z'
+0{'
+1|'
+x}'
+x~'
+1!(
+1"(
+1#(
+0$(
+0%(
+1&(
+0'(
+0((
+0)(
+1*(
+0+(
+0,(
+0-(
+0.(
+0/(
+10(
+01(
+02(
+03(
+04(
+05(
+06(
+07(
+08(
+09(
+0:(
+0;(
+0<(
+0=(
+0>(
+0?(
+0@(
+0A(
+0B(
+0C(
+0D(
+0E(
+0F(
+0G(
+0H(
+0I(
+0J(
+0K(
+0L(
+0M(
+0N(
+0O(
+0P(
+0Q(
+0R(
+0S(
+1T(
+0U(
+0V(
+0W(
+0X(
+0Y(
+0Z(
+1[(
+0\(
+0](
+0^(
+0_(
+0`(
+0a(
+0b(
+0c(
+0d(
+0e(
+0f(
+0g(
+0h(
+0i(
+0j(
+0k(
+0l(
+0m(
+0n(
+1o(
+0p(
+0q(
+0r(
+0s(
+0t(
+0u(
+0v(
+0w(
+0x(
+0y(
+0z(
+0{(
+0|(
+0}(
+1~(
+0!)
+0")
+0#)
+0$)
+0%)
+0&)
+0')
+0()
+0))
+0*)
+0+)
+1,)
+0-)
+0.)
+0/)
+00)
+11)
+02)
+03)
+04)
+05)
+06)
+07)
+08)
+09)
+0:)
+0;)
+0<)
+0=)
+0>)
+0?)
+0@)
+0A)
+0B)
+0C)
+0D)
+0E)
+0F)
+0G)
+0H)
+0I)
+0J)
+0K)
+0L)
+0M)
+0N)
+0O)
+0P)
+0Q)
+0R)
+0S)
+0T)
+0U)
+0V)
+0W)
+0X)
+0Y)
+0Z)
+0[)
+0\)
+1])
+1^)
+0_)
+0`)
+0a)
+0b)
+0c)
+0d)
+0e)
+0f)
+1g)
+1h)
+1i)
+1j)
+0k)
+0l)
+0m)
+0n)
+0o)
+0p)
+0q)
+0r)
+0s)
+0t)
+0u)
+0v)
+0w)
+0x)
+0y)
+1z)
+1{)
+1|)
+0})
+0~)
+x!*
+x"*
+1#*
+0$*
+1%*
+1&*
+1'*
+0(*
+0)*
+0**
+0+*
+0,*
+0-*
+0.*
+0/*
+00*
+01*
+02*
+03*
+04*
+05*
+06*
+07*
+08*
+09*
+0:*
+0;*
+0<*
+0=*
+1>*
+0?*
+0@*
+1A*
+xB*
+1C*
+0D*
+1E*
+1F*
+1G*
+0H*
+0I*
+0J*
+0K*
+0L*
+1M*
+xN*
+1O*
+1P*
+1Q*
+0R*
+1S*
+xT*
+1U*
+0V*
+1W*
+1X*
+1Y*
+0Z*
+0[*
+1\*
+x]*
+1^*
+1_*
+1`*
+0a*
+1b*
+1c*
+0d*
+0e*
+0f*
+0g*
+0h*
+0i*
+0j*
+0k*
+0l*
+0m*
+0n*
+1o*
+0p*
+0q*
+1r*
+0s*
+0t*
+0u*
+0v*
+0w*
+0x*
+0y*
+0z*
+1{*
+1|*
+0}*
+0~*
+0!+
+0"+
+0#+
+0$+
+0%+
+0&+
+0'+
+0(+
+0)+
+0*+
+0++
+0,+
+1-+
+0.+
+0/+
+00+
+01+
+02+
+03+
+04+
+05+
+06+
+07+
+18+
+09+
+0:+
+0;+
+1<+
+0=+
+0>+
+0?+
+0@+
+0A+
+0B+
+1C+
+0D+
+0E+
+0F+
+0G+
+0H+
+0I+
+1J+
+0K+
+0L+
+0M+
+0N+
+0O+
+0P+
+1Q+
+0R+
+0S+
+0T+
+0U+
+0V+
+0W+
+0X+
+0Y+
+0Z+
+0[+
+0\+
+0]+
+0^+
+0_+
+0`+
+1a+
+0b+
+0c+
+0d+
+0e+
+0f+
+0g+
+0h+
+1i+
+0j+
+0k+
+1l+
+0m+
+0n+
+0o+
+0p+
+0q+
+0r+
+0s+
+0t+
+0u+
+0v+
+0w+
+0x+
+0y+
+0z+
+0{+
+0|+
+0}+
+0~+
+0!,
+0",
+0#,
+0$,
+0%,
+0&,
+0',
+0(,
+0),
+0*,
+0+,
+0,,
+0-,
+0.,
+0/,
+00,
+01,
+02,
+03,
+04,
+05,
+06,
+07,
+08,
+09,
+0:,
+0;,
+0<,
+0=,
+0>,
+0?,
+0@,
+0A,
+0B,
+0C,
+0D,
+0E,
+0F,
+0G,
+0H,
+0I,
+0J,
+0K,
+0L,
+0M,
+0N,
+0O,
+0P,
+0Q,
+0R,
+0S,
+0T,
+0U,
+0V,
+0W,
+0X,
+0Y,
+0Z,
+1[,
+0\,
+0],
+0^,
+1_,
+1`,
+1a,
+1b,
+1c,
+0d,
+0e,
+0f,
+0g,
+0h,
+0i,
+0j,
+0k,
+0l,
+0m,
+0n,
+0o,
+0p,
+0q,
+0r,
+0s,
+0t,
+0u,
+0v,
+0w,
+0x,
+0y,
+0z,
+0{,
+0|,
+0},
+0~,
+0!-
+0"-
+0#-
+0$-
+0%-
+0&-
+0'-
+0(-
+0)-
+0*-
+0+-
+0,-
+0--
+0.-
+0/-
+00-
+01-
+02-
+03-
+04-
+05-
+06-
+07-
+08-
+09-
+0:-
+0;-
+0<-
+0=-
+0>-
+0?-
+x@-
+xA-
+1B-
+0C-
+0D-
+0E-
+0F-
+1G-
+1H-
+0I-
+0J-
+0K-
+0L-
+0M-
+1N-
+0O-
+0P-
+0Q-
+0R-
+0S-
+0T-
+0U-
+0V-
+0W-
+0X-
+0Y-
+0Z-
+0[-
+0\-
+0]-
+0^-
+0_-
+0`-
+0a-
+0b-
+0c-
+0d-
+0e-
+0f-
+0g-
+0h-
+0i-
+0j-
+0k-
+0l-
+0m-
+0n-
+0o-
+0p-
+0q-
+0r-
+1s-
+1t-
+1u-
+xv-
+1w-
+0x-
+1y-
+1z-
+0{-
+1|-
+1}-
+0~-
+1!.
+1".
+0#.
+0$.
+1%.
+0&.
+0'.
+0(.
+1).
+0*.
+0+.
+0,.
+1-.
+0..
+0/.
+00.
+11.
+02.
+03.
+04.
+15.
+06.
+07.
+08.
+19.
+0:.
+0;.
+0<.
+1=.
+0>.
+0?.
+0@.
+1A.
+0B.
+0C.
+0D.
+1E.
+0F.
+0G.
+0H.
+1I.
+0J.
+1K.
+1L.
+1M.
+1N.
+0O.
+1P.
+0Q.
+0R.
+0S.
+0T.
+0U.
+1V.
+0W.
+1X.
+0Y.
+0Z.
+0[.
+1\.
+0].
+1^.
+1_.
+1`.
+1a.
+0b.
+0c.
+0d.
+0e.
+0f.
+0g.
+0h.
+0i.
+1j.
+0k.
+0l.
+1m.
+0n.
+0o.
+0p.
+0q.
+0r.
+0s.
+0t.
+0u.
+0v.
+0w.
+0x.
+0y.
+0z.
+0{.
+0|.
+1}.
+0~.
+0!/
+1"/
+1#/
+0$/
+0%/
+0&/
+0'/
+0(/
+0)/
+0*/
+0+/
+0,/
+0-/
+0./
+0//
+00/
+01/
+12/
+03/
+14/
+05/
+06/
+07/
+08/
+09/
+1:/
+0;/
+1</
+0=/
+1>/
+1?/
+0@/
+1A/
+1B/
+0C/
+1D/
+1E/
+0F/
+0G/
+1H/
+1I/
+1J/
+1K/
+0L/
+1M/
+1N/
+1O/
+0P/
+1Q/
+1R/
+1S/
+0T/
+1U/
+1V/
+0W/
+1X/
+0Y/
+0Z/
+0[/
+0\/
+0]/
+0^/
+0_/
+0`/
+0a/
+0b/
+0c/
+0d/
+0e/
+0f/
+1g/
+0h/
+1i/
+0j/
+0k/
+0l/
+1m/
+1n/
+1o/
+0p/
+0q/
+0r/
+0s/
+1t/
+1u/
+1v/
+0w/
+1x/
+0y/
+0z/
+0{/
+0|/
+1}/
+0~/
+1!0
+1"0
+0#0
+0$0
+0%0
+0&0
+0'0
+0(0
+0)0
+0*0
+1+0
+0,0
+0-0
+1.0
+0/0
+000
+010
+120
+030
+040
+050
+160
+070
+080
+090
+1:0
+0;0
+0<0
+0=0
+1>0
+0?0
+0@0
+0A0
+1B0
+0C0
+0D0
+0E0
+0F0
+1G0
+0H0
+1I0
+0J0
+1K0
+0L0
+1M0
+0N0
+1O0
+0P0
+1Q0
+0R0
+0S0
+1T0
+0U0
+0V0
+0W0
+0X0
+0Y0
+1Z0
+0[0
+0\0
+0]0
+0^0
+1_0
+0`0
+0a0
+0b0
+0c0
+1d0
+0e0
+0f0
+1g0
+1h0
+0i0
+xj0
+0k0
+0l0
+0m0
+1n0
+1o0
+1p0
+1q0
+1r0
+0s0
+0t0
+0u0
+0v0
+1w0
+1x0
+1y0
+1z0
+0{0
+0|0
+0}0
+0~0
+0!1
+0"1
+0#1
+1$1
+1%1
+1&1
+1'1
+0(1
+0)1
+0*1
+0+1
+0,1
+0-1
+0.1
+1/1
+101
+111
+121
+031
+041
+051
+061
+071
+081
+091
+0:1
+0;1
+0<1
+0=1
+0>1
+0?1
+0@1
+0A1
+0B1
+1C1
+1D1
+1E1
+1F1
+0G1
+0H1
+0I1
+0J1
+0K1
+0L1
+0M1
+1N1
+1O1
+1P1
+1Q1
+0R1
+0S1
+0T1
+0U1
+0V1
+0W1
+0X1
+0Y1
+0Z1
+1[1
+1\1
+1]1
+1^1
+1_1
+1`1
+1a1
+1b1
+1c1
+1A5
+0B5
+1C5
+xD5
+1E5
+0F5
+0G5
+0H5
+0I5
+1J5
+1K5
+1L5
+1M5
+1N5
+1O5
+xy
+xz
+x{
+x|
+x}
+x~
+x!!
+x"!
+x#!
+x$!
+x%!
+1&!
+1'!
+1(!
+1)!
+1*!
+1+!
+1,!
+0-!
+0.!
+0/!
+00!
+01!
+02!
+13!
+04!
+05!
+06!
+07!
+08!
+09!
+1:!
+0;!
+0<!
+0=!
+0>!
+0?!
+0@!
+1A!
+0B!
+0C!
+0D!
+0E!
+0F!
+0G!
+1H!
+0I!
+0J!
+0K!
+0L!
+0M!
+0N!
+1O!
+0P!
+0Q!
+0R!
+0S!
+0T!
+0U!
+0V!
+0W!
+0X!
+0Y!
+0Z!
+0[!
+0\!
+0]!
+0^!
+0_!
+0o!
+0p!
+0q!
+0r!
+xu!
+xv!
+xw!
+xx!
+xy!
+0+"
+0,"
+0-"
+0."
+0>"
+0?"
+0@"
+0A"
+0Q"
+0R"
+0S"
+0T"
+0d1
+0e1
+0f1
+0g1
+0h1
+0i1
+0j1
+0k1
+0l1
+0m1
+0n1
+0o1
+0p1
+0q1
+0r1
+0s1
+0t1
+0u1
+0v1
+0w1
+0x1
+0y1
+0z1
+0{1
+0|1
+0}1
+0~1
+0!2
+0"2
+0#2
+0$2
+0%2
+0&2
+0'2
+0(2
+0)2
+0*2
+0+2
+0,2
+0-2
+0.2
+0/2
+002
+012
+022
+032
+042
+052
+062
+072
+082
+092
+0:2
+0;2
+0<2
+0=2
+0>2
+0?2
+0@2
+0A2
+0B2
+0C2
+0D2
+0E2
+0F2
+0G2
+0H2
+xI2
+xJ2
+xK2
+xL2
+xM2
+0N2
+0O2
+0P2
+0Q2
+0R2
+0S2
+0T2
+0U2
+0V2
+0W2
+0X2
+0Y2
+0Z2
+0[2
+0\2
+0]2
+0^2
+0_2
+0`2
+0a2
+0b2
+0c2
+0d2
+0e2
+0f2
+0g2
+0h2
+0i2
+0j2
+0k2
+0l2
+xm2
+0n2
+0o2
+0p2
+0q2
+0r2
+0s2
+xt2
+xu2
+0v2
+0w2
+xx2
+xy2
+0z2
+0{2
+0|2
+0}2
+0~2
+0!3
+0"3
+0#3
+0$3
+0%3
+0&3
+0'3
+0(3
+0)3
+0*3
+0+3
+0,3
+0-3
+0.3
+0/3
+003
+013
+023
+033
+043
+053
+063
+073
+083
+093
+0:3
+0;3
+0<3
+0=3
+0>3
+0?3
+0@3
+0A3
+0B3
+0C3
+0D3
+0E3
+0F3
+0G3
+0H3
+0I3
+0J3
+0K3
+0L3
+0M3
+0N3
+0O3
+0P3
+0Q3
+0R3
+xS3
+xT3
+xU3
+xV3
+xW3
+xX3
+0Y3
+0Z3
+0[3
+0\3
+0]3
+0^3
+0_3
+0`3
+0a3
+0b3
+0c3
+0d3
+0e3
+0f3
+xg3
+xh3
+xi3
+xj3
+xk3
+xl3
+0m3
+0n3
+0o3
+0p3
+0q3
+0r3
+0s3
+0t3
+0u3
+0v3
+0w3
+0x3
+0y3
+0z3
+0{3
+0|3
+0}3
+0~3
+0!4
+0"4
+0#4
+0$4
+0%4
+0&4
+0'4
+0(4
+0)4
+0*4
+0+4
+0,4
+0-4
+0.4
+0/4
+004
+x14
+x24
+x34
+x44
+x54
+064
+074
+084
+094
+0:4
+0;4
+0<4
+0=4
+0>4
+0?4
+0@4
+0A4
+0B4
+0C4
+0D4
+0E4
+0F4
+0G4
+0H4
+0I4
+0J4
+0K4
+0L4
+0M4
+0N4
+0O4
+0P4
+0Q4
+0R4
+0S4
+0T4
+0U4
+0V4
+0W4
+0X4
+0Y4
+0Z4
+0[4
+0\4
+0]4
+0^4
+0_4
+0`4
+0a4
+0b4
+0c4
+0d4
+0e4
+0f4
+0g4
+0h4
+0i4
+0j4
+0k4
+0l4
+0m4
+0n4
+0o4
+0p4
+0q4
+0r4
+0s4
+0t4
+0u4
+xv4
+0w4
+0x4
+0y4
+0z4
+0{4
+0|4
+0}4
+0~4
+0!5
+0"5
+0#5
+0$5
+0%5
+0&5
+0'5
+0(5
+x)5
+0*5
+0+5
+0,5
+0-5
+0.5
+0/5
+005
+015
+025
+035
+045
+055
+065
+075
+085
+095
+0:5
+0;5
+0<5
+0=5
+0>5
+0?5
+0@5
+1P5
+1Q5
+1R5
+1S5
+1T5
+1U5
+0s!
+xt!
+19#
+1:#
+1;#
+x<#
+1g"
+1h"
+1i"
+0j"
+1w"
+1x"
+1y"
+1z"
+1k"
+1l"
+1m"
+0n"
+15#
+16#
+17#
+08#
+1c"
+1d"
+1e"
+0f"
+$end
+#30000000
