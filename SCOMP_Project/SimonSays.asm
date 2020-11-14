@@ -38,6 +38,7 @@ EndGame:
 ;*******************************************************************************
 CheckKeys:
 
+
 ;*******************************************************************************
 ; CheckSwitches: Check if a switch has been flipped. If so, wait for it to be released.
 ; Returns the flipped switch through AC, or -1 if no switch is flipped
@@ -193,4 +194,4 @@ Timer:     EQU &H002
 Hex0:      EQU &H004
 Hex1:      EQU &H005
 DPs:       EQU &H0E0
-SqGen:     EQU &H0F0
+WaveGen:     EQU &H0F0
