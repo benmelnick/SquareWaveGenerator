@@ -1,0 +1,355 @@
+-- Altera Memory Initialization File (MIF)
+
+DEPTH = 2048;
+WIDTH = 16;
+
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+
+CONTENT
+  BEGIN
+    [000..7FF] : 0000;  -- Default to NOP
+
+           000 : 801D;  --    	CALL  	GeneratePattern
+           001 : 8041;  --    	CALL  	PlayPattern
+           002 : 0904;  -- 	LOAD	Score
+           003 : 8010;  -- 	CALL	CheckKeys
+           004 : 3003;  -- 	JNEG 	WaitForCommand
+           005 : 4008;  -- 	JZERO	EnterPatternLoop
+           006 : 8041;  -- 	CALL	PlayPattern
+           007 : 2802;  -- 	JUMP 	GameLoop
+           008 : 8010;  -- 	CALL 	CheckSwitches
+           009 : 400B;  -- 	JZERO	SkipAppend
+           00A : 801D;  -- 	CALL	AppendToPattern
+           00B : 8010;  -- 	CALL	CheckKeys
+           00C : 3008;  -- 	JNEG	EnterPatternLoop
+           00D : 280E;  -- 	JUMP	PatternEntered
+           00E : 8068;  -- 	CALL	CheckPattern
+           00F : 8068;  -- 	CALL 	UpdateScore
+           010 : 0800;  -- 	LOAD	Switches
+           011 : 5000;  -- 	OR	0
+           012 : 401A;  -- 	JZERO	NoSwitchFlipped
+           013 : 101C;  -- 	STORE	FlippedSwitch
+           014 : 0800;  -- 	LOAD	Switches
+           015 : 5000;  -- 	OR	0
+           016 : 4018;  -- 	JZERO	ReturnSwitch
+           017 : 2814;  -- 	JUMP	WaitingLoop
+           018 : 081C;  -- 	LOAD	FlippedSwitch
+           019 : 8800;  -- 	RETURN
+           01A : BFFF;  -- 	LOADI	-1
+           01B : 8800;  -- 	RETURN
+           01C : 0000;  -- FlippedSwitch:	DW 0
+           01D : 08F8;  -- 	LOAD    FreqsPattern ; load number of random frequencies to generate
+           01E : 103C;  -- 	STORE   PatternCnt
+           01F : B8F8;  -- 	LOADI   FreqsPattern ; load list address
+           020 : 6801;  -- 	ADDI    1			 ; increment to first frequency to store in FreqsPattern array
+           021 : 103D;  -- 	STORE   PatternPtr
+           022 : B8FC;  -- 	LOADI   LEDPattern   ; load LED array address
+           023 : 6801;  -- 	ADDI    1
+           024 : 103E;  -- 	STORE   LEDPtr
+           025 : 0913;  -- 	LOAD    Freqs        ; highest index into Freqs array
+           026 : 1086;  -- 	STORE   m
+           027 : 806E;  -- 	CALL    LCGRand      ; get a random index into the array
+           028 : 0887;  -- 	LOAD    Index
+           029 : 103F;  -- 	STORE   FreqsIndex   ; store index into the freqs array
+           02A : B913;  -- 	LOADI   Freqs        ; load address of freqs list
+           02B : 183F;  -- 	ADD     FreqsIndex
+           02C : 1040;  -- 	STORE   FreqsPtr
+           02D : 7040;  -- 	ILOAD   FreqsPtr     ; load value stored in the array
+           02E : 783D;  -- 	ISTORE  PatternPtr   ; store the frequency into FreqsPattern
+           02F : 083F;  -- 	LOAD    FreqsIndex   ; use the index of the frequency in the Freqs array as the unique LED sequence to display
+           030 : 783E;  -- 	ISTORE  LEDPtr
+           031 : 083D;  -- 	LOAD    PatternPtr   ; increment to next spot in frequency and LED patterns
+           032 : 6801;  -- 	ADDI    1
+           033 : 103D;  -- 	STORE   PatternPtr
+           034 : 083E;  -- 	LOAD    LEDPtr
+           035 : 6801;  -- 	ADDI    1
+           036 : 103E;  -- 	STORE   LEDPtr
+           037 : 083C;  -- 	LOAD    PatternCnt   ; check if finished
+           038 : 6FFF;  -- 	ADDI    -1      
+           039 : 103C;  -- 	STORE   PatternCnt
+           03A : 3825;  -- 	JPOS    GenerateLoop
+           03B : 8800;  -- 	RETURN
+           03C : 0000;  -- PatternCnt:  DW 0  ; number of frequencies to generate
+           03D : 0000;  -- PatternPtr:  DW 0  ; memory address pointing to a spot in the FreqsPattern array
+           03E : 0000;  -- LEDPtr:      DW 0  ; memory address pointing to a spot in the LEDPattern array
+           03F : 0000;  -- FreqsIndex:  DW 0  ; numerical index into the freqs array
+           040 : 0000;  -- FreqsPtr:    DW 0  ; memory address of the indexed value
+           041 : B80A;  -- 	LOADI   10
+           042 : 10F6;  -- 	STORE   TimerParam
+           043 : 80F1;  -- 	CALL    WaitForTimer
+           044 : 08F8;  -- 	LOAD    FreqsPattern  ; load number of sounds to play
+           045 : 1065;  -- 	STORE   PlayCnt
+           046 : B8F8;  -- 	LOADI   FreqsPattern  ; load address of list of stored frequencies
+           047 : 6801;  -- 	ADDI    1
+           048 : 1066;  -- 	STORE   PlayPtr
+           049 : B8FC;  -- 	LOADI   LEDPattern    ; load address of list of stored LED patterns
+           04A : 6801;  -- 	ADDI    1
+           04B : 1067;  -- 	STORE   DisplayPtr
+           04C : 80EE;  --     CALL    WaitForSound
+           04D : 7066;  --     ILOAD   PlayPtr      ; load value stored in FreqsPattern array
+           04E : 1952;  -- 	ADD     TwoFourth
+           04F : 9820;  -- 	OUT     WaveGen      ; play the sound
+           050 : 7067;  -- 	ILOAD   DisplayPtr   ; load stored LED FreqsPattern and display
+           051 : 9801;  -- 	OUT     LEDs
+           052 : 0866;  -- 	LOAD    PlayPtr      ; increment to next spot
+           053 : 6801;  -- 	ADDI    1
+           054 : 1066;  -- 	STORE   PlayPtr
+           055 : 0867;  -- 	LOAD    DisplayPtr
+           056 : 6801;  -- 	ADDI    1
+           057 : 1067;  -- 	STORE   DisplayPtr
+           058 : 0865;  -- 	LOAD    PlayCnt
+           059 : 6FFF;  -- 	ADDI    -1
+           05A : 1065;  -- 	STORE   PlayCnt
+           05B : 384C;  -- 	JPOS    PlayLoop
+           05C : 80EE;  -- 	CALL    WaitForSound
+           05D : 0955;  -- 	LOAD    Disable      ; stop playing noise
+           05E : 9820;  -- 	OUT     WaveGen
+           05F : 0911;  -- 	LOAD    Bit9         ; light up only far left LED to indicate pattern is done playing
+           060 : 9801;  -- 	OUT     LEDs
+           061 : B814;  -- 	LOADI   20
+           062 : 10F6;  -- 	STORE   TimerParam
+           063 : 80F1;  -- 	CALL    WaitForTimer
+           064 : 8800;  -- 	RETURN
+           065 : 0000;  -- PlayCnt:     DW 0  ; number of frequencies to play
+           066 : 0000;  -- PlayPtr:     DW 0  ; memory address pointing to a spot in the FreqsPattern array
+           067 : 0000;  -- DisplayPtr:  DW 0  ; memory address pointing to a spot in the LEDPattern array
+           068 : 5000;  -- 	OR	0
+           069 : 406C;  -- 	JZERO	StoreScore
+           06A : 0904;  -- 	LOAD	Score
+           06B : 6801;  -- 	ADDI	1
+           06C : 1104;  -- 	STORE	Score
+           06D : 8800;  -- 	RETURN
+           06E : 0883;  -- 	LOAD    x
+           06F : 10E4;  -- 	STORE   m16sa
+           070 : 0884;  -- 	LOAD    a
+           071 : 10E5;  -- 	STORE   m16sb
+           072 : 80C1;  -- 	CALL    Mult16s
+           073 : 08E9;  -- 	LOAD    mres16sH
+           074 : 6008;  -- 	SHIFT   8           ; move high word of result up 8 bits
+           075 : 10E9;  -- 	STORE   mres16sH
+           076 : 08E8;  -- 	LOAD    mres16sL
+           077 : 6018;  -- 	SHIFT   -8          ; move low word of result down 8 bits
+           078 : 4912;  -- 	AND     LoByte
+           079 : 50E9;  -- 	OR      mres16sH    ; combine high and low words of result
+           07A : 1885;  -- 	ADD		c
+           07B : 10B9;  -- 	STORE   d16sN
+           07C : 0886;  -- 	LOAD    m
+           07D : 10BA;  -- 	STORE   d16sD
+           07E : 8088;  -- 	CALL    Div16s
+           07F : 08C0;  -- 	LOAD    dres16sR
+           080 : 1083;  -- 	STORE   x
+           081 : 1087;  -- 	STORE   Index
+           082 : 8800;  -- 	RETURN
+           083 : 0001;  -- x:     DW 1
+           084 : 0DCD;  -- a:     DW 69069
+           085 : 0001;  -- c:     DW 1
+           086 : 0000;  -- m:     DW 0
+           087 : 0000;  -- Index: DW 0
+           088 : B800;  -- 	LOADI  0
+           089 : 10C0;  -- 	STORE  dres16sR     ; clear remainder result
+           08A : 10BD;  -- 	STORE  d16sC1       ; clear carry
+           08B : 08B9;  -- 	LOAD   d16sN
+           08C : 58BA;  -- 	XOR    d16sD
+           08D : 10BB;  -- 	STORE  d16sS        ; sign determination = N XOR D
+           08E : B811;  -- 	LOADI  17
+           08F : 10BC;  -- 	STORE  d16sT        ; preload counter with 17 (16+1)
+           090 : 08BA;  -- 	LOAD   d16sD
+           091 : 80EA;  -- 	CALL   Abs          ; take absolute value of denominator
+           092 : 10BA;  -- 	STORE  d16sD
+           093 : 08B9;  -- 	LOAD   d16sN
+           094 : 80EA;  -- 	CALL   Abs          ; take absolute value of numerator
+           095 : 10B9;  -- 	STORE  d16sN
+           096 : 08B9;  -- 	LOAD   d16sN
+           097 : 601F;  -- 	SHIFT  -15          ; get msb
+           098 : 4907;  -- 	AND    One          ; only msb (because shift is arithmetic)
+           099 : 10BE;  -- 	STORE  d16sC2       ; store as carry
+           09A : 08B9;  -- 	LOAD   d16sN
+           09B : 6001;  -- 	SHIFT  1            ; shift <<1
+           09C : 50BD;  -- 	OR     d16sC1       ; with carry
+           09D : 10B9;  -- 	STORE  d16sN
+           09E : 08BC;  -- 	LOAD   d16sT
+           09F : 6FFF;  -- 	ADDI   -1           ; decrement counter
+           0A0 : 40B0;  -- 	JZERO  Div16s_sign  ; if finished looping, finalize result
+           0A1 : 10BC;  -- 	STORE  d16sT
+           0A2 : 08C0;  -- 	LOAD   dres16sR
+           0A3 : 6001;  -- 	SHIFT  1            ; shift remainder
+           0A4 : 50BE;  -- 	OR     d16sC2       ; with carry from other shift
+           0A5 : 20BA;  -- 	SUB    d16sD        ; subtract denominator from remainder
+           0A6 : 30AB;  -- 	JNEG   Div16s_add   ; if negative, need to add it back
+           0A7 : 10C0;  -- 	STORE  dres16sR
+           0A8 : B801;  -- 	LOADI  1
+           0A9 : 10BD;  -- 	STORE  d16sC1       ; set carry
+           0AA : 2896;  -- 	JUMP   Div16s_loop
+           0AB : 18BA;  -- 	ADD    d16sD        ; add denominator back in
+           0AC : 10C0;  -- 	STORE  dres16sR
+           0AD : B800;  -- 	LOADI  0
+           0AE : 10BD;  -- 	STORE  d16sC1       ; clear carry
+           0AF : 2896;  -- 	JUMP   Div16s_loop
+           0B0 : 08B9;  -- 	LOAD   d16sN
+           0B1 : 10BF;  -- 	STORE  dres16sQ     ; numerator was used to hold quotient result
+           0B2 : 08BB;  -- 	LOAD   d16sS        ; check the sign indicator
+           0B3 : 30B5;  -- 	JNEG   Div16s_neg
+           0B4 : 8800;  -- 	RETURN
+           0B5 : 08BF;  -- 	LOAD   dres16sQ     ; need to negate the result
+           0B6 : 80EB;  -- 	CALL   Neg
+           0B7 : 10BF;  -- 	STORE  dres16sQ
+           0B8 : 8800;  -- 	RETURN	
+           0B9 : 0000;  -- d16sN: DW 0 ; numerator
+           0BA : 0000;  -- d16sD: DW 0 ; denominator
+           0BB : 0000;  -- d16sS: DW 0 ; sign value
+           0BC : 0000;  -- d16sT: DW 0 ; temp counter
+           0BD : 0000;  -- d16sC1: DW 0 ; carry value
+           0BE : 0000;  -- d16sC2: DW 0 ; carry value
+           0BF : 0000;  -- dres16sQ: DW 0 ; quotient result
+           0C0 : 0000;  -- dres16sR: DW 0 ; remainder result
+           0C1 : B800;  -- 	LOADI  0
+           0C2 : 10E6;  -- 	STORE  m16sc        ; clear carry
+           0C3 : 10E9;  -- 	STORE  mres16sH     ; clear result
+           0C4 : B810;  -- 	LOADI  16           ; load 16 to counter
+           0C5 : 10E7;  -- 	STORE  mcnt16s      
+           0C6 : 08E6;  -- 	LOAD   m16sc        ; check the carry (from previous iteration)
+           0C7 : 40CB;  -- 	JZERO  Mult16s_noc  ; if no carry, move on
+           0C8 : 08E9;  -- 	LOAD   mres16sH     ; if a carry, 
+           0C9 : 18E4;  -- 	ADD    m16sA        ;  add multiplicand to result H
+           0CA : 10E9;  -- 	STORE  mres16sH
+           0CB : 08E5;  -- 	LOAD   m16sB
+           0CC : 4907;  -- 	AND    One          ; check bit 0 of multiplier
+           0CD : 10E6;  -- 	STORE  m16sc        ; save as next carry
+           0CE : 40D2;  -- 	JZERO  Mult16s_sh   ; if no carry, move on to shift
+           0CF : 08E9;  -- 	LOAD   mres16sH     ; if bit 0 set,
+           0D0 : 20E4;  -- 	SUB    m16sA        ;  subtract multiplicand from result H
+           0D1 : 10E9;  -- 	STORE  mres16sH
+           0D2 : 08E5;  -- 	LOAD   m16sB
+           0D3 : 6011;  -- 	SHIFT  -1           ; shift result L >>1
+           0D4 : 48E3;  -- 	AND    c7FFF        ; clear msb
+           0D5 : 10E5;  -- 	STORE  m16sB
+           0D6 : 08E9;  -- 	LOAD   mres16sH     ; load result H
+           0D7 : 600F;  -- 	SHIFT  15           ; move lsb to msb
+           0D8 : 50E5;  -- 	OR     m16sB
+           0D9 : 10E5;  -- 	STORE  m16sB        ; result L now includes carry out from H
+           0DA : 08E9;  -- 	LOAD   mres16sH
+           0DB : 6011;  -- 	SHIFT  -1
+           0DC : 10E9;  -- 	STORE  mres16sH     ; shift result H >>1
+           0DD : 08E7;  -- 	LOAD   mcnt16s
+           0DE : 6FFF;  -- 	ADDI   -1           ; check counter
+           0DF : 38C5;  -- 	JPOS   Mult16s_loop ; need to iterate 16 times
+           0E0 : 08E5;  -- 	LOAD   m16sB
+           0E1 : 10E8;  -- 	STORE  mres16sL     ; multiplier and result L shared a word
+           0E2 : 8800;  -- 	RETURN              ; Done
+           0E3 : 7FFF;  -- c7FFF: DW &H7FFF
+           0E4 : 0000;  -- m16sA: DW 0 ; multiplicand
+           0E5 : 0000;  -- m16sB: DW 0 ; multipler
+           0E6 : 0000;  -- m16sc: DW 0 ; carry
+           0E7 : 0000;  -- mcnt16s: DW 0 ; counter
+           0E8 : 0000;  -- mres16sL: DW 0 ; result low
+           0E9 : 0000;  -- mres16sH: DW 0 ; result high
+           0EA : 38ED;  -- 	JPOS   Abs_r
+           0EB : 5906;  -- 	XOR    NegOne       ; Flip all bits
+           0EC : 6801;  -- 	ADDI   1            ; Add one (i.e. negate number)
+           0ED : 8800;  -- 	RETURN
+           0EE : 9020;  -- 	IN	   WaveGen
+           0EF : 40EE;  -- 	JZERO  WaitForSound
+           0F0 : 8800;  -- 	RETURN
+           0F1 : 9802;  -- 	OUT    Timer
+           0F2 : 9002;  -- 	IN     Timer
+           0F3 : 20F6;  -- 	SUB    TimerParam
+           0F4 : 30F2;  -- 	JNEG   TimerLoop
+           0F5 : 8800;  -- 	RETURN
+           0F6 : 0000;  -- TimerParam:  DW 0
+           0F7 : 0000;  -- Temp:	  		DW 0
+           0F8 : 0003;  --      DW 3       ; number of sequences to store in this array
+           0F9 : 0000;  -- 	 DW 0
+           0FA : 0000;  -- 	 DW 0
+           0FB : 0000;  -- 	 DW 0
+           0FC : 0003;  -- 	 DW 3       ; number of LED patterns to store
+           0FD : 0000;  -- 	 DW 0 
+           0FE : 0000;  -- 	 DW 0
+           0FF : 0000;  -- 	 DW 0
+           100 : 0003;  -- 	 DW 3
+           101 : 0000;  -- 	 DW 0
+           102 : 0000;  -- 	 DW 0
+           103 : 0000;  -- 	 DW 0
+           104 : 0000;  -- Score:    		DW 0
+           105 : 0000;  -- Zero:      DW 0
+           106 : FFFF;  -- NegOne:    DW -1
+           107 : 0001;  -- One:	   DW 1
+           108 : 0001;  -- Bit0:      DW &B0000000001
+           109 : 0002;  -- Bit1:      DW &B0000000010
+           10A : 0004;  -- Bit2:      DW &B0000000100
+           10B : 0008;  -- Bit3:      DW &B0000001000
+           10C : 0010;  -- Bit4:      DW &B0000010000
+           10D : 0020;  -- Bit5:      DW &B0000100000
+           10E : 0040;  -- Bit6:      DW &B0001000000
+           10F : 0080;  -- Bit7:      DW &B0010000000
+           110 : 0100;  -- Bit8:      DW &B0100000000
+           111 : 0200;  -- Bit9:      DW &B1000000000
+           112 : 00FF;  -- LoByte:    DW &H00FF
+           113 : 003D;  --    DW 61   ; size of the array
+           114 : 1DDC;  --    DW 7644 ; C2
+           115 : 1C2F;  --    DW 7215 ; C2 sharp
+           116 : 1A9A;  --    DW 6810 ; D2
+           117 : 191C;  --    DW 6428 ; D2 sharp
+           118 : 17B3;  --    DW 6067 ; E2
+           119 : 165F;  --    DW 5727 ; F2
+           11A : 151D;  --    DW 5405 ; F2 sharp
+           11B : 13EE;  --    DW 5102 ; G2
+           11C : 12D0;  --    DW 4816 ; G2 sharp
+           11D : 11C1;  --    DW 4545 ; A2
+           11E : 10C2;  --    DW 4290 ; A2 sharp
+           11F : 0FD2;  --    DW 4050 ; B2
+           120 : 0EEE;  --    DW 3822 ; C3
+           121 : 0E18;  --    DW 3608 ; C3 sharp
+           122 : 0D4D;  --    DW 3405 ; D3
+           123 : 0C8E;  --    DW 3214 ; D3 sharp
+           124 : 0BDA;  --    DW 3034 ; E3
+           125 : 0B30;  --    DW 2864 ; F3
+           126 : 0A8F;  --    DW 2703 ; F3 sharp
+           127 : 09F7;  --    DW 2551 ; G3
+           128 : 0968;  --    DW 2408 ; G3 sharp
+           129 : 08E1;  --    DW 2273 ; A3
+           12A : 0861;  --    DW 2145 ; A3 sharp
+           12B : 07E9;  --    DW 2025 ; B3
+           12C : 0777;  --    DW 1911 ; C4
+           12D : 070C;  --    DW 1804 ; C4 sharp
+           12E : 06A7;  --    DW 1703 ; D4
+           12F : 0647;  --    DW 1607 ; D4 sharp
+           130 : 05ED;  --    DW 1517 ; E4
+           131 : 0598;  --    DW 1432 ; F4
+           132 : 0547;  --    DW 1351 ; F4 sharp
+           133 : 04FC;  --    DW 1276 ; G4
+           134 : 04B4;  --    DW 1204 ; G4 sharp
+           135 : 0470;  --    DW 1136 ; A4
+           136 : 0431;  --    DW 1073 ; A4 sharp
+           137 : 03F4;  --    DW 1012 ; B4
+           138 : 03BC;  --    DW 956  ; C5
+           139 : 0386;  --    DW 902  ; C5 sharp
+           13A : 0353;  --    DW 851  ; D5 
+           13B : 0324;  --    DW 804  ; D5 sharp
+           13C : 02F6;  --    DW 758  ; E5
+           13D : 02CC;  --    DW 716  ; F5
+           13E : 02A4;  --    DW 676  ; F5 sharp
+           13F : 027E;  --    DW 638  ; G5
+           140 : 025A;  --    DW 602  ; G5 sharp
+           141 : 0238;  --    DW 568  ; A5
+           142 : 0218;  --    DW 536  ; A5 sharp
+           143 : 01FA;  --    DW 506  ; B5
+           144 : 01DE;  --    DW 478  ; C6
+           145 : 01C3;  --    DW 451  ; C6 sharp
+           146 : 01AA;  --    DW 426  ; D6
+           147 : 0192;  --    DW 402  ; D6 sharp
+           148 : 017B;  --    DW 379  ; E6
+           149 : 0166;  --    DW 358  ; F6
+           14A : 0152;  --    DW 338  ; F6 sharp
+           14B : 013F;  --    DW 319  ; G6
+           14C : 012D;  --    DW 301  ; G6 sharp
+           14D : 011C;  --    DW 284  ; A6
+           14E : 010C;  --    DW 268  ; A6 sharp
+           14F : 00FD;  --    DW 253  ; B6
+           150 : 00EF;  --    DW 239  ; C7
+           151 : 0000;  -- Unlimited:	 DW &H0000
+           152 : 4000;  -- TwoFourth:	 DW &H4000
+           153 : 8000;  -- ThreeFourth: DW	&H8000
+           154 : C000;  -- FourFourth:  DW	&HC000
+           155 : 3FFF;  -- Disable:	 DW	&H3FFF
+  END;

@@ -495,4 +495,6 @@ Timer:     EQU &H002
 Hex0:      EQU &H004
 Hex1:      EQU &H005
 DPs:       EQU &H0E0
-WaveGen:   EQU &H0F0
+SQGen:     EQU &H0F0
+WaveGen:   EQU &H020
+Keys:	   EQU &H021

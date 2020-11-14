@@ -56,6 +56,9 @@ ORG 0
 	LOAD   Disable
 	OUT    SqGen
 	
+	IN	   Keys
+	OUT	   LEDs
+	
 	LOADI   -1
 	OUT    HEX0
 Halt:
@@ -148,9 +151,11 @@ Disable:	DW		&H3FFF
 
 ; IO address constants
 Switches:  EQU &H000
-LEDs:	   EQU &H001
+LEDs:      EQU &H001
 Timer:     EQU &H002
-HEX0:      EQU &H004
-HEX1:      EQU &H005
+Hex0:      EQU &H004
+Hex1:      EQU &H005
 DPs:       EQU &H0E0
-SqGen:     EQU &H0F0
+SQGen:     EQU &H0F0
+WaveGen:   EQU &H020
+Keys:	   EQU &H021
