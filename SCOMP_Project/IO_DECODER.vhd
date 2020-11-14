@@ -21,7 +21,9 @@ ENTITY IO_DECODER IS
     I2C_DATA_EN   : OUT STD_LOGIC;
     I2C_RDY_EN    : OUT STD_LOGIC;
     DP_EN         : OUT STD_LOGIC;
-	 SQ_EN			: OUT STD_LOGIC
+	 SQ_EN			: OUT STD_LOGIC;
+	 WAVE_EN			: OUT STD_LOGIC;
+	 KEY_EN			: OUT STD_LOGIC
   );
 
 END ENTITY;
@@ -44,5 +46,7 @@ begin
   I2C_RDY_EN   <= '1' WHEN (ADDR_INT = 16#092#) and (IO_CYCLE = '1') ELSE '0';
   DP_EN        <= '1' WHEN (ADDR_INT = 16#0E0#) and (IO_CYCLE = '1') ELSE '0';
   SQ_EN			<= '1' WHEN (ADDR_INT = 16#0F0#) and (IO_CYCLE = '1') ELSE '0';
+  WAVE_EN		<= '1' WHEN (ADDR_INT = 16#020#) and (IO_CYCLE = '1') ELSE '0';
+  KEY_EN			<= '1' WHEN (ADDR_INT = 16#021#) and (IO_CYCLE = '1') ELSE '0';
       
 END a;

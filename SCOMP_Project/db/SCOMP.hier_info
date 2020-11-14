@@ -4,6 +4,7 @@ GSENSOR_SDO <= <VCC>
 GSENSOR_SDI <> I2C_INTERFACE:inst13.SDA
 clock_50 => PLL_main:inst1.inclk0
 KEY0 => inst2.IN0
+KEY0 => Keys_IN:inst15.KEYS[1]
 SW[0] => DIG_IN:inst7.DI[0]
 SW[1] => DIG_IN:inst7.DI[1]
 SW[2] => DIG_IN:inst7.DI[2]
@@ -14,14 +15,15 @@ SW[6] => DIG_IN:inst7.DI[6]
 SW[7] => DIG_IN:inst7.DI[7]
 SW[8] => DIG_IN:inst7.DI[8]
 SW[9] => DIG_IN:inst7.DI[9]
+KEY1 => Keys_IN:inst15.KEYS[0]
 GSENSOR_SCLK <> I2C_INTERFACE:inst13.SCL
-Arduino_IO[0] <= SQ_GEN:inst11.SQ
+Arduino_IO16[0] <= Wave_Gen:inst14.SQ
 DP[0] <= DP_internal[0].DB_MAX_OUTPUT_PORT_TYPE
 DP[1] <= DP_internal[1].DB_MAX_OUTPUT_PORT_TYPE
 DP[2] <= DP_internal[2].DB_MAX_OUTPUT_PORT_TYPE
 DP[3] <= DP_internal[3].DB_MAX_OUTPUT_PORT_TYPE
 DP[4] <= DP_internal[4].DB_MAX_OUTPUT_PORT_TYPE
-DP[5] <= DP_internal[5].DB_MAX_OUTPUT_PORT_TYPE
+DP[5] <= SQ.DB_MAX_OUTPUT_PORT_TYPE
 HEX0[0] <= segments[0].DB_MAX_OUTPUT_PORT_TYPE
 HEX0[1] <= segments[1].DB_MAX_OUTPUT_PORT_TYPE
 HEX0[2] <= segments[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -1740,6 +1742,8 @@ IO_ADDR[0] => Equal6.IN10
 IO_ADDR[0] => Equal7.IN7
 IO_ADDR[0] => Equal8.IN7
 IO_ADDR[0] => Equal9.IN6
+IO_ADDR[0] => Equal10.IN9
+IO_ADDR[0] => Equal11.IN10
 IO_ADDR[1] => Equal0.IN9
 IO_ADDR[1] => Equal1.IN9
 IO_ADDR[1] => Equal2.IN10
@@ -1750,6 +1754,8 @@ IO_ADDR[1] => Equal6.IN7
 IO_ADDR[1] => Equal7.IN10
 IO_ADDR[1] => Equal8.IN6
 IO_ADDR[1] => Equal9.IN5
+IO_ADDR[1] => Equal10.IN8
+IO_ADDR[1] => Equal11.IN8
 IO_ADDR[2] => Equal0.IN8
 IO_ADDR[2] => Equal1.IN8
 IO_ADDR[2] => Equal2.IN8
@@ -1760,6 +1766,8 @@ IO_ADDR[2] => Equal6.IN6
 IO_ADDR[2] => Equal7.IN6
 IO_ADDR[2] => Equal8.IN5
 IO_ADDR[2] => Equal9.IN4
+IO_ADDR[2] => Equal10.IN7
+IO_ADDR[2] => Equal11.IN7
 IO_ADDR[3] => Equal0.IN7
 IO_ADDR[3] => Equal1.IN7
 IO_ADDR[3] => Equal2.IN7
@@ -1770,6 +1778,8 @@ IO_ADDR[3] => Equal6.IN5
 IO_ADDR[3] => Equal7.IN5
 IO_ADDR[3] => Equal8.IN4
 IO_ADDR[3] => Equal9.IN3
+IO_ADDR[3] => Equal10.IN6
+IO_ADDR[3] => Equal11.IN6
 IO_ADDR[4] => Equal0.IN6
 IO_ADDR[4] => Equal1.IN6
 IO_ADDR[4] => Equal2.IN6
@@ -1780,6 +1790,8 @@ IO_ADDR[4] => Equal6.IN9
 IO_ADDR[4] => Equal7.IN9
 IO_ADDR[4] => Equal8.IN3
 IO_ADDR[4] => Equal9.IN10
+IO_ADDR[4] => Equal10.IN5
+IO_ADDR[4] => Equal11.IN5
 IO_ADDR[5] => Equal0.IN5
 IO_ADDR[5] => Equal1.IN5
 IO_ADDR[5] => Equal2.IN5
@@ -1790,6 +1802,8 @@ IO_ADDR[5] => Equal6.IN4
 IO_ADDR[5] => Equal7.IN4
 IO_ADDR[5] => Equal8.IN10
 IO_ADDR[5] => Equal9.IN9
+IO_ADDR[5] => Equal10.IN10
+IO_ADDR[5] => Equal11.IN9
 IO_ADDR[6] => Equal0.IN4
 IO_ADDR[6] => Equal1.IN4
 IO_ADDR[6] => Equal2.IN4
@@ -1800,6 +1814,8 @@ IO_ADDR[6] => Equal6.IN3
 IO_ADDR[6] => Equal7.IN3
 IO_ADDR[6] => Equal8.IN9
 IO_ADDR[6] => Equal9.IN8
+IO_ADDR[6] => Equal10.IN4
+IO_ADDR[6] => Equal11.IN4
 IO_ADDR[7] => Equal0.IN3
 IO_ADDR[7] => Equal1.IN3
 IO_ADDR[7] => Equal2.IN3
@@ -1810,6 +1826,8 @@ IO_ADDR[7] => Equal6.IN8
 IO_ADDR[7] => Equal7.IN8
 IO_ADDR[7] => Equal8.IN8
 IO_ADDR[7] => Equal9.IN7
+IO_ADDR[7] => Equal10.IN3
+IO_ADDR[7] => Equal11.IN3
 IO_ADDR[8] => Equal0.IN2
 IO_ADDR[8] => Equal1.IN2
 IO_ADDR[8] => Equal2.IN2
@@ -1820,6 +1838,8 @@ IO_ADDR[8] => Equal6.IN2
 IO_ADDR[8] => Equal7.IN2
 IO_ADDR[8] => Equal8.IN2
 IO_ADDR[8] => Equal9.IN2
+IO_ADDR[8] => Equal10.IN2
+IO_ADDR[8] => Equal11.IN2
 IO_ADDR[9] => Equal0.IN1
 IO_ADDR[9] => Equal1.IN1
 IO_ADDR[9] => Equal2.IN1
@@ -1830,6 +1850,8 @@ IO_ADDR[9] => Equal6.IN1
 IO_ADDR[9] => Equal7.IN1
 IO_ADDR[9] => Equal8.IN1
 IO_ADDR[9] => Equal9.IN1
+IO_ADDR[9] => Equal10.IN1
+IO_ADDR[9] => Equal11.IN1
 IO_ADDR[10] => Equal0.IN0
 IO_ADDR[10] => Equal1.IN0
 IO_ADDR[10] => Equal2.IN0
@@ -1840,6 +1862,8 @@ IO_ADDR[10] => Equal6.IN0
 IO_ADDR[10] => Equal7.IN0
 IO_ADDR[10] => Equal8.IN0
 IO_ADDR[10] => Equal9.IN0
+IO_ADDR[10] => Equal10.IN0
+IO_ADDR[10] => Equal11.IN0
 IO_CYCLE => SWITCH_EN.IN1
 IO_CYCLE => LED_EN.IN1
 IO_CYCLE => TIMER_EN.IN1
@@ -1850,6 +1874,8 @@ IO_CYCLE => I2C_DATA_EN.IN1
 IO_CYCLE => I2C_RDY_EN.IN1
 IO_CYCLE => DP_EN.IN1
 IO_CYCLE => SQ_EN.IN1
+IO_CYCLE => WAVE_EN.IN1
+IO_CYCLE => KEY_EN.IN1
 SWITCH_EN <= SWITCH_EN.DB_MAX_OUTPUT_PORT_TYPE
 LED_EN <= LED_EN.DB_MAX_OUTPUT_PORT_TYPE
 TIMER_EN <= TIMER_EN.DB_MAX_OUTPUT_PORT_TYPE
@@ -1860,6 +1886,8 @@ I2C_DATA_EN <= I2C_DATA_EN.DB_MAX_OUTPUT_PORT_TYPE
 I2C_RDY_EN <= I2C_RDY_EN.DB_MAX_OUTPUT_PORT_TYPE
 DP_EN <= DP_EN.DB_MAX_OUTPUT_PORT_TYPE
 SQ_EN <= SQ_EN.DB_MAX_OUTPUT_PORT_TYPE
+WAVE_EN <= WAVE_EN.DB_MAX_OUTPUT_PORT_TYPE
+KEY_EN <= KEY_EN.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SCOMP_System|DIG_IN:inst7
@@ -1982,7 +2010,7 @@ result[14] <= result[14].DB_MAX_OUTPUT_PORT_TYPE
 result[15] <= result[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SCOMP_System|SQ_GEN:inst11
+|SCOMP_System|Wave_Gen:inst14
 CLOCK_1MHz => SqWave.CLK
 CLOCK_1MHz => Count[0].CLK
 CLOCK_1MHz => Count[1].CLK
@@ -2136,7 +2164,7 @@ IO_DATA[14] <> LPM_BUSTRI:IO_BUS.TRIDATA[14]
 IO_DATA[15] <> LPM_BUSTRI:IO_BUS.TRIDATA[15]
 
 
-|SCOMP_System|SQ_GEN:inst11|LPM_BUSTRI:IO_BUS
+|SCOMP_System|Wave_Gen:inst14|LPM_BUSTRI:IO_BUS
 tridata[0] <> dout[0]
 tridata[1] <> dout[1]
 tridata[2] <> dout[2]
@@ -2202,6 +2230,145 @@ result[12] <= result[12].DB_MAX_OUTPUT_PORT_TYPE
 result[13] <= result[13].DB_MAX_OUTPUT_PORT_TYPE
 result[14] <= result[14].DB_MAX_OUTPUT_PORT_TYPE
 result[15] <= result[15].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SCOMP_System|Keys_IN:inst15
+CS => LPM_BUSTRI:IO_BUS.ENABLEDT
+CS => B_KEYS[0].CLK
+CS => B_KEYS[1].CLK
+CS => B_KEYS[2].CLK
+CS => B_KEYS[3].CLK
+CS => B_KEYS[4].CLK
+CS => B_KEYS[5].CLK
+CS => B_KEYS[6].CLK
+CS => B_KEYS[7].CLK
+CS => B_KEYS[8].CLK
+CS => B_KEYS[9].CLK
+CS => B_KEYS[10].CLK
+CS => B_KEYS[11].CLK
+CS => B_KEYS[12].CLK
+CS => B_KEYS[13].CLK
+CS => B_KEYS[14].CLK
+CS => B_KEYS[15].CLK
+KEYS[0] => B_KEYS[0].DATAIN
+KEYS[1] => B_KEYS[1].DATAIN
+IO_DATA[0] <> LPM_BUSTRI:IO_BUS.TRIDATA[0]
+IO_DATA[1] <> LPM_BUSTRI:IO_BUS.TRIDATA[1]
+IO_DATA[2] <> LPM_BUSTRI:IO_BUS.TRIDATA[2]
+IO_DATA[3] <> LPM_BUSTRI:IO_BUS.TRIDATA[3]
+IO_DATA[4] <> LPM_BUSTRI:IO_BUS.TRIDATA[4]
+IO_DATA[5] <> LPM_BUSTRI:IO_BUS.TRIDATA[5]
+IO_DATA[6] <> LPM_BUSTRI:IO_BUS.TRIDATA[6]
+IO_DATA[7] <> LPM_BUSTRI:IO_BUS.TRIDATA[7]
+IO_DATA[8] <> LPM_BUSTRI:IO_BUS.TRIDATA[8]
+IO_DATA[9] <> LPM_BUSTRI:IO_BUS.TRIDATA[9]
+IO_DATA[10] <> LPM_BUSTRI:IO_BUS.TRIDATA[10]
+IO_DATA[11] <> LPM_BUSTRI:IO_BUS.TRIDATA[11]
+IO_DATA[12] <> LPM_BUSTRI:IO_BUS.TRIDATA[12]
+IO_DATA[13] <> LPM_BUSTRI:IO_BUS.TRIDATA[13]
+IO_DATA[14] <> LPM_BUSTRI:IO_BUS.TRIDATA[14]
+IO_DATA[15] <> LPM_BUSTRI:IO_BUS.TRIDATA[15]
+
+
+|SCOMP_System|Keys_IN:inst15|LPM_BUSTRI:IO_BUS
+tridata[0] <> dout[0]
+tridata[1] <> dout[1]
+tridata[2] <> dout[2]
+tridata[3] <> dout[3]
+tridata[4] <> dout[4]
+tridata[5] <> dout[5]
+tridata[6] <> dout[6]
+tridata[7] <> dout[7]
+tridata[8] <> dout[8]
+tridata[9] <> dout[9]
+tridata[10] <> dout[10]
+tridata[11] <> dout[11]
+tridata[12] <> dout[12]
+tridata[13] <> dout[13]
+tridata[14] <> dout[14]
+tridata[15] <> dout[15]
+data[0] => dout[0].DATAIN
+data[1] => dout[1].DATAIN
+data[2] => dout[2].DATAIN
+data[3] => dout[3].DATAIN
+data[4] => dout[4].DATAIN
+data[5] => dout[5].DATAIN
+data[6] => dout[6].DATAIN
+data[7] => dout[7].DATAIN
+data[8] => dout[8].DATAIN
+data[9] => dout[9].DATAIN
+data[10] => dout[10].DATAIN
+data[11] => dout[11].DATAIN
+data[12] => dout[12].DATAIN
+data[13] => dout[13].DATAIN
+data[14] => dout[14].DATAIN
+data[15] => dout[15].DATAIN
+enabletr => ~NO_FANOUT~
+enabledt => dout[15].OE
+enabledt => dout[14].OE
+enabledt => dout[13].OE
+enabledt => dout[12].OE
+enabledt => dout[11].OE
+enabledt => dout[10].OE
+enabledt => dout[9].OE
+enabledt => dout[8].OE
+enabledt => dout[7].OE
+enabledt => dout[6].OE
+enabledt => dout[5].OE
+enabledt => dout[4].OE
+enabledt => dout[3].OE
+enabledt => dout[2].OE
+enabledt => dout[1].OE
+enabledt => dout[0].OE
+result[0] <= result[0].DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result[1].DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result[2].DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result[3].DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result[4].DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result[5].DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result[6].DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result[7].DB_MAX_OUTPUT_PORT_TYPE
+result[8] <= result[8].DB_MAX_OUTPUT_PORT_TYPE
+result[9] <= result[9].DB_MAX_OUTPUT_PORT_TYPE
+result[10] <= result[10].DB_MAX_OUTPUT_PORT_TYPE
+result[11] <= result[11].DB_MAX_OUTPUT_PORT_TYPE
+result[12] <= result[12].DB_MAX_OUTPUT_PORT_TYPE
+result[13] <= result[13].DB_MAX_OUTPUT_PORT_TYPE
+result[14] <= result[14].DB_MAX_OUTPUT_PORT_TYPE
+result[15] <= result[15].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SCOMP_System|SQ_GEN:inst11
+CLOCK => D.CLK
+CLOCK => COUNT[0].CLK
+CLOCK => COUNT[1].CLK
+CLOCK => COUNT[2].CLK
+CLOCK => COUNT[3].CLK
+RESETN => COMPARE[0].ACLR
+RESETN => COMPARE[1].ACLR
+RESETN => COMPARE[2].ACLR
+RESETN => COMPARE[3].ACLR
+CS => COMPARE[0].CLK
+CS => COMPARE[1].CLK
+CS => COMPARE[2].CLK
+CS => COMPARE[3].CLK
+IO_DATA[0] => COMPARE[0].DATAIN
+IO_DATA[1] => COMPARE[1].DATAIN
+IO_DATA[2] => COMPARE[2].DATAIN
+IO_DATA[3] => COMPARE[3].DATAIN
+IO_DATA[4] => ~NO_FANOUT~
+IO_DATA[5] => ~NO_FANOUT~
+IO_DATA[6] => ~NO_FANOUT~
+IO_DATA[7] => ~NO_FANOUT~
+IO_DATA[8] => ~NO_FANOUT~
+IO_DATA[9] => ~NO_FANOUT~
+IO_DATA[10] => ~NO_FANOUT~
+IO_DATA[11] => ~NO_FANOUT~
+IO_DATA[12] => ~NO_FANOUT~
+IO_DATA[13] => ~NO_FANOUT~
+IO_DATA[14] => ~NO_FANOUT~
+IO_DATA[15] => ~NO_FANOUT~
+SQ <= D.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SCOMP_System|DPs:inst10

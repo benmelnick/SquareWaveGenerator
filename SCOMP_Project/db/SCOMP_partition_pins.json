@@ -4,7 +4,7 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Arduino_IO[0]",
+					"name" : "Arduino_IO16[0]",
 					"strict" : false
 				},
 				{
@@ -248,10 +248,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[5]",
-					"strict" : false
-				},
-				{
 					"name" : "SW[4]",
 					"strict" : false
 				},
@@ -264,11 +260,23 @@
 					"strict" : false
 				},
 				{
+					"name" : "KEY0",
+					"strict" : false
+				},
+				{
 					"name" : "SW[1]",
 					"strict" : false
 				},
 				{
+					"name" : "KEY1",
+					"strict" : false
+				},
+				{
 					"name" : "SW[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[5]",
 					"strict" : false
 				},
 				{
@@ -285,10 +293,6 @@
 				},
 				{
 					"name" : "SW[9]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY0",
 					"strict" : false
 				}
 			]

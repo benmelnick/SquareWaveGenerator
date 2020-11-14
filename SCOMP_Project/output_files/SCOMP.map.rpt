@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SCOMP
-Wed Nov 11 17:27:09 2020
+Sat Nov 14 18:23:25 2020
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -32,12 +32,13 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
  24. Parameter Settings for User Entity Instance: SCOMP:inst|LPM_BUSTRI:io_bus
  25. Parameter Settings for User Entity Instance: TIMER:inst4|LPM_BUSTRI:IO_BUS
  26. Parameter Settings for User Entity Instance: DIG_IN:inst7|LPM_BUSTRI:IO_BUS
- 27. Parameter Settings for User Entity Instance: SQ_GEN:inst11|LPM_BUSTRI:IO_BUS
- 28. altpll Parameter Settings by Entity Instance
- 29. altsyncram Parameter Settings by Entity Instance
- 30. Post-Synthesis Netlist Statistics for Top Partition
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
+ 27. Parameter Settings for User Entity Instance: Wave_Gen:inst14|LPM_BUSTRI:IO_BUS
+ 28. Parameter Settings for User Entity Instance: Keys_IN:inst15|LPM_BUSTRI:IO_BUS
+ 29. altpll Parameter Settings by Entity Instance
+ 30. altsyncram Parameter Settings by Entity Instance
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -64,16 +65,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 11 17:27:09 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sat Nov 14 18:23:25 2020       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; SCOMP                                       ;
 ; Top-level Entity Name              ; SCOMP_System                                ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 1,079                                       ;
-;     Total combinational functions  ; 935                                         ;
-;     Dedicated logic registers      ; 475                                         ;
-; Total registers                    ; 475                                         ;
-; Total pins                         ; 75                                          ;
+; Total logic elements               ; 1,102                                       ;
+;     Total combinational functions  ; 953                                         ;
+;     Dedicated logic registers      ; 485                                         ;
+; Total registers                    ; 485                                         ;
+; Total pins                         ; 76                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 32,768                                      ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -207,6 +208,8 @@ https://fpgasoftware.intel.com/eula.
 ; HEX_DISP_6.bdf                   ; yes             ; User Block Diagram/Schematic File      ; C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/HEX_DISP_6.bdf         ;         ;
 ; DPs.bdf                          ; yes             ; User Block Diagram/Schematic File      ; C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/DPs.bdf                ;         ;
 ; SQ_GEN.vhd                       ; yes             ; User VHDL File                         ; C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd             ;         ;
+; Wave_Gen.vhd                     ; yes             ; User VHDL File                         ; C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd           ;         ;
+; Keys_IN.vhd                      ; yes             ; User VHDL File                         ; C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Keys_IN.vhd            ;         ;
 ; altpll.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altpll.tdf                                                                   ;         ;
 ; aglobal191.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc                                                               ;         ;
 ; stratix_pll.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/stratix_pll.inc                                                              ;         ;
@@ -234,23 +237,23 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                  ;
 +---------------------------------------------+----------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 1,079                                                                                  ;
+; Estimated Total logic elements              ; 1,102                                                                                  ;
 ;                                             ;                                                                                        ;
-; Total combinational functions               ; 935                                                                                    ;
+; Total combinational functions               ; 953                                                                                    ;
 ; Logic element usage by number of LUT inputs ;                                                                                        ;
-;     -- 4 input functions                    ; 488                                                                                    ;
-;     -- 3 input functions                    ; 295                                                                                    ;
-;     -- <=2 input functions                  ; 152                                                                                    ;
+;     -- 4 input functions                    ; 501                                                                                    ;
+;     -- 3 input functions                    ; 301                                                                                    ;
+;     -- <=2 input functions                  ; 151                                                                                    ;
 ;                                             ;                                                                                        ;
 ; Logic elements by mode                      ;                                                                                        ;
-;     -- normal mode                          ; 826                                                                                    ;
+;     -- normal mode                          ; 844                                                                                    ;
 ;     -- arithmetic mode                      ; 109                                                                                    ;
 ;                                             ;                                                                                        ;
-; Total registers                             ; 475                                                                                    ;
-;     -- Dedicated logic registers            ; 475                                                                                    ;
+; Total registers                             ; 485                                                                                    ;
+;     -- Dedicated logic registers            ; 485                                                                                    ;
 ;     -- I/O registers                        ; 0                                                                                      ;
 ;                                             ;                                                                                        ;
-; I/O pins                                    ; 75                                                                                     ;
+; I/O pins                                    ; 76                                                                                     ;
 ; Total memory bits                           ; 32768                                                                                  ;
 ;                                             ;                                                                                        ;
 ; Embedded Multiplier 9-bit elements          ; 0                                                                                      ;
@@ -260,7 +263,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                                                                                        ;
 ; Maximum fan-out node                        ; PLL_main:inst1|altpll:altpll_component|PLL_main_altpll:auto_generated|wire_pll1_clk[0] ;
 ; Maximum fan-out                             ; 254                                                                                    ;
-; Total fan-out                               ; 4914                                                                                   ;
+; Total fan-out                               ; 5006                                                                                   ;
 ; Average fan-out                             ; 3.11                                                                                   ;
 +---------------------------------------------+----------------------------------------------------------------------------------------+
 
@@ -270,10 +273,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                     ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------+-----------------+--------------+
-; |SCOMP_System                             ; 935 (0)             ; 475 (0)                   ; 32768       ; 0          ; 0            ; 0       ; 0         ; 75   ; 0            ; 0          ; |SCOMP_System                                                                           ; SCOMP_System    ; work         ;
+; |SCOMP_System                             ; 953 (0)             ; 485 (0)                   ; 32768       ; 0          ; 0            ; 0       ; 0         ; 76   ; 0            ; 0          ; |SCOMP_System                                                                           ; SCOMP_System    ; work         ;
 ;    |DIG_IN:inst7|                         ; 0 (0)               ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|DIG_IN:inst7                                                              ; DIG_IN          ; work         ;
 ;    |DIG_OUT:inst6|                        ; 0 (0)               ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|DIG_OUT:inst6                                                             ; DIG_OUT         ; work         ;
-;    |DPs:inst10|                           ; 0 (0)               ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|DPs:inst10                                                                ; DPs             ; work         ;
+;    |DPs:inst10|                           ; 0 (0)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|DPs:inst10                                                                ; DPs             ; work         ;
 ;    |HEX_DISP_6:inst9|                     ; 42 (0)              ; 24 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|HEX_DISP_6:inst9                                                          ; HEX_DISP_6      ; work         ;
 ;       |HEX_DISP:inst1|                    ; 7 (7)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|HEX_DISP_6:inst9|HEX_DISP:inst1                                           ; HEX_DISP        ; work         ;
 ;       |HEX_DISP:inst2|                    ; 7 (7)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|HEX_DISP_6:inst9|HEX_DISP:inst2                                           ; HEX_DISP        ; work         ;
@@ -281,21 +284,23 @@ https://fpgasoftware.intel.com/eula.
 ;       |HEX_DISP:inst4|                    ; 7 (7)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|HEX_DISP_6:inst9|HEX_DISP:inst4                                           ; HEX_DISP        ; work         ;
 ;       |HEX_DISP:inst5|                    ; 7 (7)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|HEX_DISP_6:inst9|HEX_DISP:inst5                                           ; HEX_DISP        ; work         ;
 ;       |HEX_DISP:inst6|                    ; 7 (7)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|HEX_DISP_6:inst9|HEX_DISP:inst6                                           ; HEX_DISP        ; work         ;
-;    |I2C_INTERFACE:inst13|                 ; 213 (54)            ; 125 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|I2C_INTERFACE:inst13                                                      ; I2C_INTERFACE   ; work         ;
-;       |i2c_ctrl:inst14|                   ; 58 (58)             ; 70 (70)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_ctrl:inst14                                      ; i2c_ctrl        ; work         ;
+;    |I2C_INTERFACE:inst13|                 ; 229 (69)            ; 125 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|I2C_INTERFACE:inst13                                                      ; I2C_INTERFACE   ; work         ;
+;       |i2c_ctrl:inst14|                   ; 59 (59)             ; 70 (70)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_ctrl:inst14                                      ; i2c_ctrl        ; work         ;
 ;       |i2c_master:inst|                   ; 101 (101)           ; 55 (55)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_master:inst                                      ; i2c_master      ; work         ;
-;    |IO_DECODER:inst3|                     ; 23 (23)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|IO_DECODER:inst3                                                          ; IO_DECODER      ; work         ;
+;    |IO_DECODER:inst3|                     ; 26 (26)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|IO_DECODER:inst3                                                          ; IO_DECODER      ; work         ;
+;    |Keys_IN:inst15|                       ; 1 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|Keys_IN:inst15                                                            ; Keys_IN         ; work         ;
+;       |lpm_bustri:IO_BUS|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|Keys_IN:inst15|lpm_bustri:IO_BUS                                          ; lpm_bustri      ; work         ;
 ;    |PLL_main:inst1|                       ; 0 (0)               ; 1 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|PLL_main:inst1                                                            ; PLL_main        ; work         ;
 ;       |altpll:altpll_component|           ; 0 (0)               ; 1 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|PLL_main:inst1|altpll:altpll_component                                    ; altpll          ; work         ;
 ;          |PLL_main_altpll:auto_generated| ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|PLL_main:inst1|altpll:altpll_component|PLL_main_altpll:auto_generated     ; PLL_main_altpll ; work         ;
-;    |SCOMP:inst|                           ; 504 (421)           ; 178 (178)                 ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|SCOMP:inst                                                                ; SCOMP           ; work         ;
+;    |SCOMP:inst|                           ; 491 (414)           ; 178 (178)                 ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|SCOMP:inst                                                                ; SCOMP           ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|SCOMP:inst|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
 ;          |altsyncram_2ur3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|SCOMP:inst|altsyncram:altsyncram_component|altsyncram_2ur3:auto_generated ; altsyncram_2ur3 ; work         ;
-;       |lpm_bustri:io_bus|                 ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|SCOMP:inst|lpm_bustri:io_bus                                              ; lpm_bustri      ; work         ;
 ;       |lpm_clshift:shifter|               ; 77 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|SCOMP:inst|lpm_clshift:shifter                                            ; lpm_clshift     ; work         ;
 ;          |lpm_clshift_fuc:auto_generated| ; 77 (77)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|SCOMP:inst|lpm_clshift:shifter|lpm_clshift_fuc:auto_generated             ; lpm_clshift_fuc ; work         ;
-;    |SQ_GEN:inst11|                        ; 65 (65)             ; 48 (48)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|SQ_GEN:inst11                                                             ; SQ_GEN          ; work         ;
-;    |TIMER:inst4|                          ; 19 (19)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|TIMER:inst4                                                               ; TIMER           ; work         ;
+;    |SQ_GEN:inst11|                        ; 12 (12)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|SQ_GEN:inst11                                                             ; SQ_GEN          ; work         ;
+;    |TIMER:inst4|                          ; 17 (17)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|TIMER:inst4                                                               ; TIMER           ; work         ;
+;    |Wave_Gen:inst14|                      ; 66 (66)             ; 48 (48)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|Wave_Gen:inst14                                                           ; Wave_Gen        ; work         ;
 ;    |clk_div:inst5|                        ; 69 (69)             ; 57 (57)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SCOMP_System|clk_div:inst5                                                             ; clk_div         ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -391,16 +396,16 @@ Encoding Type:  One-Hot
 +----------------+------------+----------------+----------------+----------+----------+----------------+---------------+---------------+-------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                   ;
-+----------------------------------------------------+-------------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal     ; Free of Timing Hazards ;
-+----------------------------------------------------+-------------------------+------------------------+
-; SQ_GEN:inst11|SQ                                   ; SQ_GEN:inst11|process_2 ; yes                    ;
-; SQ_GEN:inst11|Duration[1]                          ; SQ_GEN:inst11|process_1 ; yes                    ;
-; SQ_GEN:inst11|Duration[0]                          ; SQ_GEN:inst11|process_1 ; yes                    ;
-; Number of user-specified and inferred latches = 3  ;                         ;                        ;
-+----------------------------------------------------+-------------------------+------------------------+
++---------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                     ;
++----------------------------------------------------+---------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal       ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------------+------------------------+
+; Wave_Gen:inst14|SQ                                 ; Wave_Gen:inst14|process_2 ; yes                    ;
+; Wave_Gen:inst14|Duration[1]                        ; Wave_Gen:inst14|process_1 ; yes                    ;
+; Wave_Gen:inst14|Duration[0]                        ; Wave_Gen:inst14|process_1 ; yes                    ;
+; Number of user-specified and inferred latches = 3  ;                           ;                        ;
++----------------------------------------------------+---------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -409,26 +414,30 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------------------------------+----------------------------------------+
 ; Register name                                 ; Reason for Removal                     ;
 +-----------------------------------------------+----------------------------------------+
+; Keys_IN:inst15|B_KEYS[2..15]                  ; Stuck at GND due to stuck port data_in ;
 ; DIG_IN:inst7|B_DI[10..15]                     ; Stuck at GND due to stuck port data_in ;
 ; I2C_INTERFACE:inst13|i2c_master:inst|scl_clk  ; Stuck at GND due to stuck port data_in ;
-; SQ_GEN:inst11|Finished[1..15]                 ; Stuck at GND due to stuck port data_in ;
+; Wave_Gen:inst14|Finished[1..15]               ; Stuck at GND due to stuck port data_in ;
 ; I2C_INTERFACE:inst13|i2c_master:inst|count[2] ; Stuck at GND due to stuck port data_in ;
 ; SCOMP:inst|state.ex_nop                       ; Lost fanout                            ;
-; Total Number of Removed Registers = 24        ;                                        ;
+; Total Number of Removed Registers = 38        ;                                        ;
 +-----------------------------------------------+----------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                             ;
-+-----------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name         ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+-----------------------+---------------------------+-------------------------------------------------------------------------------------+
-; DIG_IN:inst7|B_DI[14] ; Stuck at GND              ; SQ_GEN:inst11|Finished[15], SQ_GEN:inst11|Finished[14], SQ_GEN:inst11|Finished[13], ;
-;                       ; due to stuck port data_in ; SQ_GEN:inst11|Finished[12], SQ_GEN:inst11|Finished[11], SQ_GEN:inst11|Finished[10], ;
-;                       ;                           ; SQ_GEN:inst11|Finished[9], SQ_GEN:inst11|Finished[8], SQ_GEN:inst11|Finished[7],    ;
-;                       ;                           ; SQ_GEN:inst11|Finished[6], SQ_GEN:inst11|Finished[5], SQ_GEN:inst11|Finished[4],    ;
-;                       ;                           ; SQ_GEN:inst11|Finished[3], SQ_GEN:inst11|Finished[2], SQ_GEN:inst11|Finished[1]     ;
-+-----------------------+---------------------------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                         ;
++---------------------------+---------------------------+-------------------------------------------------------------+
+; Register name             ; Reason for Removal        ; Registers Removed due to This Register                      ;
++---------------------------+---------------------------+-------------------------------------------------------------+
+; Keys_IN:inst15|B_KEYS[14] ; Stuck at GND              ; Wave_Gen:inst14|Finished[15], Wave_Gen:inst14|Finished[14], ;
+;                           ; due to stuck port data_in ; Wave_Gen:inst14|Finished[13], Wave_Gen:inst14|Finished[12], ;
+;                           ;                           ; Wave_Gen:inst14|Finished[11], Wave_Gen:inst14|Finished[10], ;
+;                           ;                           ; Wave_Gen:inst14|Finished[9], Wave_Gen:inst14|Finished[8],   ;
+;                           ;                           ; Wave_Gen:inst14|Finished[7], Wave_Gen:inst14|Finished[6],   ;
+;                           ;                           ; Wave_Gen:inst14|Finished[5], Wave_Gen:inst14|Finished[4],   ;
+;                           ;                           ; Wave_Gen:inst14|Finished[3], Wave_Gen:inst14|Finished[2],   ;
+;                           ;                           ; Wave_Gen:inst14|Finished[1]                                 ;
++---------------------------+---------------------------+-------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -436,10 +445,10 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 475   ;
+; Total registers                              ; 485   ;
 ; Number of registers using Synchronous Clear  ; 60    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 178   ;
+; Number of registers using Asynchronous Clear ; 181   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 247   ;
 ; Number of registers using Preset             ; 0     ;
@@ -451,20 +460,20 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-------------------------------------------------+---------+
 ; Inverted Register                               ; Fan out ;
 +-------------------------------------------------+---------+
-; SQ_GEN:inst11|IO_VAL[0]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[1]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[2]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[3]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[4]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[5]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[6]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[7]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[8]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[9]                         ; 1       ;
-; SQ_GEN:inst11|IO_VAL[10]                        ; 1       ;
-; SQ_GEN:inst11|IO_VAL[11]                        ; 1       ;
-; SQ_GEN:inst11|IO_VAL[12]                        ; 1       ;
-; SQ_GEN:inst11|IO_VAL[13]                        ; 1       ;
+; Wave_Gen:inst14|IO_VAL[0]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[1]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[2]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[3]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[4]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[5]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[6]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[7]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[8]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[9]                       ; 1       ;
+; Wave_Gen:inst14|IO_VAL[10]                      ; 1       ;
+; Wave_Gen:inst14|IO_VAL[11]                      ; 1       ;
+; Wave_Gen:inst14|IO_VAL[12]                      ; 1       ;
+; Wave_Gen:inst14|IO_VAL[13]                      ; 1       ;
 ; I2C_INTERFACE:inst13|i2c_master:inst|sda_int    ; 2       ;
 ; I2C_INTERFACE:inst13|i2c_master:inst|bit_cnt[2] ; 16      ;
 ; I2C_INTERFACE:inst13|i2c_master:inst|bit_cnt[1] ; 30      ;
@@ -478,14 +487,14 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
-; 3:1                ; 99 bits   ; 198 LEs       ; 99 LEs               ; 99 LEs                 ; Yes        ; |SCOMP_System|SCOMP:inst|PC_stack[1][1]                         ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_master:inst|addr_rw[5]   ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_ctrl:inst14|tx_byte[5]   ;
-; 11:1               ; 11 bits   ; 77 LEs        ; 22 LEs               ; 55 LEs                 ; Yes        ; |SCOMP_System|SCOMP:inst|PC[3]                                  ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_master:inst|bit_cnt[0]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_out[12] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_out[4]  ;
-; 12:1               ; 16 bits   ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |SCOMP_System|SCOMP:inst|AC[3]                                  ;
+; 3:1                ; 99 bits   ; 198 LEs       ; 99 LEs               ; 99 LEs                 ; Yes        ; |SCOMP_System|SCOMP:inst|PC_stack[1][6]                         ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_master:inst|addr_rw[4]   ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_ctrl:inst14|tx_byte[4]   ;
+; 11:1               ; 11 bits   ; 77 LEs        ; 22 LEs               ; 55 LEs                 ; Yes        ; |SCOMP_System|SCOMP:inst|PC[2]                                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_master:inst|bit_cnt[1]   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_out[14] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_out[0]  ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |SCOMP_System|SCOMP:inst|AC[14]                                 ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |SCOMP_System|I2C_INTERFACE:inst13|i2c_master:inst|count        ;
 ; 12:1               ; 16 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; No         ; |SCOMP_System|SCOMP:inst|Add1                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
@@ -990,13 +999,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: SQ_GEN:inst11|LPM_BUSTRI:IO_BUS ;
-+----------------+-------+-----------------------------------------------------+
-; Parameter Name ; Value ; Type                                                ;
-+----------------+-------+-----------------------------------------------------+
-; LPM_WIDTH      ; 16    ; Signed Integer                                      ;
-+----------------+-------+-----------------------------------------------------+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Wave_Gen:inst14|LPM_BUSTRI:IO_BUS ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; LPM_WIDTH      ; 16    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Keys_IN:inst15|LPM_BUSTRI:IO_BUS ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; LPM_WIDTH      ; 16    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1042,29 +1061,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 75                          ;
-; cycloneiii_ff         ; 475                         ;
-;     CLR               ; 137                         ;
+; boundary_port         ; 76                          ;
+; cycloneiii_ff         ; 485                         ;
+;     CLR               ; 140                         ;
 ;     ENA               ; 206                         ;
 ;     ENA CLR           ; 41                          ;
 ;     SCLR              ; 60                          ;
-;     plain             ; 31                          ;
+;     plain             ; 38                          ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 948                         ;
+; cycloneiii_lcell_comb ; 965                         ;
 ;     arith             ; 109                         ;
 ;         2 data inputs ; 80                          ;
 ;         3 data inputs ; 29                          ;
-;     normal            ; 839                         ;
+;     normal            ; 856                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 36                          ;
-;         2 data inputs ; 48                          ;
-;         3 data inputs ; 266                         ;
-;         4 data inputs ; 488                         ;
+;         1 data inputs ; 35                          ;
+;         2 data inputs ; 47                          ;
+;         3 data inputs ; 272                         ;
+;         4 data inputs ; 501                         ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.50                        ;
-; Average LUT depth     ; 3.77                        ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 3.98                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1073,7 +1092,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -1083,7 +1102,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Wed Nov 11 17:26:50 2020
+    Info: Processing started: Sat Nov 14 18:23:03 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SCOMP -c SCOMP
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file i2c_interface.bdf
@@ -1110,7 +1129,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file timer.v
     Info (12022): Found design unit 1: TIMER-a File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/TIMER.vhd Line: 27
     Info (12023): Found entity 1: TIMER File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/TIMER.vhd Line: 17
 Info (12021): Found 2 design units, including 1 entities, in source file io_decoder.vhd
-    Info (12022): Found design unit 1: IO_DECODER-a File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/IO_DECODER.vhd Line: 29
+    Info (12022): Found design unit 1: IO_DECODER-a File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/IO_DECODER.vhd Line: 31
     Info (12023): Found entity 1: IO_DECODER File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/IO_DECODER.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file scomp.vhd
     Info (12022): Found design unit 1: SCOMP-a File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SCOMP.vhd Line: 33
@@ -1125,8 +1144,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file hex_dis
 Info (12021): Found 1 design units, including 1 entities, in source file dps.bdf
     Info (12023): Found entity 1: DPs
 Info (12021): Found 2 design units, including 1 entities, in source file sq_gen.vhd
-    Info (12022): Found design unit 1: SQ_GEN-a File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 28
+    Info (12022): Found design unit 1: SQ_GEN-a File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 26
     Info (12023): Found entity 1: SQ_GEN File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file wave_gen.vhd
+    Info (12022): Found design unit 1: Wave_Gen-a File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 28
+    Info (12023): Found entity 1: Wave_Gen File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file keys_in.vhd
+    Info (12022): Found design unit 1: Keys_IN-a File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Keys_IN.vhd Line: 15
+    Info (12023): Found entity 1: Keys_IN File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Keys_IN.vhd Line: 7
 Info (12127): Elaborating entity "SCOMP_System" for the top level hierarchy
 Info (12128): Elaborating entity "I2C_INTERFACE" for hierarchy "I2C_INTERFACE:inst13"
 Info (12128): Elaborating entity "i2c_master" for hierarchy "I2C_INTERFACE:inst13|i2c_master:inst"
@@ -1283,26 +1308,28 @@ Info (12128): Elaborating entity "TIMER" for hierarchy "TIMER:inst4"
 Warning (10631): VHDL Process Statement warning at TIMER.vhd(59): inferring latch(es) for signal or variable "IO_COUNT", which holds its previous value in one or more paths through the process File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/TIMER.vhd Line: 59
 Info (12128): Elaborating entity "IO_DECODER" for hierarchy "IO_DECODER:inst3"
 Info (12128): Elaborating entity "DIG_IN" for hierarchy "DIG_IN:inst7"
+Info (12128): Elaborating entity "Wave_Gen" for hierarchy "Wave_Gen:inst14"
+Warning (10492): VHDL Process Statement warning at Wave_Gen.vhd(90): signal "IO_DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 90
+Warning (10492): VHDL Process Statement warning at Wave_Gen.vhd(92): signal "Duration" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at Wave_Gen.vhd(97): signal "Finished" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 97
+Warning (10631): VHDL Process Statement warning at Wave_Gen.vhd(83): inferring latch(es) for signal or variable "Duration", which holds its previous value in one or more paths through the process File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 83
+Warning (10631): VHDL Process Statement warning at Wave_Gen.vhd(106): inferring latch(es) for signal or variable "SQ", which holds its previous value in one or more paths through the process File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 106
+Info (10041): Inferred latch for "SQ" at Wave_Gen.vhd(106) File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 106
+Info (10041): Inferred latch for "Duration[0]" at Wave_Gen.vhd(83) File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 83
+Info (10041): Inferred latch for "Duration[1]" at Wave_Gen.vhd(83) File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 83
+Info (12128): Elaborating entity "Keys_IN" for hierarchy "Keys_IN:inst15"
 Info (12128): Elaborating entity "SQ_GEN" for hierarchy "SQ_GEN:inst11"
-Warning (10492): VHDL Process Statement warning at SQ_GEN.vhd(90): signal "IO_DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 90
-Warning (10492): VHDL Process Statement warning at SQ_GEN.vhd(92): signal "Duration" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 92
-Warning (10492): VHDL Process Statement warning at SQ_GEN.vhd(97): signal "Finished" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 97
-Warning (10631): VHDL Process Statement warning at SQ_GEN.vhd(83): inferring latch(es) for signal or variable "Duration", which holds its previous value in one or more paths through the process File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 83
-Warning (10631): VHDL Process Statement warning at SQ_GEN.vhd(106): inferring latch(es) for signal or variable "SQ", which holds its previous value in one or more paths through the process File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 106
-Info (10041): Inferred latch for "SQ" at SQ_GEN.vhd(106) File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 106
-Info (10041): Inferred latch for "Duration[0]" at SQ_GEN.vhd(83) File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 83
-Info (10041): Inferred latch for "Duration[1]" at SQ_GEN.vhd(83) File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 83
 Info (12128): Elaborating entity "DPs" for hierarchy "DPs:inst10"
 Info (12128): Elaborating entity "HEX_DISP_6" for hierarchy "HEX_DISP_6:inst9"
 Info (12128): Elaborating entity "HEX_DISP" for hierarchy "HEX_DISP_6:inst9|HEX_DISP:inst1"
 Info (12128): Elaborating entity "DIG_OUT" for hierarchy "DIG_OUT:inst6"
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[5]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[5]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[4]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[4]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[3]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[3]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[2]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[2]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[1]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[1]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[0]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[0]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[5]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[5]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[6]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[6]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[7]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[7]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[8]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[8]" into an OR gate
@@ -1313,14 +1340,14 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[13]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[13]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[14]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[14]" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "I2C_INTERFACE:inst13|inst1[15]" to the node "I2C_INTERFACE:inst13|i2c_ctrl:inst14|data_in[15]" into an OR gate
-Warning (13012): Latch SQ_GEN:inst11|Duration[1] has unsafe behavior File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 83
+Warning (13012): Latch Wave_Gen:inst14|Duration[1] has unsafe behavior File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 83
     Warning (13013): Ports D and ENA on the latch are fed by the same signal SCOMP:inst|IO_WRITE_int File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SCOMP.vhd Line: 56
-Warning (13012): Latch SQ_GEN:inst11|Duration[0] has unsafe behavior File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 83
+Warning (13012): Latch Wave_Gen:inst14|Duration[0] has unsafe behavior File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 83
     Warning (13013): Ports D and ENA on the latch are fed by the same signal SCOMP:inst|IO_WRITE_int File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SCOMP.vhd Line: 56
-Info (13000): Registers with preset signals will power-up high File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 57
+Info (13000): Registers with preset signals will power-up high File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 57
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "SQ_GEN:inst11|Finished[0]" is converted into an equivalent circuit using register "SQ_GEN:inst11|Finished[0]~_emulated" and latch "SQ_GEN:inst11|Finished[0]~1" File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/SQ_GEN.vhd Line: 86
+    Warning (13310): Register "Wave_Gen:inst14|Finished[0]" is converted into an equivalent circuit using register "Wave_Gen:inst14|Finished[0]~_emulated" and latch "Wave_Gen:inst14|Finished[0]~1" File: C:/Users/Admin/Desktop/Coles_Folder/Georgia_Tech/Junior/Fall_2020/ECE_2031/SquareWaveGenerator/SCOMP_Project/Wave_Gen.vhd Line: 86
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "GSENSOR_CS_n" is stuck at VCC
     Warning (13410): Pin "GSENSOR_SDO" is stuck at VCC
@@ -1328,17 +1355,17 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1192 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 12 input pins
+Info (21057): Implemented 1216 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
     Info (21059): Implemented 61 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1100 logic cells
+    Info (21061): Implemented 1123 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 4808 megabytes
-    Info: Processing ended: Wed Nov 11 17:27:09 2020
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Peak virtual memory: 4809 megabytes
+    Info: Processing ended: Sat Nov 14 18:23:25 2020
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:35
 
 
