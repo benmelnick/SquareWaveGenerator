@@ -15,47 +15,47 @@ CONTENT
            002 : 8031;  -- 	Call   WaitForTimer
            003 : 084E;  -- 	LOAD   C4
            004 : 1874;  -- 	ADD    TwoFourth
-           005 : 98F0;  -- 	OUT    SqGen
+           005 : 9820;  -- 	OUT    WaveGen
            006 : 802D;  -- 	Call   WaitForSound
            007 : 0850;  -- 	LOAD   D4
            008 : 1875;  -- 	ADD    ThreeFourth
-           009 : 98F0;  -- 	OUT    SqGen
+           009 : 9820;  -- 	OUT    WaveGen
            00A : 802D;  -- 	Call   WaitForSound
            00B : 0852;  -- 	LOAD   E4
            00C : 1876;  -- 	ADD    FourFourth
-           00D : 98F0;  -- 	OUT    SqGen
+           00D : 9820;  -- 	OUT    WaveGen
            00E : 802D;  -- 	Call   WaitForSound
            00F : 0853;  -- 	LOAD   F4
            010 : 1874;  -- 	ADD    TwoFourth
-           011 : 98F0;  -- 	OUT    SqGen
+           011 : 9820;  -- 	OUT    WaveGen
            012 : 802D;  -- 	Call   WaitForSound
            013 : 0855;  -- 	LOAD   G4
            014 : 1875;  -- 	ADD    ThreeFourth
-           015 : 98F0;  -- 	OUT    SqGen
+           015 : 9820;  -- 	OUT    WaveGen
            016 : 802D;  -- 	Call   WaitForSound
            017 : 0857;  -- 	LOAD   A4
            018 : 1874;  -- 	ADD    TwoFourth
-           019 : 98F0;  -- 	OUT    SqGen
+           019 : 9820;  -- 	OUT    WaveGen
            01A : 802D;  -- 	Call   WaitForSound
            01B : 0859;  -- 	LOAD   B4
            01C : 1875;  -- 	ADD    ThreeFourth
-           01D : 98F0;  -- 	OUT    SqGen
+           01D : 9820;  -- 	OUT    WaveGen
            01E : 802D;  -- 	Call   WaitForSound
            01F : 085A;  -- 	LOAD   C5
            020 : 1873;  -- 	ADD    Unlimited
-           021 : 98F0;  -- 	OUT    SqGen
+           021 : 9820;  -- 	OUT    WaveGen
            022 : B814;  -- 	LOADI  20
            023 : 1030;  -- 	STORE  TimerParam
            024 : 8031;  -- 	Call   WaitForTimer
            025 : 802D;  -- 	Call   WaitForSound
            026 : 0877;  -- 	LOAD   Disable
-           027 : 98F0;  -- 	OUT    SqGen
+           027 : 9820;  -- 	OUT    WaveGen
            028 : 9021;  -- 	IN	   Keys
            029 : 9801;  -- 	OUT	   LEDs
            02A : BFFF;  -- 	LOADI   -1
            02B : 9804;  -- 	OUT    HEX0
            02C : 282C;  -- 	JUMP   Halt
-           02D : 90F0;  -- 	IN	   SqGen
+           02D : 9020;  -- 	IN	   WaveGen
            02E : 402D;  -- 	JZERO  WaitForSound
            02F : 8800;  -- 	Return
            030 : 0000;  -- TimerParam:	DW		0

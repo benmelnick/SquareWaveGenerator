@@ -11,42 +11,42 @@ ORG 0
 	
 	LOAD   C4
 	ADD    TwoFourth
-	OUT    SqGen
+	OUT    WaveGen
 	
 	Call   WaitForSound
 	LOAD   D4
 	ADD    ThreeFourth
-	OUT    SqGen
+	OUT    WaveGen
 	
 	Call   WaitForSound
 	LOAD   E4
 	ADD    FourFourth
-	OUT    SqGen
+	OUT    WaveGen
 	
 	Call   WaitForSound
 	LOAD   F4
 	ADD    TwoFourth
-	OUT    SqGen
+	OUT    WaveGen
 	
 	Call   WaitForSound
 	LOAD   G4
 	ADD    ThreeFourth
-	OUT    SqGen
+	OUT    WaveGen
 	
 	Call   WaitForSound
 	LOAD   A4
 	ADD    TwoFourth
-	OUT    SqGen
+	OUT    WaveGen
 	
 	Call   WaitForSound
 	LOAD   B4
 	ADD    ThreeFourth
-	OUT    SqGen
+	OUT    WaveGen
 	
 	Call   WaitForSound
 	LOAD   C5
 	ADD    Unlimited
-	OUT    SqGen
+	OUT    WaveGen
 	
 	LOADI  20
 	STORE  TimerParam
@@ -54,7 +54,7 @@ ORG 0
 	
 	Call   WaitForSound
 	LOAD   Disable
-	OUT    SqGen
+	OUT    WaveGen
 	
 	IN	   Keys
 	OUT	   LEDs
@@ -65,7 +65,7 @@ Halt:
 	JUMP   Halt
 	
 WaitForSound:
-	IN	   SqGen
+	IN	   WaveGen
 	JZERO  WaitForSound
 	Return
 

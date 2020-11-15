@@ -29,7 +29,7 @@ ARCHITECTURE a OF Keys_IN IS
     PROCESS
     BEGIN
       WAIT UNTIL RISING_EDGE(CS);
-      B_KEYS <= X"000" & '0' & '0' & KEYS;
+      B_KEYS <= X"000" & '0' & '0' & not KEYS;
     END PROCESS;
 END a;
 

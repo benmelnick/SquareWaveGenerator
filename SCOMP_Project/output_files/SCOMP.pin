@@ -118,7 +118,7 @@ GND                          : AB1       : gnd    :                   :         
 RESERVED_INPUT               : AB2       :        :                   :         : 3         :                
 RESERVED_INPUT               : AB3       :        :                   :         : 3         :                
 RESERVED_INPUT               : AB4       :        :                   :         : 3         :                
-RESERVED_INPUT               : AB5       :        :                   :         : 3         :                
+Arduino_IO[0]                : AB5       : output : 3.3-V LVTTL       :         : 3         : Y              
 RESERVED_INPUT               : AB6       :        :                   :         : 3         :                
 RESERVED_INPUT               : AB7       :        :                   :         : 3         :                
 RESERVED_INPUT               : AB8       :        :                   :         : 3         :                
@@ -211,7 +211,7 @@ RESERVED_INPUT               : E6        :        :                   :         
 GND                          : E7        : gnd    :                   :         :           :                
 RESERVED_INPUT               : E8        :        :                   :         : 8         :                
 RESERVED_INPUT               : E9        :        :                   :         : 8         :                
-Arduino_IO16[0]              : E10       : output : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT               : E10       :        :                   :         : 8         :                
 RESERVED_INPUT               : E11       :        :                   :         : 8         :                
 RESERVED_INPUT               : E12       :        :                   :         : 7         :                
 RESERVED_INPUT               : E13       :        :                   :         : 7         :                
@@ -247,7 +247,7 @@ HEX4[6]                      : F20       : output : 3.3-V LVTTL       :         
 HEX3[0]                      : F21       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT               : F22       :        :                   :         : 6         :                
 RESERVED_INPUT               : G1        :        :                   :         : 1B        :                
-~ALTERA_TCK~ / RESERVED_INPUT : G2        : input  : 3.3 V Schmitt Trigger :         : 1B        : N              
+altera_reserved_tck          : G2        : input  : 3.3 V Schmitt Trigger :         : 1B        : N              
 RESERVED_INPUT               : G3        :        :                   :         : 1A        :                
 RESERVED_INPUT               : G4        :        :                   :         : 1A        :                
 ANAIN1                       : G5        :        :                   :         :           :                
@@ -269,7 +269,7 @@ RESERVED_INPUT               : G20       :        :                   :         
 GND                          : G21       : gnd    :                   :         :           :                
 RESERVED_INPUT               : G22       :        :                   :         : 6         :                
 RESERVED_INPUT               : H1        :        :                   :         : 1B        :                
-~ALTERA_TMS~ / RESERVED_INPUT_WITH_WEAK_PULLUP : H2        : input  : 3.3 V Schmitt Trigger :         : 1B        : N              
+altera_reserved_tms          : H2        : input  : 3.3 V Schmitt Trigger :         : 1B        : N              
 RESERVED_INPUT               : H3        :        :                   :         : 1A        :                
 RESERVED_INPUT               : H4        :        :                   :         : 1A        :                
 REFGND                       : H5        :        :                   :         :           :                
@@ -337,7 +337,7 @@ RESERVED_INPUT               : K22       :        :                   :         
 RESERVED_INPUT               : L1        :        :                   :         : 1B        :                
 RESERVED_INPUT               : L2        :        :                   :         : 1B        :                
 DNU                          : L3        :        :                   :         :           :                
-~ALTERA_TDI~ / RESERVED_INPUT_WITH_WEAK_PULLUP : L4        : input  : 3.3 V Schmitt Trigger :         : 1B        : N              
+altera_reserved_tdi          : L4        : input  : 3.3 V Schmitt Trigger :         : 1B        : N              
 GND                          : L5        : gnd    :                   :         :           :                
 VCCIO1A                      : L6        : power  :                   : 3.3V    : 1A        :                
 VCCIO1B                      : L7        : power  :                   : 3.3V    : 1B        :                
@@ -360,7 +360,7 @@ RESERVED_INPUT               : M1        :        :                   :         
 RESERVED_INPUT               : M2        :        :                   :         : 2         :                
 RESERVED_INPUT               : M3        :        :                   :         : 1B        :                
 RESERVED_INPUT               : M4        :        :                   :         : 1B        :                
-~ALTERA_TDO~                 : M5        : output : 3.3-V LVTTL       :         : 1B        : N              
+altera_reserved_tdo          : M5        : output : 3.3-V LVTTL       :         : 1B        : N              
 VCCIO1B                      : M6        : power  :                   : 3.3V    : 1B        :                
 GND                          : M7        : gnd    :                   :         :           :                
 RESERVED_INPUT               : M8        :        :                   :         : 2         :                

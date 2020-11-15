@@ -1,4 +1,4 @@
--- SQ_GEN.VHD (a peripheral module for SCOMP)
+-- WAVE_GEN.VHD (a peripheral module for SCOMP)
 -- 2020.10.10
 --
 -- Generates a square wave with period dependant on value
@@ -22,7 +22,7 @@ ENTITY Wave_Gen IS
 		SQ       : OUT STD_LOGIC;
 		IO_DATA  : INOUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 	);
-END Wave_GEN;
+END Wave_Gen;
 
 
 ARCHITECTURE a OF Wave_Gen IS
