@@ -1,42 +1,24 @@
 ORG 0
 
-Setup:
+Init:
+	CALL	GenerateFreqsSubset
+
+InitPattern:
    	CALL  	GeneratePattern
    	CALL  	PlayPattern
 
 GameLoop:
-	LOAD	Score
-
-WaitForCommand:
-	CALL	CheckKeys
-	JNEG 	WaitForCommand
-	JZERO	EnterPatternLoop
-	CALL	PlayPattern
-	JUMP 	GameLoop
-
-EnterPatternLoop:
 	CALL 	CheckSwitches
-	JZERO	SkipAppend
+	JNEG	GameLoop
 	CALL	AppendToPattern
-
-SkipAppend:
-	CALL	CheckKeys
-	JNEG	EnterPatternLoop
-	JUMP	PatternEntered
+	JPOS	PatternEntered
+	JUMP	GameLoop
 
 PatternEntered:
 	CALL	CheckPattern
 	CALL 	UpdateScore
-
-EndGame:
-	
-	
-;*******************************************************************************
-; CheckKeys: Checks if Key0 or Key1 is pressed. If so, wait for it to be released. 
-; Returns the key that was pressed through AC, -1 if no key is pressed
-;*******************************************************************************
-CheckKeys:
-
+	JZERO	Init
+	JUMP	InitPattern
 
 ;*******************************************************************************
 ; CheckSwitches: Check if a switch has been flipped. If so, wait for it to be released.
@@ -44,12 +26,10 @@ CheckKeys:
 ;*******************************************************************************
 CheckSwitches:
 	LOAD	Switches
-	OR	0
 	JZERO	NoSwitchFlipped
 	STORE	FlippedSwitch
 WaitingLoop:
 	LOAD	Switches
-	OR	0
 	JZERO	ReturnSwitch
 	JUMP	WaitingLoop
 ReturnSwitch:
@@ -61,26 +41,16 @@ NoSwitchFlipped:
 FlippedSwitch:	DW 0
 
 ;*******************************************************************************
-; AppendToPattern: Adds the current value in the AC to the end of the EnteredPattern
+; GenerateFreqsSubset: Generates a new random sequence of frequencies and stores it in FreqsSubset memory location
 ;*******************************************************************************
-AppendToPattern:
+GenerateFreqsSubset:
+	LOAD    FreqsSubset	; load number of random frequencies to generate
+	STORE   SubsetCnt
+	LOADI   FreqsSubset ; load list address
+	ADDI    1			; increment to first frequency to store in FreqsPattern array
+	STORE   SubsetPtr
 
-;*******************************************************************************
-; GeneratePattern: Generates a new random sequence of frequencies and stores it in FreqsPattern memory location
-; Also stores a unique LED sequence in LEDPattern for each frequency stored in FreqsPattern.
-; Indexes into Freqs array to get the values to send to SCOMP via an OUT instruction
-; in order to play a sound of a particular frequency.
-;*******************************************************************************
-GeneratePattern:
-	LOAD    FreqsPattern ; load number of random frequencies to generate
-	STORE   PatternCnt
-	LOADI   FreqsPattern ; load list address
-	ADDI    1			 ; increment to first frequency to store in FreqsPattern array
-	STORE   PatternPtr
-	LOADI   LEDPattern   ; load LED array address
-	ADDI    1
-	STORE   LEDPtr
-GenerateLoop:
+GenerateFreqLoop:
 	LOAD    Freqs        ; highest index into Freqs array
 	STORE   m
 	CALL    LCGRand      ; get a random index into the array
@@ -90,25 +60,78 @@ GenerateLoop:
 	ADD     FreqsIndex
 	STORE   FreqsPtr
 	ILOAD   FreqsPtr     ; load value stored in the array
-	ISTORE  PatternPtr   ; store the frequency into FreqsPattern
-	LOAD    FreqsIndex   ; use the index of the frequency in the Freqs array as the unique LED sequence to display
+	ISTORE  SubsetPtr    ; store the frequency into FreqsPattern
+	
+	LOAD 	SubsetPtr
+	ADDI 	1
+	STORE 	SubsetPtr
+
+	LOAD    SubsetCnt   ; check if finished
+	ADDI    -1      
+	STORE   SubsetCnt
+	JPOS    GenerateFreqLoop
+	RETURN
+
+SubsetCnt: 		DW 0
+SubsetPtr:		DW 0
+FreqsIndex:  	DW 0 ; numerical index into the freqs array
+FreqsPtr:    	DW 0 ; memory address of the indexed value
+
+
+;*******************************************************************************
+; GeneratePattern: Generates a new random sequence of frequencies and stores it in FreqsPattern memory location
+; Also stores a unique LED sequence in LEDPattern for each frequency stored in FreqsPattern.
+; Indexes into Freqs array to get the values to send to SCOMP via an OUT instruction
+; in order to play a sound of a particular frequency.
+;*******************************************************************************
+GeneratePattern:
+	LOAD    FreqsPattern 		; load number of random frequencies to generate
+	STORE   PatternCnt
+	LOADI   FreqsPattern 		; load list address
+	ADDI    1			 		; increment to first frequency to store in FreqsPattern array
+	STORE   PatternPtr
+	LOADI   LEDPattern   		; load LED array address
+	ADDI    1
+	STORE   LEDPtr
+
+GeneratePatternLoop:
+	LOAD    FreqsSubset  		; numebr of avaliable frequencies (9)
+	STORE   m
+	CALL    LCGRand      		; get a random index into the array
+	LOAD    Index
+	STORE   FreqsSubsetIndex  	; store index into the freqs array
+
+	LOADI   FreqsSubset  		; load address of freqs subset list
+	ADD     FreqsSubsetIndex
+	STORE   FreqsSubsetPtr
+	ILOAD   FreqsSubsetPtr    	; load value stored in the array
+	ISTORE  PatternPtr  		; store the frequency into FreqsPattern
+
+	LOADI	Bits
+	ADD		FreqsSubsetIndex   	; use the index of the frequency in the Freqs subset array as the unique LED sequence to display
+	STORE 	BitsPtr
+	ILOAD 	BitsPtr
 	ISTORE  LEDPtr
-	LOAD    PatternPtr   ; increment to next spot in frequency and LED patterns
+
+	LOAD    PatternPtr   		; increment to next spot in frequency and LED patterns
 	ADDI    1
 	STORE   PatternPtr
 	LOAD    LEDPtr
 	ADDI    1
 	STORE   LEDPtr
-	LOAD    PatternCnt   ; check if finished
+	LOAD    PatternCnt   		; check if finished
 	ADDI    -1      
 	STORE   PatternCnt
-	JPOS    GenerateLoop
+	JPOS    GeneratePatternLoop
 	RETURN
-PatternCnt:  DW 0  ; number of frequencies to generate
-PatternPtr:  DW 0  ; memory address pointing to a spot in the FreqsPattern array
-LEDPtr:      DW 0  ; memory address pointing to a spot in the LEDPattern array
-FreqsIndex:  DW 0  ; numerical index into the freqs array
-FreqsPtr:    DW 0  ; memory address of the indexed value
+
+BitsPtr: 			DW 0 ; points into bits array
+PatternCnt: 		DW 0 ; number of frequencies to generate
+PatternPtr: 		DW 0 ; memory address pointing to a spot in the FreqsPattern array
+LEDPtr: 			DW 0 ; memory address pointing to a spot in the LEDPattern array
+FreqsSubsetIndex: 	DW 0 ; numerical index into the freq subset array array
+FreqsSubsetPtr:   	DW 0 ; memory address of the indexed value
+
 
 ;*******************************************************************************
 ; PlayPattern: Iterates through the FreqsPattern and LEDPattern arrays and
@@ -157,20 +180,98 @@ PlayPtr:     DW 0  ; memory address pointing to a spot in the FreqsPattern array
 DisplayPtr:  DW 0  ; memory address pointing to a spot in the LEDPattern array
 
 ;*******************************************************************************
-; CheckPattern: Compares the value in EnteredPattern to the value in
+; AppendToPattern: Adds the current value in the AC to the end of the InputPattern. Returns 0 if 
+;*******************************************************************************
+AppendToPattern:
+	STORE 	InputValue
+	LOADI	InputPattern	; load address of the start of user input
+	ADDI	1 			   	; step forward one to get into pattern values
+	STORE	InputPatternPtr
+
+IndexingLoop:
+	ILOAD	InputPatternPtr		
+	JZERO	AppendValue		; if 0, you have found the end of the currently entered pattern
+
+	ADDI	1				; increment pointer
+	STORE	InputPatternPtr
+
+	LOAD 	InputIndex		; increment index
+	ADDI	1
+	STORE 	InputIndex
+	
+	JUMP	IndexingLoop
+
+AppendValue:
+	LOAD 	InputValue
+	ISTORE	InputPatternPtr
+	
+	LOAD	FreqsPattern	; check if this is the final input (aka if index == length of pattern)
+	SUB		Index
+	JZERO	FinalInput
+
+	LOADI	0
+	RETURN
+
+FinalInput: 
+	LOADI 	1
+	RETURN
+
+InputIndex:			DW 1 ; index in InputPattern that is being added to
+InputValue:			DW 0 ; value inputted into function
+InputPatternPtr:	DW 0 ; pointer for indexing into InputPattern
+
+;*******************************************************************************
+; CheckPattern: Compares the value in InputPattern to the value in
 ; Pattern. Places a 1 in AC if they are equal and a 0 otherwise
 ;*******************************************************************************
 CheckPattern:
+	LOAD    FreqsPattern	; load number of sounds played
+	STORE   PlayCnt
+	
+	LOADI	LEDPattern	
+	ADDI	1
+	STORE 	LEDPtr			; create LED pointer	
+	LOADI	InputPattern
+	ADDI	1
+	STORE 	InputPtr		; create input pointer
+CheckEqual:
+	ILOAD	LEDPtr			
+	STORE	TempLED			; store LED value at current index as temp var
+	ILOAD 	InputPtr		
+	SUB		TempLED			; AC <= inputted switch - LED played
+	JZERO	Continue		; continue if same
+	LOADI	0				; return 0 on failure
+	RETURN
+	
+Continue:
+	LOAD	PlayCnt
+	ADDI	-1
+	STORE 	PlayCnt
+	JPOS	IncrementPointers
+	LOADI	1				; return 1 if checked all LEDs played
+	RETURN
+
+IncrementPointers:
+	LOADI	LEDPtr
+	ADDI	1
+	STORE 	LEDPtr
+	LOADI 	InputPtr
+	ADDI	1
+	STORE	InputPtr
+	JUMP	CheckEqual
+	
+TempLED:	DW 0
+InputPtr:	DW 0
 
 ;*******************************************************************************
 ; UpdateScore: If the AC contains 1, increment the current score. Otherwise, set score to 0.
 ;*******************************************************************************
 UpdateScore:
-	OR	0
 	JZERO	StoreScore
 	LOAD	Score
 	ADDI	1
 StoreScore:
+	OUT		Hex0
 	STORE	Score
 	RETURN
 	
@@ -382,6 +483,19 @@ TimerParam:  DW 0
 
 ; Game state variables
 Temp:	  		DW 0
+
+FreqsSubset:
+	 DW 9
+	 DW 0
+	 DW 0
+	 DW 0
+	 DW 0
+	 DW 0
+	 DW 0
+	 DW 0
+	 DW 0
+	 DW 0
+
 FreqsPattern:   ; stores a randomly generated sequence of frequencies to be played by WaveGen peripheral
      DW 3       ; number of sequences to store in this array
 	 DW 0
@@ -392,7 +506,7 @@ LEDPattern:     ; stores a sequence of LED patterns to display for each correspo
 	 DW 0 
 	 DW 0
 	 DW 0
-EnteredPattern:	; stores user input
+InputPattern:	; stores user input
 	 DW 3
 	 DW 0
 	 DW 0
@@ -403,6 +517,8 @@ Score:    		DW 0
 Zero:      DW 0
 NegOne:    DW -1
 One:	   DW 1
+
+Bits:
 Bit0:      DW &B0000000001
 Bit1:      DW &B0000000010
 Bit2:      DW &B0000000100
