@@ -1,15 +1,15 @@
 ORG 0
 
-Init:
-	CALL	GenerateFreqsSubset
+Init:							; game initialization
 	LOADI	0
 	CALL	UpdateScore
+	LOADI   5
+	STORE   Delay
 
 InitPattern:
    	CALL  	GeneratePattern		; start of turn - store pattern in arrays
    	CALL  	PlayPattern			; play pattern on speaker and LEDs
 	LOADI	InputPattern
-	ADDI	1
 	STORE	InputPatternPtr		; reset input pattern ptr to beginning of InputPattern array
 
 GameLoop:
@@ -33,8 +33,7 @@ CheckSwitches:
 	IN		Switches
 	JZERO	NoSwitchFlipped
 	STORE	FlippedSwitch
-	LOADI	0
-	ADDI	1
+	LOADI	1
 	STORE 	TimerParam
 	CALL	WaitForTimer	; wait .1s for switch bounce
 WaitingLoop:
@@ -51,46 +50,6 @@ NoSwitchFlipped:
 FlippedSwitch:	DW 0
 
 ;*******************************************************************************
-; GenerateFreqsSubset: Generates a subset of 9 random frequencies from the larger frequency list
-; Stores frequencies in FreqsSubset array
-;*******************************************************************************
-GenerateFreqsSubset:
-	LOAD    FreqsSubset		; load number of random frequencies to generate
-	STORE   SubsetCnt
-	LOADI   FreqsSubset 	
-	ADDI    1				
-	STORE   SubsetPtr		; store pointer to first element in subset array
-
-GenerateFreqLoop:
-	LOAD    Freqs        	; highest index into freqs array
-	STORE   m
-	CALL    LCGRand      	; get a random index into the array
-	LOAD    Index
-	STORE   FreqsIndex   	; store random index into freqs array
-	LOADI   Freqs        	; load address of freqs list
-	ADDI	1
-	ADD     FreqsIndex		; add starting address to random index
-	STORE   FreqsPtr		; update pointer
-	ILOAD   FreqsPtr     	; load frequency at that pointer
-	ISTORE  SubsetPtr    	; store frequency into subset array
-	
-	LOAD 	SubsetPtr	 	; increment subset pointer
-	ADDI 	1
-	STORE 	SubsetPtr
-
-	LOAD    SubsetCnt   	; check if finished
-	ADDI    -1      
-	STORE   SubsetCnt
-	JPOS    GenerateFreqLoop
-	RETURN
-
-SubsetCnt: 		DW 0
-SubsetPtr:		DW 0
-FreqsIndex:  	DW 0 		; numerical index into the freqs array
-FreqsPtr:    	DW 0 		; memory address of the indexed value
-
-
-;*******************************************************************************
 ; GeneratePattern: Generates a new random sequence of frequencies and stores it in FreqsPattern memory location
 ; Also stores a unique LED sequence in LEDPattern for each frequency stored in FreqsPattern.
 ; Indexes into Freqs array to get the values to send to SCOMP via an OUT instruction
@@ -105,53 +64,72 @@ GeneratePattern:
 	LOADI   LEDPattern 
 	ADDI    1
 	STORE   LEDPtr				; store pointer to first element in LED array (holds LEDs)
-
+	LOADI   DurPattern
+	STORE   DurPatPtr           ; store pointer to first element in DurPattern array
 GeneratePatternLoop:
-	LOAD    FreqsSubset  		; number of frequencies in subset (9)
+    ; get a random index into the Freqs array
+	LOAD    Freqs        	    ; highest index into freqs array
 	STORE   m
-	CALL    LCGRand      		; get a random index into the subset array
+	CALL    LCGRand      	
 	LOAD    Index
-	;***************************************************************
-	OUT		Hex1				; show the index retreived on the hex display
-	; I put this here to show that the random subroutine keeps
-	; returning 7 after a few calls
-	;***************************************************************
-	STORE   FreqsSubsetIndex  	; store index retreived
-
-	LOADI   FreqsSubset  		; load address of freqs subset list
-	ADDI	1
-	ADD     FreqsSubsetIndex	; add starting address to random index
-	STORE   FreqsSubsetPtr		; update pointer
-	ILOAD   FreqsSubsetPtr    	; load frequency at that pointer
+	; index into the Freqs array and store in FreqsPattern
+	STORE   FreqsIndex  	    ; store index retreived
+	ADDI    Freqs    		    ; load address of freqs subset list
+	STORE   FreqsPtr		    ; update pointer
+	ILOAD   FreqsPtr    	    ; load frequency at that pointer
 	ISTORE  PatternPtr  		; store the frequency into pattern array
-
-	LOADI	Bit0				; load address of bits array
-	ADD		FreqsSubsetIndex   	; use the random index from 0-8 as the index into the bits array
-	STORE 	BitsPtr
-	ILOAD 	BitsPtr				; get value in bits array (to light up a single LED)
+    
+	; use FreqsIndex % 9 as the LED light to display - gives a value b/w 0 and 8
+	LOAD    FreqsIndex          ; index is a random value from 1-9
+	STORE   d16sN
+	LOADI   9
+	STORE   d16sD
+	CALL    Div16s
+	LOAD    dres16sR            ; value to use as index to Bits array
+	ADDI    Bit0
+	STORE   BitsPtr
+	ILOAD   BitsPtr
 	ISTORE  LEDPtr				; store LED number in LED array
+	
+	; use FreqsIndex % 3 to index into list of possible durations to send to the peripheral
+	LOAD    FreqsIndex
+	STORE   d16sN
+	LOAD    Durations
+    STORE   d16sD
+	CALL    Div16s
+	LOAD    dres16sR			; gives value between 0 and 2
+	ADDI    Durations
+	ADDI    1					; add 1 to get to correct memory location
+	STORE   DursPtr
+	ILOAD   DursPtr
+	ISTORE  DurPatPtr
 
+	; increment pointers
 	LOAD    PatternPtr   		; increment pattern ptr
 	ADDI    1
 	STORE   PatternPtr
-	
 	LOAD    LEDPtr				; increment LED ptr
 	ADDI    1
 	STORE   LEDPtr
-	
-	LOAD    PatternCnt   		; check if finished
+	LOAD    DurPatPtr
+	ADDI    1
+	STORE   DurPatPtr
+
+	; check if finished
+	LOAD    PatternCnt 
 	ADDI    -1      
 	STORE   PatternCnt
 	JPOS    GeneratePatternLoop
 	RETURN
 
-BitsPtr: 			DW 0 ; points into bits array
+BitsPtr:            DW 0 ; pointer to a BitX value
 PatternCnt: 		DW 0 ; number of frequencies to generate
 PatternPtr: 		DW 0 ; memory address pointing to a spot in the FreqsPattern array
 LEDPtr: 			DW 0 ; memory address pointing to a spot in the LEDPattern array
-FreqsSubsetIndex: 	DW 0 ; numerical index into the freq subset array
-FreqsSubsetPtr:   	DW 0 ; memory address of the indexed value
-
+FreqsIndex:  	    DW 0 ; numerical index into the freqs array
+FreqsPtr:    	    DW 0 ; memory address of the indexed value
+DursPtr:			DW 0 ; memory address pointing to a spot in the Durations array
+DurPatPtr:          DW 0 ; memory address pointing to a spot in the DurPattern array
 
 ;*******************************************************************************
 ; PlayPattern: Iterates through the FreqsPattern and LEDPattern arrays and
@@ -169,35 +147,84 @@ PlayPattern:
 	LOADI   LEDPattern    ; load address of list of stored LED patterns
 	ADDI    1
 	STORE   DisplayPtr
+	LOADI   DurPattern
+	STORE   DurationPtr
 PlayLoop:
     CALL    WaitForSound
+	LOADI   0
+	OUT     LEDs		 ; turn off LED after sound is done playing
+	; create a small, variable delay b/w sounds
+	CALL    GetDelay
+	LOAD    Delay
+	STORE   TimerParam
+	CALL    WaitForTimer
+	
+	; grab the next sound to play from the array and send to the peripheral
+	ILOAD   DurationPtr  ; load duration value stored in DurPattern array
+	STORE   Duration
     ILOAD   PlayPtr      ; load value stored in FreqsPattern array
-	ADD     TwoFourth
+	ADD     Duration
 	OUT     WaveGen      ; play the sound
 	ILOAD   DisplayPtr   ; load stored LED FreqsPattern and display
 	OUT     LEDs
-	LOAD    PlayPtr      ; increment to next spot
+	
+	; increment pointers
+	LOAD    PlayPtr      
 	ADDI    1
 	STORE   PlayPtr
 	LOAD    DisplayPtr
 	ADDI    1
 	STORE   DisplayPtr
+	LOAD    DurationPtr
+	ADDI    1
+	STORE   DurationPtr
 	LOAD    PlayCnt
 	ADDI    -1
 	STORE   PlayCnt
 	JPOS    PlayLoop
 	CALL    WaitForSound
+	
+	; finished playing all of the sounds in FreqsPattern
 	LOAD    Disable      ; stop playing noise
 	OUT     WaveGen
 	LOAD    Bit9         ; light up only far left LED to indicate pattern is done playing
 	OUT     LEDs
-	LOADI   20
-	STORE   TimerParam
-	CALL    WaitForTimer
 	RETURN
+
 PlayCnt:     DW 0  ; number of frequencies to play
 PlayPtr:     DW 0  ; memory address pointing to a spot in the FreqsPattern array
 DisplayPtr:  DW 0  ; memory address pointing to a spot in the LEDPattern array
+DurationPtr: DW 0  ; memory address pointing to a spot in the DurPattern array
+Duration:    DW 0  ; value stored at DurationPtr
+
+;*******************************************************************************
+; GetDelay: stores the number of .1s intervals to be used as a delay between playing
+; each sound in the generated pattern.
+; Start value is 5 (0.5 s in between sounds)
+; Decrements by 1 every 5 points the user receives
+; To use:
+; - call GetDelay
+; - result stored in Delay
+;*******************************************************************************
+GetDelay:
+	LOAD     Score
+	JZERO    ReturnDelay        ; if score is currently 0, don't do anything
+	STORE    d16sN
+	LOADI    5
+	STORE    d16sD
+	CALL     Div16s
+	LOAD     dres16sR
+	JPOS     ReturnDelay        ; Score % 5 > 0 --> keep the current delay
+	LOAD     Delay
+	ADDI     -1
+	STORE    Delay
+	JPOS     ReturnDelay
+	LOADI    5                  ; if Delay gets to 0, set it back to 5
+	STORE    Delay
+ReturnDelay:
+	RETURN
+
+Delay:       DW 5
 
 ;*******************************************************************************
 ; AppendToPattern: Adds the current value in the AC to the end of the InputPattern.
@@ -215,11 +242,10 @@ AppendToPattern:
 
 	LOADI	0					; return 0 if more switches need to be thrown to fill out pattern array
 	RETURN
-
 FinalInput:
 	LOADI 	1					; return 0 if full pattern entered
 	RETURN
-
+	
 InputPatternPtr:	DW 0 ; pointer for indexing into InputPattern
 
 ;*******************************************************************************
@@ -235,7 +261,6 @@ CheckPattern:
 	ADDI	1
 	STORE 	LEDPtr				; create pointer to first element in LEDPattern array	
 	LOADI	InputPattern
-	ADDI	1
 	STORE 	InputPtr			; create pointer to first element in InputPattern array
 CheckEqual:
 	ILOAD	LEDPtr			
@@ -244,8 +269,7 @@ CheckEqual:
 	SUB		TempLED				; AC <= inputted switch - LED played
 	JZERO	Continue			; continue if same
 	LOADI	0					; return 0 if not equal
-	RETURN
-	
+	RETURN	
 Continue:
 	LOAD	PlayCnt
 	ADDI	-1
@@ -253,7 +277,6 @@ Continue:
 	JPOS	IncrementPointers	; increment pointers if haven't checked full array yet
 	LOADI	1					; return 1 if all LEDs played = all swtiches thrown
 	RETURN
-
 IncrementPointers:
 	LOAD	LEDPtr
 	ADDI	1
@@ -284,13 +307,15 @@ StoreScore:
 ; generator (LCG) algorithm (https://en.wikipedia.org/wiki/Linear_congruential_generator)
 ; Written by Ben Melnick
 ; To use:
+; - store the most recently generated value in x
 ; - store the highest possibly generated value in m
+; - store a large prime number in a
 ; - call LCGRand
 ; - Result is stored in Index
 ; Requires Mult16s and Div16s subroutines
 ;*******************************************************************************
 LCGRand:
-	LOAD    x
+	LOAD    lcgx
 	STORE   m16sa
 	LOAD    a
 	STORE   m16sb
@@ -308,10 +333,10 @@ LCGRand:
 	STORE   d16sD
 	CALL    Div16s
 	LOAD    dres16sR
-	STORE   x
+	STORE   lcgx
 	STORE   Index
 	RETURN
-x:     DW 1
+lcgx:  DW 1
 a:     DW 69069
 c:     DW 1
 m:     DW 0
@@ -471,7 +496,7 @@ WaitForSound:
 	RETURN
 
 ;*******************************************************************************
-; DelayAC: Pause for some multiple of 0.1 seconds.
+; WaitForTimer: Pause for some multiple of 0.1 seconds.
 ; Call this with the desired delay in TimerParam.
 ; E.g. if TimerParam is 10, this will delay for 10*0.1 = 1 second
 ;*******************************************************************************
@@ -485,38 +510,25 @@ TimerLoop:
 TimerParam:  DW 0
 
 ; Game state variables
-Temp:	  		DW 0
-
-FreqsSubset:
-	 DW 9
-	 DW 0
-	 DW 0
-	 DW 0
-	 DW 0
-	 DW 0
-	 DW 0
-	 DW 0
-	 DW 0
-	 DW 0
-
 FreqsPattern:   ; stores a randomly generated sequence of frequencies to be played by WaveGen peripheral
      DW 3       ; number of sequences to store in this array
 	 DW 0
 	 DW 0
 	 DW 0
-LEDPattern:     ; stores a sequence of LED patterns to display for each corresponding entry in Pattern
+LEDPattern:     ; stores a sequence of LED patterns to display for each corresponding entry in FreqsPattern
 	 DW 3       ; number of LED patterns to store
 	 DW 0 
 	 DW 0
 	 DW 0
+DurPattern:     ; stores a sequence of durations for how long each corresponding entry in FreqsPattern will be played
+	 DW 0
+	 DW 0
+	 DW 0
 InputPattern:	; stores user input
-	 DW 3
 	 DW 0
 	 DW 0
 	 DW 0
-EndPattern:
-	DW -1
-
+EndPattern: DW -1  ; used in AppendToPattern to detect the end of the InputPattern array
 Score:    	DW 0
 
 ; Useful values
@@ -524,6 +536,7 @@ Zero:      DW 0
 NegOne:    DW -1
 One:	   DW 1
 
+; Bits array
 Bit0:      DW &B0000000001
 Bit1:      DW &B0000000010
 Bit2:      DW &B0000000100
@@ -536,75 +549,77 @@ Bit8:      DW &B0100000000
 Bit9:      DW &B1000000000
 LoByte:    DW &H00FF
 
-Freqs: ; array of 61 frequencies that can be played
-   DW 61   ; size of the array
-   DW 7644 ; C2
-   DW 7215 ; C2 sharp
-   DW 6810 ; D2
-   DW 6428 ; D2 sharp
-   DW 6067 ; E2
-   DW 5727 ; F2
-   DW 5405 ; F2 sharp
-   DW 5102 ; G2
-   DW 4816 ; G2 sharp
-   DW 4545 ; A2
-   DW 4290 ; A2 sharp
-   DW 4050 ; B2
-   DW 3822 ; C3
-   DW 3608 ; C3 sharp
-   DW 3405 ; D3
-   DW 3214 ; D3 sharp
-   DW 3034 ; E3
-   DW 2864 ; F3
-   DW 2703 ; F3 sharp
-   DW 2551 ; G3
-   DW 2408 ; G3 sharp
-   DW 2273 ; A3
-   DW 2145 ; A3 sharp
-   DW 2025 ; B3
-   DW 1911 ; C4
-   DW 1804 ; C4 sharp
-   DW 1703 ; D4
-   DW 1607 ; D4 sharp
-   DW 1517 ; E4
-   DW 1432 ; F4
-   DW 1351 ; F4 sharp
-   DW 1276 ; G4
-   DW 1204 ; G4 sharp
-   DW 1136 ; A4
-   DW 1073 ; A4 sharp
-   DW 1012 ; B4
-   DW 956  ; C5
-   DW 902  ; C5 sharp
-   DW 851  ; D5 
-   DW 804  ; D5 sharp
-   DW 758  ; E5
-   DW 716  ; F5
-   DW 676  ; F5 sharp
-   DW 638  ; G5
-   DW 602  ; G5 sharp
-   DW 568  ; A5
-   DW 536  ; A5 sharp
-   DW 506  ; B5
-   DW 478  ; C6
-   DW 451  ; C6 sharp
-   DW 426  ; D6
-   DW 402  ; D6 sharp
-   DW 379  ; E6
-   DW 358  ; F6
-   DW 338  ; F6 sharp
-   DW 319  ; G6
-   DW 301  ; G6 sharp
-   DW 284  ; A6
-   DW 268  ; A6 sharp
-   DW 253  ; B6
-   DW 239  ; C7
+Freqs:       ; array of 61 frequencies that can be played
+     DW 61   ; size of the array
+     DW 7644 ; C2
+     DW 7215 ; C2 sharp
+     DW 6810 ; D2
+     DW 6428 ; D2 sharp
+     DW 6067 ; E2
+     DW 5727 ; F2
+     DW 5405 ; F2 sharp
+     DW 5102 ; G2
+     DW 4816 ; G2 sharp
+     DW 4545 ; A2
+     DW 4290 ; A2 sharp
+     DW 4050 ; B2
+     DW 3822 ; C3
+     DW 3608 ; C3 sharp
+     DW 3405 ; D3
+     DW 3214 ; D3 sharp
+     DW 3034 ; E3
+     DW 2864 ; F3
+     DW 2703 ; F3 sharp
+     DW 2551 ; G3
+     DW 2408 ; G3 sharp
+     DW 2273 ; A3
+     DW 2145 ; A3 sharp
+     DW 2025 ; B3
+     DW 1911 ; C4
+     DW 1804 ; C4 sharp
+     DW 1703 ; D4
+     DW 1607 ; D4 sharp
+     DW 1517 ; E4
+     DW 1432 ; F4
+     DW 1351 ; F4 sharp
+     DW 1276 ; G4
+     DW 1204 ; G4 sharp
+     DW 1136 ; A4
+     DW 1073 ; A4 sharp
+     DW 1012 ; B4
+     DW 956  ; C5
+     DW 902  ; C5 sharp
+     DW 851  ; D5 
+     DW 804  ; D5 sharp
+     DW 758  ; E5
+     DW 716  ; F5
+     DW 676  ; F5 sharp
+     DW 638  ; G5
+     DW 602  ; G5 sharp
+     DW 568  ; A5
+     DW 536  ; A5 sharp
+     DW 506  ; B5
+     DW 478  ; C6
+     DW 451  ; C6 sharp
+     DW 426  ; D6
+     DW 402  ; D6 sharp
+     DW 379  ; E6
+     DW 358  ; F6
+     DW 338  ; F6 sharp
+     DW 319  ; G6
+     DW 301  ; G6 sharp
+     DW 284  ; A6
+     DW 268  ; A6 sharp
+     DW 253  ; B6
+     DW 239  ; C7
 
 ; Duration constants for playing waves
 Unlimited:	 DW &H0000
-TwoFourth:	 DW &H4000
-ThreeFourth: DW	&H8000
-FourFourth:  DW	&HC000
+Durations:
+	 DW 3
+	 DW &H4000
+     DW	&H8000
+     DW	&HC000
 ; Value to send to disable sound output
 Disable:	 DW	&H3FFF
 
