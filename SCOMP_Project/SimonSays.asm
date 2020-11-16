@@ -6,6 +6,9 @@ Init:
 InitPattern:
    	CALL  	GeneratePattern
    	CALL  	PlayPattern
+	LOADI	InputPattern	; reset input pattern pointer
+	ADDI	1
+	STORE	InputPatternPtr
 
 GameLoop:
 	CALL 	CheckSwitches
@@ -25,11 +28,14 @@ PatternEntered:
 ; Returns the flipped switch through AC, or -1 if no switch is flipped
 ;*******************************************************************************
 CheckSwitches:
-	LOAD	Switches
+	IN		Switches
 	JZERO	NoSwitchFlipped
 	STORE	FlippedSwitch
+	ADDI	1
+	STORE 	TimerParam
+	CALL	WaitForTimer	; wait for switch bounce
 WaitingLoop:
-	LOAD	Switches
+	IN		Switches
 	JZERO	ReturnSwitch
 	JUMP	WaitingLoop
 ReturnSwitch:
@@ -57,12 +63,13 @@ GenerateFreqLoop:
 	LOAD    Index
 	STORE   FreqsIndex   ; store index into the freqs array
 	LOADI   Freqs        ; load address of freqs list
+	ADDI	1
 	ADD     FreqsIndex
 	STORE   FreqsPtr
 	ILOAD   FreqsPtr     ; load value stored in the array
 	ISTORE  SubsetPtr    ; store the frequency into FreqsPattern
 	
-	LOAD 	SubsetPtr
+	LOAD 	SubsetPtr	 ; increment subset pointer
 	ADDI 	1
 	STORE 	SubsetPtr
 
@@ -102,16 +109,17 @@ GeneratePatternLoop:
 	STORE   FreqsSubsetIndex  	; store index into the freqs array
 
 	LOADI   FreqsSubset  		; load address of freqs subset list
+	ADDI	1
 	ADD     FreqsSubsetIndex
 	STORE   FreqsSubsetPtr
 	ILOAD   FreqsSubsetPtr    	; load value stored in the array
 	ISTORE  PatternPtr  		; store the frequency into FreqsPattern
 
-	LOADI	Bits
+	LOADI	Bit0
 	ADD		FreqsSubsetIndex   	; use the index of the frequency in the Freqs subset array as the unique LED sequence to display
 	STORE 	BitsPtr
-	ILOAD 	BitsPtr
-	ISTORE  LEDPtr
+	ILOAD 	BitsPtr				; get value in bits array
+	ISTORE  LEDPtr				; store LED number in LED array
 
 	LOAD    PatternPtr   		; increment to next spot in frequency and LED patterns
 	ADDI    1
@@ -183,40 +191,23 @@ DisplayPtr:  DW 0  ; memory address pointing to a spot in the LEDPattern array
 ; AppendToPattern: Adds the current value in the AC to the end of the InputPattern. Returns 0 if 
 ;*******************************************************************************
 AppendToPattern:
-	STORE 	InputValue
-	LOADI	InputPattern	; load address of the start of user input
-	ADDI	1 			   	; step forward one to get into pattern values
-	STORE	InputPatternPtr
 
-IndexingLoop:
-	ILOAD	InputPatternPtr		
-	JZERO	AppendValue		; if 0, you have found the end of the currently entered pattern
-
-	ADDI	1				; increment pointer
-	STORE	InputPatternPtr
-
-	LOAD 	InputIndex		; increment index
-	ADDI	1
-	STORE 	InputIndex
-	
-	JUMP	IndexingLoop
-
-AppendValue:
-	LOAD 	InputValue
 	ISTORE	InputPatternPtr
 	
-	LOAD	FreqsPattern	; check if this is the final input (aka if index == length of pattern)
-	SUB		Index
-	JZERO	FinalInput
+	LOAD	InputPatternPtr		
+	ADDI	1				; increment pointer
+	STORE	InputPatternPtr
+	
+	ILOAD	InputPatternPtr	; check if end of input
+	JNEG	FinalInput
 
 	LOADI	0
 	RETURN
 
-FinalInput: 
+FinalInput:
 	LOADI 	1
 	RETURN
 
-InputIndex:			DW 1 ; index in InputPattern that is being added to
 InputValue:			DW 0 ; value inputted into function
 InputPatternPtr:	DW 0 ; pointer for indexing into InputPattern
 
@@ -252,10 +243,10 @@ Continue:
 	RETURN
 
 IncrementPointers:
-	LOADI	LEDPtr
+	LOAD	LEDPtr
 	ADDI	1
 	STORE 	LEDPtr
-	LOADI 	InputPtr
+	LOAD 	InputPtr
 	ADDI	1
 	STORE	InputPtr
 	JUMP	CheckEqual
@@ -511,14 +502,16 @@ InputPattern:	; stores user input
 	 DW 0
 	 DW 0
 	 DW 0
-Score:    		DW 0
+EndPattern:
+	DW -1
+
+Score:    	DW 0
 
 ; Useful values
 Zero:      DW 0
 NegOne:    DW -1
 One:	   DW 1
 
-Bits:
 Bit0:      DW &B0000000001
 Bit1:      DW &B0000000010
 Bit2:      DW &B0000000100
