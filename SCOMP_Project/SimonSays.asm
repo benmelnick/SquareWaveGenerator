@@ -2,24 +2,26 @@ ORG 0
 
 Init:
 	CALL	GenerateFreqsSubset
+	LOADI	0
+	CALL	UpdateScore
 
 InitPattern:
-   	CALL  	GeneratePattern
-   	CALL  	PlayPattern
-	LOADI	InputPattern	; reset input pattern pointer
+   	CALL  	GeneratePattern		; start of turn - store pattern in arrays
+   	CALL  	PlayPattern			; play pattern on speaker and LEDs
+	LOADI	InputPattern
 	ADDI	1
-	STORE	InputPatternPtr
+	STORE	InputPatternPtr		; reset input pattern ptr to beginning of InputPattern array
 
 GameLoop:
-	CALL 	CheckSwitches
+	CALL 	CheckSwitches		; check switches until not 0
 	JNEG	GameLoop
-	CALL	AppendToPattern
-	JPOS	PatternEntered
+	CALL	AppendToPattern		; append switch thrown to input pattern array
+	JPOS	PatternEntered		; if AppendToPattern returns 1, reached end of array -> full pattern entered
 	JUMP	GameLoop
 
 PatternEntered:
-	CALL	CheckPattern
-	CALL 	UpdateScore
+	CALL	CheckPattern		; compare against played pattern
+	CALL 	UpdateScore			; increment if correct, reset to 0 if not
 	JZERO	Init
 	JUMP	InitPattern
 
@@ -31,12 +33,14 @@ CheckSwitches:
 	IN		Switches
 	JZERO	NoSwitchFlipped
 	STORE	FlippedSwitch
+	LOADI	0
 	ADDI	1
 	STORE 	TimerParam
-	CALL	WaitForTimer	; wait for switch bounce
+	CALL	WaitForTimer	; wait .1s for switch bounce
 WaitingLoop:
 	IN		Switches
-	JZERO	ReturnSwitch
+	OUT		LEDs			; light LED of switch that's on
+	JZERO	ReturnSwitch	; return if switch reset back to 0
 	JUMP	WaitingLoop
 ReturnSwitch:
 	LOAD	FlippedSwitch
@@ -47,33 +51,34 @@ NoSwitchFlipped:
 FlippedSwitch:	DW 0
 
 ;*******************************************************************************
-; GenerateFreqsSubset: Generates a new random sequence of frequencies and stores it in FreqsSubset memory location
+; GenerateFreqsSubset: Generates a subset of 9 random frequencies from the larger frequency list
+; Stores frequencies in FreqsSubset array
 ;*******************************************************************************
 GenerateFreqsSubset:
-	LOAD    FreqsSubset	; load number of random frequencies to generate
+	LOAD    FreqsSubset		; load number of random frequencies to generate
 	STORE   SubsetCnt
-	LOADI   FreqsSubset ; load list address
-	ADDI    1			; increment to first frequency to store in FreqsPattern array
-	STORE   SubsetPtr
+	LOADI   FreqsSubset 	
+	ADDI    1				
+	STORE   SubsetPtr		; store pointer to first element in subset array
 
 GenerateFreqLoop:
-	LOAD    Freqs        ; highest index into Freqs array
+	LOAD    Freqs        	; highest index into freqs array
 	STORE   m
-	CALL    LCGRand      ; get a random index into the array
+	CALL    LCGRand      	; get a random index into the array
 	LOAD    Index
-	STORE   FreqsIndex   ; store index into the freqs array
-	LOADI   Freqs        ; load address of freqs list
+	STORE   FreqsIndex   	; store random index into freqs array
+	LOADI   Freqs        	; load address of freqs list
 	ADDI	1
-	ADD     FreqsIndex
-	STORE   FreqsPtr
-	ILOAD   FreqsPtr     ; load value stored in the array
-	ISTORE  SubsetPtr    ; store the frequency into FreqsPattern
+	ADD     FreqsIndex		; add starting address to random index
+	STORE   FreqsPtr		; update pointer
+	ILOAD   FreqsPtr     	; load frequency at that pointer
+	ISTORE  SubsetPtr    	; store frequency into subset array
 	
-	LOAD 	SubsetPtr	 ; increment subset pointer
+	LOAD 	SubsetPtr	 	; increment subset pointer
 	ADDI 	1
 	STORE 	SubsetPtr
 
-	LOAD    SubsetCnt   ; check if finished
+	LOAD    SubsetCnt   	; check if finished
 	ADDI    -1      
 	STORE   SubsetCnt
 	JPOS    GenerateFreqLoop
@@ -81,8 +86,8 @@ GenerateFreqLoop:
 
 SubsetCnt: 		DW 0
 SubsetPtr:		DW 0
-FreqsIndex:  	DW 0 ; numerical index into the freqs array
-FreqsPtr:    	DW 0 ; memory address of the indexed value
+FreqsIndex:  	DW 0 		; numerical index into the freqs array
+FreqsPtr:    	DW 0 		; memory address of the indexed value
 
 
 ;*******************************************************************************
@@ -92,41 +97,48 @@ FreqsPtr:    	DW 0 ; memory address of the indexed value
 ; in order to play a sound of a particular frequency.
 ;*******************************************************************************
 GeneratePattern:
-	LOAD    FreqsPattern 		; load number of random frequencies to generate
+	LOAD    FreqsPattern 		; load number of random frequencies to generate (default is 3)
 	STORE   PatternCnt
 	LOADI   FreqsPattern 		; load list address
-	ADDI    1			 		; increment to first frequency to store in FreqsPattern array
-	STORE   PatternPtr
-	LOADI   LEDPattern   		; load LED array address
 	ADDI    1
-	STORE   LEDPtr
+	STORE   PatternPtr			; store pointer to first element in pattern array (hold frequencies)
+	LOADI   LEDPattern 
+	ADDI    1
+	STORE   LEDPtr				; store pointer to first element in LED array (holds LEDs)
 
 GeneratePatternLoop:
-	LOAD    FreqsSubset  		; numebr of avaliable frequencies (9)
+	LOAD    FreqsSubset  		; number of frequencies in subset (9)
 	STORE   m
-	CALL    LCGRand      		; get a random index into the array
+	CALL    LCGRand      		; get a random index into the subset array
 	LOAD    Index
-	STORE   FreqsSubsetIndex  	; store index into the freqs array
+	;***************************************************************
+	OUT		Hex1				; show the index retreived on the hex display
+	; I put this here to show that the random subroutine keeps
+	; returning 7 after a few calls
+	;***************************************************************
+	STORE   FreqsSubsetIndex  	; store index retreived
 
 	LOADI   FreqsSubset  		; load address of freqs subset list
 	ADDI	1
-	ADD     FreqsSubsetIndex
-	STORE   FreqsSubsetPtr
-	ILOAD   FreqsSubsetPtr    	; load value stored in the array
-	ISTORE  PatternPtr  		; store the frequency into FreqsPattern
+	ADD     FreqsSubsetIndex	; add starting address to random index
+	STORE   FreqsSubsetPtr		; update pointer
+	ILOAD   FreqsSubsetPtr    	; load frequency at that pointer
+	ISTORE  PatternPtr  		; store the frequency into pattern array
 
-	LOADI	Bit0
-	ADD		FreqsSubsetIndex   	; use the index of the frequency in the Freqs subset array as the unique LED sequence to display
+	LOADI	Bit0				; load address of bits array
+	ADD		FreqsSubsetIndex   	; use the random index from 0-8 as the index into the bits array
 	STORE 	BitsPtr
-	ILOAD 	BitsPtr				; get value in bits array
+	ILOAD 	BitsPtr				; get value in bits array (to light up a single LED)
 	ISTORE  LEDPtr				; store LED number in LED array
 
-	LOAD    PatternPtr   		; increment to next spot in frequency and LED patterns
+	LOAD    PatternPtr   		; increment pattern ptr
 	ADDI    1
 	STORE   PatternPtr
-	LOAD    LEDPtr
+	
+	LOAD    LEDPtr				; increment LED ptr
 	ADDI    1
 	STORE   LEDPtr
+	
 	LOAD    PatternCnt   		; check if finished
 	ADDI    -1      
 	STORE   PatternCnt
@@ -137,7 +149,7 @@ BitsPtr: 			DW 0 ; points into bits array
 PatternCnt: 		DW 0 ; number of frequencies to generate
 PatternPtr: 		DW 0 ; memory address pointing to a spot in the FreqsPattern array
 LEDPtr: 			DW 0 ; memory address pointing to a spot in the LEDPattern array
-FreqsSubsetIndex: 	DW 0 ; numerical index into the freq subset array array
+FreqsSubsetIndex: 	DW 0 ; numerical index into the freq subset array
 FreqsSubsetPtr:   	DW 0 ; memory address of the indexed value
 
 
@@ -188,58 +200,58 @@ PlayPtr:     DW 0  ; memory address pointing to a spot in the FreqsPattern array
 DisplayPtr:  DW 0  ; memory address pointing to a spot in the LEDPattern array
 
 ;*******************************************************************************
-; AppendToPattern: Adds the current value in the AC to the end of the InputPattern. Returns 0 if 
+; AppendToPattern: Adds the current value in the AC to the end of the InputPattern.
+; Returns 1 if reached the end of the pattern array (full pattern has been entered)
+; Returns 0 if user needs to enter more switches to complete pattern
 ;*******************************************************************************
 AppendToPattern:
-
-	ISTORE	InputPatternPtr
+	ISTORE	InputPatternPtr		; store switch thrown in InputPattern array
+	LOAD	InputPatternPtr
+	ADDI	1
+	STORE	InputPatternPtr		; increment pointer
 	
-	LOAD	InputPatternPtr		
-	ADDI	1				; increment pointer
-	STORE	InputPatternPtr
-	
-	ILOAD	InputPatternPtr	; check if end of input
+	ILOAD	InputPatternPtr		; if end of InputPattern array (if value is -1) then full pattern has been entered
 	JNEG	FinalInput
 
-	LOADI	0
+	LOADI	0					; return 0 if more switches need to be thrown to fill out pattern array
 	RETURN
 
 FinalInput:
-	LOADI 	1
+	LOADI 	1					; return 0 if full pattern entered
 	RETURN
 
-InputValue:			DW 0 ; value inputted into function
 InputPatternPtr:	DW 0 ; pointer for indexing into InputPattern
 
 ;*******************************************************************************
-; CheckPattern: Compares the value in InputPattern to the value in
-; Pattern. Places a 1 in AC if they are equal and a 0 otherwise
+; CheckPattern: Compares the values in InputPattern to the values in LEDPattern
+; Places a 1 in AC if arrays are equal and 0 otherwise
+; Determines if score should be incremented
 ;*******************************************************************************
 CheckPattern:
-	LOAD    FreqsPattern	; load number of sounds played
+	LOAD    LEDPattern			; load number of sounds/LEDs played
 	STORE   PlayCnt
 	
-	LOADI	LEDPattern	
+	LOADI	LEDPattern
 	ADDI	1
-	STORE 	LEDPtr			; create LED pointer	
+	STORE 	LEDPtr				; create pointer to first element in LEDPattern array	
 	LOADI	InputPattern
 	ADDI	1
-	STORE 	InputPtr		; create input pointer
+	STORE 	InputPtr			; create pointer to first element in InputPattern array
 CheckEqual:
 	ILOAD	LEDPtr			
-	STORE	TempLED			; store LED value at current index as temp var
-	ILOAD 	InputPtr		
-	SUB		TempLED			; AC <= inputted switch - LED played
-	JZERO	Continue		; continue if same
-	LOADI	0				; return 0 on failure
+	STORE	TempLED				; store LED value at current index as temp var
+	ILOAD 	InputPtr
+	SUB		TempLED				; AC <= inputted switch - LED played
+	JZERO	Continue			; continue if same
+	LOADI	0					; return 0 if not equal
 	RETURN
 	
 Continue:
 	LOAD	PlayCnt
 	ADDI	-1
 	STORE 	PlayCnt
-	JPOS	IncrementPointers
-	LOADI	1				; return 1 if checked all LEDs played
+	JPOS	IncrementPointers	; increment pointers if haven't checked full array yet
+	LOADI	1					; return 1 if all LEDs played = all swtiches thrown
 	RETURN
 
 IncrementPointers:
@@ -249,7 +261,8 @@ IncrementPointers:
 	LOAD 	InputPtr
 	ADDI	1
 	STORE	InputPtr
-	JUMP	CheckEqual
+	
+	JUMP	CheckEqual		; continue to check next index
 	
 TempLED:	DW 0
 InputPtr:	DW 0
@@ -470,7 +483,6 @@ TimerLoop:
 	JNEG   TimerLoop
 	RETURN
 TimerParam:  DW 0
-
 
 ; Game state variables
 Temp:	  		DW 0
