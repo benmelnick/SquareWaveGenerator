@@ -64,8 +64,6 @@ GeneratePattern:
 	LOADI   LEDPattern 
 	ADDI    1
 	STORE   LEDPtr				; store pointer to first element in LED array (holds LEDs)
-	LOADI   DurPattern
-	STORE   DurPatPtr           ; store pointer to first element in DurPattern array
 GeneratePatternLoop:
     ; get a random index into the Freqs array
 	LOAD    Freqs        	    ; highest index into freqs array
@@ -90,19 +88,6 @@ GeneratePatternLoop:
 	STORE   BitsPtr
 	ILOAD   BitsPtr
 	ISTORE  LEDPtr				; store LED number in LED array
-	
-	; use FreqsIndex % 3 to index into list of possible durations to send to the peripheral
-	LOAD    FreqsIndex
-	STORE   d16sN
-	LOAD    Durations
-    STORE   d16sD
-	CALL    Div16s
-	LOAD    dres16sR			; gives value between 0 and 2
-	ADDI    Durations
-	ADDI    1					; add 1 to get to correct memory location
-	STORE   DursPtr
-	ILOAD   DursPtr
-	ISTORE  DurPatPtr
 
 	; increment pointers
 	LOAD    PatternPtr   		; increment pattern ptr
@@ -111,9 +96,6 @@ GeneratePatternLoop:
 	LOAD    LEDPtr				; increment LED ptr
 	ADDI    1
 	STORE   LEDPtr
-	LOAD    DurPatPtr
-	ADDI    1
-	STORE   DurPatPtr
 
 	; check if finished
 	LOAD    PatternCnt 
@@ -128,8 +110,6 @@ PatternPtr: 		DW 0 ; memory address pointing to a spot in the FreqsPattern array
 LEDPtr: 			DW 0 ; memory address pointing to a spot in the LEDPattern array
 FreqsIndex:  	    DW 0 ; numerical index into the freqs array
 FreqsPtr:    	    DW 0 ; memory address of the indexed value
-DursPtr:			DW 0 ; memory address pointing to a spot in the Durations array
-DurPatPtr:          DW 0 ; memory address pointing to a spot in the DurPattern array
 
 ;*******************************************************************************
 ; PlayPattern: Iterates through the FreqsPattern and LEDPattern arrays and
@@ -147,8 +127,7 @@ PlayPattern:
 	LOADI   LEDPattern    ; load address of list of stored LED patterns
 	ADDI    1
 	STORE   DisplayPtr
-	LOADI   DurPattern
-	STORE   DurationPtr
+	CALL    GetDuration   ; loads the duration of the sounds for this pattern into CurDuration
 PlayLoop:
     CALL    WaitForSound
 	LOADI   0
@@ -160,10 +139,8 @@ PlayLoop:
 	CALL    WaitForTimer
 	
 	; grab the next sound to play from the array and send to the peripheral
-	ILOAD   DurationPtr  ; load duration value stored in DurPattern array
-	STORE   Duration
     ILOAD   PlayPtr      ; load value stored in FreqsPattern array
-	ADD     Duration
+	ADD     CurDuration
 	OUT     WaveGen      ; play the sound
 	ILOAD   DisplayPtr   ; load stored LED FreqsPattern and display
 	OUT     LEDs
@@ -175,9 +152,6 @@ PlayLoop:
 	LOAD    DisplayPtr
 	ADDI    1
 	STORE   DisplayPtr
-	LOAD    DurationPtr
-	ADDI    1
-	STORE   DurationPtr
 	LOAD    PlayCnt
 	ADDI    -1
 	STORE   PlayCnt
@@ -194,37 +168,80 @@ PlayLoop:
 PlayCnt:     DW 0  ; number of frequencies to play
 PlayPtr:     DW 0  ; memory address pointing to a spot in the FreqsPattern array
 DisplayPtr:  DW 0  ; memory address pointing to a spot in the LEDPattern array
-DurationPtr: DW 0  ; memory address pointing to a spot in the DurPattern array
-Duration:    DW 0  ; value stored at DurationPtr
+
+;*******************************************************************************
+; GetDuration: gets the duration of a sound to send to the peripheral
+; Iterates through the Durations array, moving one spot every 3 points the user receives
+; Once the shortest duration is reached, it is never updated until the score resets
+; To use:
+; - call GetDuration
+; - duration will be stored in CurDuration
+;*******************************************************************************
+GetDuration:
+	LOAD     Score
+	JZERO    InitDuration
+	STORE    d16sN
+	LOADI    3
+	STORE    d16sD
+	CALL     Div16s
+	LOAD     dres16sR
+	JPOS     ReturnDuration
+	LOAD     DurationPtr
+	ADDI     1
+	STORE    DurationPtr
+	LOAD     DurationCnt
+	ADDI     -1
+	STORE    DurationCnt
+	JPOS     Update
+	RETURN
+Update:
+	ILOAD    DurationPtr
+	STORE    CurDuration
+	RETURN
+InitDuration:
+	LOAD     Durations
+	STORE    DurationCnt
+	LOADI    Durations
+	ADDI     1
+	STORE    DurationPtr
+	ILOAD    DurationPtr
+	STORE    CurDuration
+ReturnDuration:
+	RETURN
+	
+DurationCnt: DW 0
+DurationPtr: DW 0
+CurDuration: DW 0
 
 ;*******************************************************************************
 ; GetDelay: stores the number of .1s intervals to be used as a delay between playing
 ; each sound in the generated pattern.
-; Start value is 5 (0.5 s in between sounds)
-; Decrements by 1 every 5 points the user receives
+; Start value is 3 (0.3 s in between sounds)
+; Decrements by 1 every 3 points the user receives
 ; To use:
 ; - call GetDelay
 ; - result stored in Delay
 ;*******************************************************************************
 GetDelay:
 	LOAD     Score
-	JZERO    ReturnDelay        ; if score is currently 0, don't do anything
+	JZERO    RestoreDelay            ; if score is currently 0, don't do anything
 	STORE    d16sN
-	LOADI    5
+	LOADI    3
 	STORE    d16sD
 	CALL     Div16s
 	LOAD     dres16sR
-	JPOS     ReturnDelay        ; Score % 5 > 0 --> keep the current delay
+	JPOS     ReturnDelay        ; Score % 3 > 0 --> keep the current delay
 	LOAD     Delay
 	ADDI     -1
 	STORE    Delay
 	JPOS     ReturnDelay
-	LOADI    5                  ; if Delay gets to 0, set it back to 5
+RestoreDelay:
+	LOADI    3                  ; if Delay gets to 0, set it back to 3
 	STORE    Delay
 ReturnDelay:
 	RETURN
 
-Delay:       DW 5
+Delay:       DW 3
 
 ;*******************************************************************************
 ; AppendToPattern: Adds the current value in the AC to the end of the InputPattern.
@@ -307,9 +324,7 @@ StoreScore:
 ; generator (LCG) algorithm (https://en.wikipedia.org/wiki/Linear_congruential_generator)
 ; Written by Ben Melnick
 ; To use:
-; - store the most recently generated value in x
 ; - store the highest possibly generated value in m
-; - store a large prime number in a
 ; - call LCGRand
 ; - Result is stored in Index
 ; Requires Mult16s and Div16s subroutines
@@ -617,9 +632,9 @@ Freqs:       ; array of 61 frequencies that can be played
 Unlimited:	 DW &H0000
 Durations:
 	 DW 3
-	 DW &H4000
+	 DW &HC000
      DW	&H8000
-     DW	&HC000
+     DW	&H4000
 ; Value to send to disable sound output
 Disable:	 DW	&H3FFF
 
