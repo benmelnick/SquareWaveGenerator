@@ -171,7 +171,7 @@ DisplayPtr:  DW 0  ; memory address pointing to a spot in the LEDPattern array
 
 ;*******************************************************************************
 ; GetDuration: gets the duration of a sound to send to the peripheral
-; Iterates through the Durations array, moving one spot every 3 points the user receives
+; Iterates through the Durations array, moving one spot after every point the user receives
 ; Once the shortest duration is reached, it is never updated until the score resets
 ; To use:
 ; - call GetDuration
@@ -180,12 +180,8 @@ DisplayPtr:  DW 0  ; memory address pointing to a spot in the LEDPattern array
 GetDuration:
 	LOAD     Score
 	JZERO    InitDuration
-	STORE    d16sN
-	LOADI    3
-	STORE    d16sD
-	CALL     Div16s
-	LOAD     dres16sR
-	JPOS     ReturnDuration
+	SUB      PrevScore
+	JZERO    ReturnDuration
 	LOAD     DurationPtr
 	ADDI     1
 	STORE    DurationPtr
@@ -199,6 +195,8 @@ Update:
 	STORE    CurDuration
 	RETURN
 InitDuration:
+	LOADI    0
+	STORE    PrevScore
 	LOAD     Durations
 	STORE    DurationCnt
 	LOADI    Durations
@@ -209,6 +207,7 @@ InitDuration:
 ReturnDuration:
 	RETURN
 	
+PrevScore:   DW 0
 DurationCnt: DW 0
 DurationPtr: DW 0
 CurDuration: DW 0
@@ -631,10 +630,14 @@ Freqs:       ; array of 61 frequencies that can be played
 ; Duration constants for playing waves
 Unlimited:	 DW &H0000
 Durations:
-	 DW 3
+     DW 7
+	 DW &HE000
 	 DW &HC000
-     DW	&H8000
-     DW	&H4000
+	 DW &HA000
+	 DW &H8000
+	 DW &H6000
+	 DW &H4000
+	 DW &H2000
 ; Value to send to disable sound output
 Disable:	 DW	&H3FFF
 
