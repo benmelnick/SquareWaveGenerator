@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Mon Nov 16 13:43:30 2020
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : SCOMP
+Top-level Entity Name : SCOMP_System
+Family : MAX 10
+Device : 10M50DAF484C7G
+Power Models : Final
+Total Thermal Power Dissipation : 182.64 mW
+Core Dynamic Thermal Power Dissipation : 9.13 mW
+Core Static Thermal Power Dissipation : 96.53 mW
+I/O Thermal Power Dissipation : 76.98 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

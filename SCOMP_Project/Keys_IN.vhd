@@ -13,8 +13,10 @@ ENTITY Keys_IN IS
 END Keys_IN;
 
 ARCHITECTURE a OF Keys_IN IS
+	-- Signal useful for implementation
   SIGNAL B_KEYS : STD_LOGIC_VECTOR(15 DOWNTO 0);
-
+	
+  -- Use LPM function to create bidirection I/O data bus
   BEGIN
 	IO_BUS: lpm_bustri
     GENERIC MAP (
@@ -29,6 +31,7 @@ ARCHITECTURE a OF Keys_IN IS
     PROCESS
     BEGIN
       WAIT UNTIL RISING_EDGE(CS);
+		-- Output the value of the keys to SCOMP
       B_KEYS <= X"000" & '0' & '0' & not KEYS;
     END PROCESS;
 END a;

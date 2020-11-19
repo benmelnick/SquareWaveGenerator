@@ -639,7 +639,7 @@ Durations:
 	 DW &H4000
 	 DW &H2000
 ; Value to send to disable sound output
-Disable:	 DW	&H3FFF
+Disable:	 DW	&H1FFF
 
 
 ; IO address constants

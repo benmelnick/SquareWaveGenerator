@@ -26,6 +26,7 @@ END Wave_Gen;
 
 
 ARCHITECTURE a OF Wave_Gen IS
+	-- Signals useful for implementation
 	SIGNAL Count      : STD_LOGIC_VECTOR(12 DOWNTO 0);
 	SIGNAL FreqCount  : STD_LOGIC_VECTOR(12 DOWNTO 0);
 	SIGNAL DurCount	: STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -48,6 +49,7 @@ ARCHITECTURE a OF Wave_Gen IS
 		tridata  => IO_DATA
 	);
 	
+	-- Signal used to determine what value to put on the IO data bus
 	IO_OUT <= (CS AND NOT(IO_WRITE));
 
 	PROCESS (CLOCK_1MHz, RESETN, CS, IO_WRITE)
@@ -55,7 +57,7 @@ ARCHITECTURE a OF Wave_Gen IS
 	
 		-- Create a register to store the data sent from SCOMP
 		IF (RESETN = '0') THEN
-			FreqCount <= "0" & X"000";
+			FreqCount <= '0' & X"000";
 			IO_VAL <= X"3FFF";
 		ELSIF (rising_edge(CS) and IO_WRITE = '1') THEN
 			-- When written to, latch IO_DATA into the compare register.
@@ -67,11 +69,8 @@ ARCHITECTURE a OF Wave_Gen IS
 		-- the number sent from SCOMP
 		IF (rising_edge(CLOCK_1MHz)) THEN
 			-- On compare match, reset counter and flip output.
-			-- Count+1 is used so that the number sent from SCOMP
-			-- is directly the number of intervals (instead of
-			-- needing to subtract 1 on SCOMP's side).
 			IF (Count) >= FreqCount THEN
-				Count <= "0" & X"000";
+				Count <= '0' & X"000";
 				SqWave <= not SqWave;
 			-- else, increment counter
 			ELSE
@@ -82,11 +81,14 @@ ARCHITECTURE a OF Wave_Gen IS
 	
 	PROCESS (CLOCK_4Hz, RESETN, CS, IO_WRITE)
 	BEGIN
-	
+		
+		-- Process used to keep track of when the sound is finished outputting
 		IF (RESETN = '0') THEN
 			Duration <= "000";
 			Finished <= X"0001";
 		ELSIF CS = '1' and IO_WRITE = '1' THEN
+			-- If the Duration is equal to "000", the sound will be outputted
+			-- until the next OUT instruction.
 			Duration <= IO_DATA(15 DOWNTO 13);
 			DurCount <= "000";
 			IF (Duration = "000") THEN
@@ -95,8 +97,10 @@ ARCHITECTURE a OF Wave_Gen IS
 				Finished <= X"0000";
 			END IF;
 		ELSIF (rising_edge(CLOCK_4Hz) and Finished /= X"0001") THEN
+			-- increment counter if DurCount is less than Duration.
 			IF (Duration /= "000" and DurCount /= Duration) THEN
 				DurCount <= DurCount + 1;
+			-- On compare match, indicate the sound is finished.
 			ELSE
 				Finished <= X"0001";
 			END IF;
@@ -105,7 +109,8 @@ ARCHITECTURE a OF Wave_Gen IS
 	
 	PROCESS (SqWave, Finished, Duration, IO_VAL)
 	BEGIN
-		IF ((Finished = X"0000" or Duration = "000") and IO_VAL /= X"3FFF") THEN
+		-- If the peripheral is not finished outputting or Duration is 0, latch the signal.
+		IF ((Finished = X"0000" or Duration = "000") and IO_VAL /= X"1FFF") THEN
 			SQ <= SqWave;
 		END IF;
 	END PROCESS;
